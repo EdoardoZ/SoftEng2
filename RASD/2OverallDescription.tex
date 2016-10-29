@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\begin{document}
+
+\iffalse SECTION 2 \fi 
+\section{Overall Description}
+\subsection{Product perspective}
+The PowerEnJoy service will be built by a mobile application that will let the customer search for a Car and, in case he finds a suitable ride solution, he will be guided in the process of registering to the service (if not already a PowerUser), reserving and unlocking the Car by following the instructions provided through the mobile application. The on-board infotainment will further assis the customer up to the end of his ride. Customers will only need to interact with those two system elements to access and make use of the service.
+\subsection{Product functions}
+For better orienteering through this document, here is a main functionality summary.
+\begin{itemize}
+\item Car's map explorer
+\item Personal account management
+\item Car reservation assistant
+\item On-board ride assistant
+\item Automatic payment processing
+\item Remote vehicle interfacing
+\end{itemize}
+\subsection{User characteristics}
+All kinds of user interaction with the system start from the mobile application or the onboard car's infotainment equipment. A Visitor can only have a preview of service availability just by opening up the application. All other functionalities will require the user to authenticate against the service as a PowerUser.
+\subsection{Constraints}
+\subsubsection{Regulatory policies}
+The system must satisfy existing privacy regulations about user's sensible data.
+\subsubsection{Interfaces to other applications}
+The system must be compatible with payment API provided by the existing financial services partner.
+\subsubsection{Parallel operation}
+Management software components must support simultaneous multi-customer operations 
+\subsubsection{Reliability requirements}
+PoweEnJoy does not ask for any reliability requirements.
+\subsubsection{Criticality of the application}
+The mobile application is the only system frontend. Any malfunction in the mobile application will potentially prevent a customer from accessing the service.
+\subsubsection{Safety and security considerations}
+The system must not disclose customers private service-related information without the appropriate permissions.
+\subsection{Assumptions and dependencies}
+\begin{itemize}
+\item Cars belonging to PowerEnJoy have a clearly recognizable logo.
+\item Cars are equipped with on-board infotainment system which is able to provide basic offline navigation services in case of missing connectivity.
+\item Cars are equipped with custom remote-manageable controller interface working as a mobile Internet connected device that provides all required information from all sensors available in the car itself.
+\item Availability of the following sensors (or functional equivalents) is assumed: GPS receiver, battery status, core vehicle diagnostics.
+\item Predefined Safe Areas are assumed to be under mobile data connectivity service coverage.
+\item Special Parking Areas and exclusive power sockets allocation are pre-determined in such a way that spreading Cars among all the available sockets and filling them all corresponds to the best possible distribution of vehicles.
+\item The end-user device used to access the service by the mobile app are able to send geolocation data while nearby the booked Car (ie. both data connectivity and GPS sensors are functional).
+\end{itemize}
+\subsection{Goals}
+\begin{itemize}
+\item {[}G01{]} Allow any kind of user to view the map of the available nearby Cars.
+\item {[}G02{]} Allow Visitor user to register to the service.
+\item {[}G03{]} Allow Visitor user to log-in and out as a PowerUser.
+\item {[}G04{]} Allow PowerUser to check the status of the Car.
+\item {[}G05{]} Allow PowerUser to reserve a Car.
+\item {[}G06{]} Allow PowerUser to unlock the Car when inside the specific range.
+\item {[}G07{]} Allow PowerUser to see a list of closest Special Parking Areas to his destination.
+\item {[}G08{]} Allow PowerUser to keep track of the currently charge. 
+\item {[}G09{]} Allow PowerUser to check whether he can be eligible for any discount or penalty.
+\item {[}G10{]} Notify the PowerUser of the total amount of charged money via Car screen.
+\item {[}G11{]} Allow PowerUser to cancel a reservation.
+\item {[}G12{]} Allow the PowerUser to get a money saving alternative destination.
+\item {[}G13{]} Allow the system to calculate the total billing amount at the end of the ride.
+\item {[}G14{]} Allow the system to apply penalty or discount according to the given criteria.
+% Are PARAMETRIC CRITERIA reasonable??
+\item {[}G15{]} Allow the system to lock the Car at the end of the ride.
+\item {[}G16{]} Allow the system to check whether a Car is inside a Safe Area or not.
+\item {[}G17{]} Allow the system to check the residual battery percentage.
+\end{itemize}
+
+\end{document}
