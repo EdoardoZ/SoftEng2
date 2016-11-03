@@ -1,13 +1,17 @@
-\documentclass{article}
+\documentclass{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{float}
 
-\title{Requirements Analysis and Specification Document}
+
+\title{Software Engineering 2: "PowerEnJoy"\newline\newline
+Requirements Analysis and\\Specification Document}
+\subtitle{Version 1.0}
 \author{Piccirillo Luca - 790380\\
 Zampogna Gian Luca - 863097\\
 Zini Edoardo - 875275}
-\date{A. Y. 2016/2017}
+\date{November 13, 2016}
 
 \hypersetup{
     colorlinks,
@@ -19,7 +23,12 @@ Zini Edoardo - 875275}
 
 \begin{document}
 \pagenumbering{gobble}
-\maketitle
+\begin{figure} [h!]
+    \centering
+    \includegraphics[scale=0.6]{LogoPolimi.png}
+    \label{fig:LogoPolimi}
+    \maketitle
+\end{figure}
 \newpage
 \pagenumbering{roman}
 \tableofcontents
@@ -27,9 +36,13 @@ Zini Edoardo - 875275}
 \pagenumbering{arabic}
 
 \input{1Introduction.tex}
+\newpage
 \input{2OverallDescription.tex}
+\newpage
 \input{3Scenarios.tex}
+\newpage
 \input{4SpecificRequirements.tex}
+\newpage
 \input{5Appendix.tex}
 
 \end{document}
