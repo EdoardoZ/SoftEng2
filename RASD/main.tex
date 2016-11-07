@@ -6,7 +6,11 @@
 \usepackage{float}
 \usepackage{enumitem}
 \usepackage{fmtcount}
-
+\usepackage{eurosym}
+\usepackage{amstext} % for \text
+\DeclareRobustCommand{\officialeuro}{%
+  \ifmmode\expandafter\text\fi
+  {\fontencoding{U}\fontfamily{eurosym}\selectfont e}}
 \usepackage[dvipsnames]{xcolor} %for alloy package
 \usepackage{listings}
 \usepackage{Packages/alloy-style}

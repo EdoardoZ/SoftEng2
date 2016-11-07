@@ -3,18 +3,23 @@ Text
 \subsection{External interface requirements}
 Text
 \subsubsection{User interfaces}
+There are two user interfaces in out system: one for the smartphone used to access the service; one for the screen inside the car.
 
-
+%
+%
+%SMARTPHONE UI
+%
+%
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/1FirstScreen.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/1FirstScreen.png}}
     \label{fig:1FirstScreen}
     \\From the first screen a user can either sign in, or create a new account if he is a new user, or consult the map of available Cars.
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/2MapNotLogged.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/2MapNotLogged.png}}
     \label{fig:2MapNotLogged}
     \\If a user chooses the map, he will see a map with all the available cars and he will be asked to sign in in order to proceed with the reservation.
 \end{figure}
@@ -22,80 +27,130 @@ Text
 
 \begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/3LoginForm.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/3LoginForm.png}}
     \label{fig:3LoginForm}
     \\Whether a user started from the map or from the first screen, he will have to either enter his credential or register. In case of forgotten credential he is given the possibility to ask for a new password too.
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/4CarReservationA}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/4CarReservationA}}
     \label{fig:4CarReservationA}
     \\A PowerUser can look for a suitable Car nearby his position, or entering an adress in the appropriate bar above the map. After finding a Car the PowerUser can reserve it.
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/4CarReservationB.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/4CarReservationB.png}}
     \label{fig:4CarReservationB}
     \\Before actually reserving a Car, the system reminds the PowerUser about the one hour expiration of his reservation and the relative penalty fee.
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/5CarReserved.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/5CarReserved.png}}
     \label{fig:5CarReserved}
     \\The selected Car has been reserved. Now a PowerUser can cancel his reservation or look for his car thanks to the provided map.
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/6CarNearby.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/6CarNearby.png}}
     \label{fig:6CarNearby}
     \\When a PowerUser is near his reserved Car, he is given the possibility to ask the system to unlock it. If the PowerUser changes his mind he can still cancel the reservation, this possibility will remain valid until the PowerUser ignites the engine. 
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/7RegistrationFormA.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/7RegistrationFormA.png}}
     \label{fig:7RegistrationFormAForm}
     \\This is the first page that requires a new user to enter his personal data.
 \end{figure}
 
+
 \begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/7RegistrationFormB.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/7RegistrationFormB.png}}
     \label{fig:7RegistrationFormB}
     \\In order to stress the importance for the user to enter real and correct data, the system reminds the user about this.
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/7RegistrationFormC.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/7RegistrationFormC.png}}
     \label{fig:7RegistrationFormCnForm}
     \\Last page of the registration form, the user is asked for his payment information. Furthermore he will have to accept the terms and conditions of the service in order to complete the registration.
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/8PersonalAccountPage.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/8PersonalAccountPage.png}}
     \label{fig:8PersonalAccountPage}
     \\A PowerUser can access his personal account page by tapping on the avatar in the up right corner of his screen. By doing so, this is what he will be shown. From this page it is also possible to modify both personal and payment information.
 \end{figure}
 
 \begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/9PersonalDataModification.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/9PersonalDataModification.png}}
     \label{fig:9PersonalDataModification}
     \\This is the page to be used by a PowerUser in order to modify his personal information.
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[p!]
     \centering
-    \includegraphics[scale=0.3]{{Figures/Mockup/10PaymentSystemDataModification.png}}
+    \includegraphics[scale=0.4]{{Figures/Mockup/10PaymentSystemDataModification.png}}
     \label{fig:10PaymentSystemDataModificationForm}
     \\This is the page to be used by a PowerUser in order to modify his payment information.
 \end{figure}
+
+%
+%
+%CAR UI
+%
+%
+\begin{figure}[p!]
+    \centering
+    \includegraphics[scale=0.6]{{Figures/Mockup/11FirstCarScreen.png}}
+    \label{fig:11FirstCarScreen}
+    \\This is the first screen a PowerUser will be presented when entering in a Car. The map and the navigation system are provided via third party integration.
+\end{figure}
+
+\begin{figure}[p!]
+    \centering
+    \includegraphics[scale=0.6]{{Figures/Mockup/12aCorrectDestination.png}}
+    \label{fig:12aCorrectDestination}
+    \\A PowerUser search for his destination and if it is inside the set of Safe Areas he is allowed to start the navigation system.
+\end{figure}
+
+\begin{figure}[p!]
+    \centering
+    \includegraphics[scale=0.6]{{Figures/Mockup/12bWrongDestination.png}}
+    \label{fig:12bWrongDestination}
+    \\A PowerUser search for his destination and if it is not inside the set of Safe Areas he is asked to look for another destination address.
+\end{figure}
+
+\begin{figure}[p!]
+    \centering
+    \includegraphics[scale=0.6]{{Figures/Mockup/12cMoneySavingOption.png}}
+    \label{fig:12cMoneySavingOption}
+    \\When a PowerUser enables the money saving option he is provided with the adreess of the Special Parking Area where he is supposed to park and plug the car into the power grid.
+\end{figure}
+
+\begin{figure}[p!]
+    \centering
+    \includegraphics[scale=0.6]{{Figures/Mockup/13Ride.png}}
+    \label{fig:13Ride}
+    \\This is the screen the PowerUser sees while he is driving. If he needs to change destination he is free to do that, or he wants to know more about disconuts and penalties he can tap the apposite button. 
+\end{figure}
+
+\begin{figure}[p!]
+    \centering
+    \includegraphics[scale=0.6]{{Figures/Mockup/14DIscountsAndPenalties.png}}
+    \label{fig:14DIscountsAndPenalties}
+    \\This is the screen that sums up all the discounts and penalties, and it also declare explicitly which one is valid at the moment. If a PowerUser needs a more detailed desciption he just have to tap the line to show a windows containing all the details and the explanation of each discount and penalty.  
+\end{figure}
+
+\newpage
 
 \subsubsection{Hardware interfaces}
 Text
@@ -113,12 +168,15 @@ Text
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[label={[}R\arabic*{]},series=REQ]
-    		\item Users must have access to a map indicating the user current location.
-    		\item Users must be able to pan and scroll the map in any direction.
-    		\item Every available Car must be shown on a map.
+    		    \item Users must have access to a map indicating the user current location.
+        		\item Users must be able to pan and scroll a map in any direction.
+    		    \item Every available Car must be shown on a map.
+    	    	\item Users shall have an input for inserting an address in which center the map.
+                \item Users shall have an input to center the map view on their position.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[label={[}P\arabic*{]},series=PRO]
+                \item B\% and C\% are remaining battery power percentages defined during setup.
     			\item No Car with less than B\% battery charge is taken into account as available for booking.
     			\item No Car that is currently under charging and has less than C\% battery charge is taken into account as available for booking.
         \end{enumerate}
@@ -131,11 +189,11 @@ Text
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-    		\item Let a Visitor user start the registration wizard while he's still not logged in.
-			\item The registration form must contain input fields for user identity, email, contact info, driving license number and expiration, privacy agreement confirmation, customer notifications and subscriptions options, credit card number and expiration, billing identity.
-			\item The chosen email address must not be already used by another PowerUser.
-			\item The credit card must be verified not to be blocked or expired upon registration.
-			\item The user must receive a system generated password to the registered email address.
+    		    \item Let a Visitor user start the registration wizard while he's still not logged in.
+			    \item The registration form must contain input fields for user identity, email, contact info, driving license number and expiration, privacy agreement confirmation, customer notifications and subscriptions options, credit card number and expiration, billing identity.
+			    \item The chosen email address must not be already used by another PowerUser.
+			    \item The credit card must be verified not to be blocked or expired upon registration.
+			    \item The user must receive a system generated password to the registered email address.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
@@ -150,8 +208,8 @@ Text
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-			\item A Visitor user must always see an input to access log-in form as long as he's still not logged in.
-		    \item An input to perform log-out must always be available to the PowerUser if he's currently logged in.
+			    \item A Visitor user must always see an input to access log-in form as long as he's still not logged in.
+		        \item An input to perform log-out must always be available to the PowerUser if he's currently logged in.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
@@ -165,10 +223,9 @@ Text
     Allow PowerUser to check the status of the Car.
     \begin{itemize}
         \item Requirements
-        \\For each Car shown to the PowerUser, he must be able to access information regarding:
         \begin{enumerate}[REQ]
-    		\item remaining battery charge
-			\item current position
+    		    \item For each available Car the PowerUser must be able to view its remaining battery charge.
+			    \item For each available Car the PowerUser must be able to view its current position.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
@@ -183,9 +240,28 @@ Text
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-    		\item The PowerUser must have the ability to start the reservation wizard for any available Car.
-			\item The PowerUser must see a reminder about unfulfilled reservation penalty before confirmation.
-			\item Show an input to allow the PowerUser to confirm and finalize the reservation.
+    		    \item The PowerUser must have the ability to start the reservation wizard for all and only available Cars.
+			    \item The PowerUser must see a reminder about unfulfilled reservation penalty before confirmation.
+			    \item Show an input to allow the PowerUser to confirm and finalize the reservation.
+			    \item The system shall prevent the PowerUser to reserve more than a Car from the same geographical region at a time.
+        \end{enumerate}
+        \item Domain properties
+        \begin{enumerate}[PRO]
+    			\item Each geographical region has its own set of assigned Cars.
+        \end{enumerate}
+    \end{itemize}
+    
+    \stepcounter{goalctr}
+    \subsubsection{Goal \arabic{goalctr}}
+    {[}G\arabic{goalctr}{]}
+    Allow PowerUser to cancel a reservation.
+    \begin{itemize}
+        \item Requirements
+        \begin{enumerate}[REQ]
+    			\item If a reservation exists for the PowerUser, show him an input to request cancellation.
+    			\item The system shall prompt the PowerUser for cancellation confirmation.
+    			\item A reservation must be automatically cancelled by the system after 1 hour from its creation.
+    			\item If a reservation is cancelled because of timeout, notify the PowerUser about that occurrence.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
@@ -200,11 +276,11 @@ Text
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-    	    \item As long as a reservation exists for the PowerUser an input must be available to give him the position of that Car on the map.
+    	        \item As long as a reservation exists for the PowerUser he must always be able to get the position of the reserved Car on the map.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
-    		\item None
+    		    \item None
         \end{enumerate}
     \end{itemize}
 
@@ -215,13 +291,33 @@ Text
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-    	    \item The system must be able to remotely unlock the Car.
-			\item The system must be able to compute the distance between the user location and his reserved Car.
-			\item Show an input to the PowerUser allowing to send an unlock request.
+    	        \item The system must be able to remotely unlock the Car.
+			    \item The system must be able to compute the distance between the user location and his reserved Car.
+			    \item The PowerUser must have an input allowing him to send an unlock request.
+			    \item The system must accept the unlock request issued by the PowerUser if and only if the PowerUser is in the unlock allowance area.
+			    \item If the unlock request is accepted, the PowerUser must be able to enter the Car.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
-    			\item None
+                \item The PowerUser position is always the same as of its mobile device that runs the PowerUser application.
+    			\item The PowerUser is considered to be in the unlocking allowance area if the distance to the Car is at most equal to 5 meters.
+        \end{enumerate}
+    \end{itemize}
+    
+    \stepcounter{goalctr}
+    \subsubsection{Goal \arabic{goalctr}}
+    {[}G\arabic{goalctr}{]}
+	Bill the PowerUser for the amount of time spent riding a Car.
+    \begin{itemize}
+        \item Requirements
+        \begin{enumerate}[REQ]
+                \item Start counting the billing time from the first engine ignition.
+    	        \item Make the system constantly show the updated Total Base Fare on the Car screen.
+    	        \item Stop the billing time counter after exactly 1 second after the Car locking.
+        \end{enumerate}
+        \item Domain properties
+        \begin{enumerate}[PRO]
+                \item None
         \end{enumerate}
     \end{itemize}
     
@@ -247,8 +343,8 @@ Text
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-    		\item The system must capable of providing a list of Special Parking Areas sorted by distance from an input location.
-			\item PowerUser must be allowed anytime during the navigation to input a custom location and be acknowledged about all nearest Special Parking Areas from the selected location.
+    		    \item The system must be capable of providing a list of Special Parking Areas sorted by distance from an input location.
+			    \item PowerUser must be allowed anytime during the navigation to input a custom location and be acknowledged about all nearest Special Parking Areas from the selected location.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
@@ -259,15 +355,15 @@ Text
     \stepcounter{goalctr}
     \subsubsection{Goal \arabic{goalctr}}
     {[}G\arabic{goalctr}{]}
-    Allow PowerUser to keep track of the current charge.
+    Allow PowerUser to keep track of the current charged fare.
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-    			\item None
+    			\item Show on the Car screen a live updated counter indicating the Total Base Fare amount that the user will actually pay if the ride ends in that same moment, as long as the ride is being charged.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
-    			\item None
+    			\item The PowerUser stops being charged in the same moment the Car is locked.
         \end{enumerate}
     \end{itemize}
     
@@ -278,37 +374,9 @@ Text
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-    			\item None
-        \end{enumerate}
-        \item Domain properties
-        \begin{enumerate}[PRO]
-    			\item None
-        \end{enumerate}
-    \end{itemize}
-    
-    \stepcounter{goalctr}
-    \subsubsection{Goal \arabic{goalctr}}
-    {[}G\arabic{goalctr}{]}
-    Notify the PowerUser of the total amount of charged money via Car screen.
-    \begin{itemize}
-        \item Requirements
-        \begin{enumerate}[REQ]
-    			\item None
-        \end{enumerate}
-        \item Domain properties
-        \begin{enumerate}[PRO]
-    			\item None
-        \end{enumerate}
-    \end{itemize}
- 
-    \stepcounter{goalctr}
-    \subsubsection{Goal \arabic{goalctr}}
-    {[}G\arabic{goalctr}{]}
-    Allow PowerUser to cancel a reservation.
-    \begin{itemize}
-        \item Requirements
-        \begin{enumerate}[REQ]
-    			\item None
+    			\item Provide through Car screen an input to access an overview of all discounts and penalties.
+    			\item For each shown discount or penalty allow the PowerUser to get a brief informal description of corresponding criteria.
+    			\item For each shown discount or penalty allow the PowerUser to know if the current ride satisfies all needed criteria at the moment.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
@@ -323,41 +391,15 @@ Text
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-    			\item None
+    			\item After a ride destination is selected for navigation, prompt the PowerUser to choose whether he would like to start the money saving wizard.
+    			\item Always show to PowerUser an input to start money saving wizard even if there exists a selected destination.
+    			\item The destination proposal must correspond to the nearest (w.r.t. PowerUser selected destination) Special Parking Area where there are less than N\# Cars attached to the power source.
+    			\item If the PowerUser accepts the money saving destination proposal, the current selected destination must be updated accordingly.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
+                \item N\# is an integer number defined during setup.
     			\item Special Parking Areas provide at least N\# power sockets as exclusively available to PowerEnJoy customers.
-        \end{enumerate}
-    \end{itemize}
- 
-    \stepcounter{goalctr}
-    \subsubsection{Goal \arabic{goalctr}}
-    {[}G\arabic{goalctr}{]}
-    Allow the system to calculate the total billing amount at the end of the ride.
-    \begin{itemize}
-        \item Requirements
-        \begin{enumerate}[REQ]
-    			\item None
-        \end{enumerate}
-        \item Domain properties
-        \begin{enumerate}[PRO]
-    			\item None
-        \end{enumerate}
-    \end{itemize}
- 
-    \stepcounter{goalctr}
-    \subsubsection{Goal \arabic{goalctr}}
-    {[}G\arabic{goalctr}{]}
-    Allow the system to apply penalty or discount according to the given criteria.
-    \begin{itemize}
-        \item Requirements
-        \begin{enumerate}[REQ]
-    			\item None
-        \end{enumerate}
-        \item Domain properties
-        \begin{enumerate}[PRO]
-    			\item None
         \end{enumerate}
     \end{itemize}
  
@@ -368,11 +410,49 @@ Text
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-    			\item None
+    			\item The system must lock the Car if its position belong to the set of Safe Parking Areas, engine is stopped, all doors are closed and S\# seconds passed from the last door closure.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
+                \item S\# is a time-span defined during setup.
     			\item At least a free parking slot is available for the user among all Safe Areas.
+        \end{enumerate}
+    \end{itemize} 
+ 
+    \stepcounter{goalctr}
+    \subsubsection{Goal \arabic{goalctr}}
+    {[}G\arabic{goalctr}{]}
+    Allow the system to apply penalty or discount according to the given criteria.
+    \begin{itemize}
+        \item Requirements
+        \begin{enumerate}[REQ]
+    			\item The system shall apply a discount of 10\% on the last ride Total Base Fare if the number of passengers at the end of the ride is greater or equal to the number of passengers at the start of the ride and the number of passengers at the start of the ride was at least 3, driver included.
+    			\item The system shall apply a discount of 20\% on the last ride Total Base Fare if the remaining battery power at the end of the ride is greater or equal then 50\%.
+    			\item The system shall apply a discount of 30\% on the last ride Total Base Fare if the Car position at the end of the ride is within a Special Parking Areas and the power socket is detected as connected two minutes from the Car locking.
+    			\item The system shall apply a penalty of 30\% on the last ride Total Base Fare if the position of the Car at the time of locking is more than 30km far from the nearest power grid station or the remaining battery power is less than 20\% and the Car is not detected as attached to power grid two minutes from locking.
+        \end{enumerate}
+        \item Domain properties
+        \begin{enumerate}[PRO]
+    	        \item None
+    	\end{enumerate}
+    \end{itemize} 
+
+    \stepcounter{goalctr}
+    \subsubsection{Goal \arabic{goalctr}}
+    {[}G\arabic{goalctr}{]}
+    Let the system bill the PowerUser for the total ride fee at the end of the ride or penalty and issue a payment request for that amount .
+    \begin{itemize}
+        \item Requirements
+        \begin{enumerate}[REQ]
+    			\item The system must charge the PowerUser the total fee after two minutes and an half from the Car locking.
+    			\item The system must issue the payment request to the payment processor provider.	
+    			\item The system must bill the PowerUser a penalty of 1$\euro$ as soon as a reservation he made expires ny timeout.
+    			\item The PowerUser shall be notified of any money charge by email.
+    			\item The PowerUser shall be notified of the payment transaction result.
+        \end{enumerate}
+        \item Domain properties
+        \begin{enumerate}[PRO]
+    			\item None
         \end{enumerate}
     \end{itemize}
 
