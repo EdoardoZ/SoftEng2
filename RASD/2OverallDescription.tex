@@ -1,57 +1,50 @@
 \section{Overall Description}
 \subsection{Product perspective}
-The PowerEnJoy service will be built by a mobile application that will let the customer search for a Car and, in case he finds a suitable ride solution, he will be guided in the process of registering to the service (if not already a PowerUser), reserving and unlocking the Car by following the instructions provided through the mobile application. The on-board infotainment will further assis the customer up to the end of his ride. Customers will only need to interact with those two system elements to access and make use of the service.
+The product to be developed supporting PowerEnJoy service consists of both a mobile application and an onboard ride assistant. The first, independently whether it will be implemented as standalone application or as web-based application, lets the customer perform all required interactions like registering to the service, searching for a Car, and reserving it. The second is intended to assist the customer up to the end of his ride. Customers will only need to interact with those two system components to access and make use of the service.
 \subsubsection{Quality of Service}
-%TODO è simile ai CONTRAINTS che ci sono poco più avanti
 \begin{itemize}
-    \item \textbf{Availability:} the system must be available during the diurnal hours, manitenace should be perfomed only during the night when the number of requests is lower.
-    %AVAILABILITY: % of time the system is available to the users.
-     %TODO non mi vengono molte idee, dite di lasciare questa voce? Non mi piace molto
+    \item \textbf{Availability:} the system does not have any availability requirement.
     \item \textbf{Exceptions Handling:} the system must be able to handle exceptions in case of unsatisfying domain properties e.g. Credit card without enough money,...
-    %TODO it's the same of CONSTRAINTS, this make no sense considering the availability request
-    \item \textbf{Reliability:} the system does not have any reliability requirements.
-    %RELIABILITY: time the service runs without interruptions.
-      \item \textbf{Scalability:} the system must be able to properly manage an increasing number of users, or an unexpected peak of the number of request.
-    \item \textbf{Security:} the system must protect user data and ensure that online secure connections take place among the service, the user and the payment structure the system relies on.
-    \item \textbf{Usability:} the interface will be user-friendly (i.e. it will always shows the user only the actions he can actually perform) and will not use a red-green color combination in order to always be clear for all users, including the color blind ones.
-    %TODO cosa ne pensate???
+    \item \textbf{Reliability:} the system does not have any reliability requirement.
+    \item \textbf{Scalability:} the system must be able to properly manage an increasing number of users, or an unexpected peak of the number of request.
+    \item \textbf{Security:} the system must protect user data and ensure that online secure connections take place among the service, the Cars, the user and the payment structure the system relies on.
+    \item \textbf{Usability:} the interface will be user-friendly (i.e. it will always shows the user only the actions he can actually perform).
 \end{itemize}
+
 \subsection{Product functions}
 For better orienteering through this document, here is a main functionality summary.
 \begin{itemize}
-\item Car's map explorer
+\item Available Cars map explorer
 \item Personal account management
 \item Car reservation assistant
 \item On-board ride assistant
 \item Automatic payment processing
-\item Remote vehicle interfacing
+\item Remote vehicle management
 \end{itemize}
+
 \subsection{User characteristics}
-All kinds of user interaction with the system start from the mobile application or the onboard car's infotainment equipment. A Visitor can only have a preview of service availability just by opening up the application. All other functionalities will require the user to authenticate against the service as a PowerUser.
+All kinds of user interaction with the system start from the mobile application or from the onboard Car infotainment equipment. A Visitor can only have a preview of the Cars availability just by opening up the application. All other functions require the user to sign in the service as PowerUser.
+
 \subsection{Constraints}
 \subsubsection{Regulatory policies}
 The system must satisfy existing privacy regulations about user's sensible data.
 \subsubsection{Interfaces to other applications}
 The system must be compatible with payment API provided by the existing financial services partner.
-\subsubsection{Parallel operation}
-Management software components must support simultaneous multi-customer operations 
-\subsubsection{Reliability requirements}
-PoweEnJoy does not ask for any reliability requirements.
-\subsubsection{Criticality of the application}
-The mobile application is the only customer entry point to the service. Any malfunction in the mobile application will actually prevent a customer from accessing the service.
 \subsubsection{Safety and security considerations}
 The system must not disclose customers private service-related information without the appropriate permissions.
+
 \subsection{Assumptions and dependencies}
 \begin{itemize}
-\item Cars belonging to PowerEnJoy have a clearly recognizable logo.
+\item Cars belonging to PowerEnJoy service have a clearly recognizable logo.
 \item Cars are already equipped with onboard infotainment device which is able to provide basic offline navigation services in case of missing Internet connectivity.
 \item All Cars have an interface that is able to provide any kind of data from all sensors available in the car itself.
-\item Availability of the following sensors (or functional equivalents) is assumed: GPS receiver, battery status, core vehicle diagnostics.
+\item Availability of the following sensors (or functional equivalents) is assumed: GPS receiver, battery status, core vehicle diagnostic.
 \item Onboard navigation software will not be developed, an existing solution will be integrated.
-\item Predefined Safe Areas are assumed to be under mobile data connectivity service coverage.
+\item Predefined Safe Parking Areas are assumed to be under mobile data connectivity service coverage.
 \item Special Parking Areas and exclusive power sockets allocation are pre-determined in such a way that spreading Cars among all the available sockets and filling them all corresponds to the best possible distribution of vehicles.
-\item The end-user device used to access the service by the mobile app are able to send geolocation data while nearby the booked Car (ie. both data connectivity and GPS sensors are functional).
+\item User's device used to access the service via mobile app is able to send geolocation data while nearby the booked Car (i.e. both data connectivity and GPS sensors are functional).
 \end{itemize}
+
 \subsection{Goal Summary}
 \begin{enumerate}[label={[}G\arabic*{]}]
 \item Allow any kind of user to view the map of the available nearby Cars.
@@ -63,14 +56,15 @@ The system must not disclose customers private service-related information witho
 \item Allow PowerUser to check the position of the reserved car.
 \item Allow PowerUser to unlock and enter the Car when inside the specific range.
 \item Allow PowerUser to get driving directions to his destination.
+\item Bill the PowerUser for the amount of time spent riding a Car.
 \item Allow PowerUser to see a list of the closest Special Parking Areas to his destination.
-\item Allow PowerUser to keep track of the current charge. 
-\item Allow PowerUser to know whether he can be eligible for any discount or penalty.
-\item Allow the PowerUser to get a money saving alternative destination.
+\item Allow PowerUser to keep track of the current charged fare. 
+\item Allow PowerUser to check whether he can be eligible for any discount or penalty.
+\item Allow PowerUser to get a money saving alternative destination.
 \item Allow the system to lock the Car in a Safe Parking Area at the end of the ride.
 \item Allow the system to apply penalty or discount according to the given criteria.
 % Are PARAMETRIC CRITERIA reasonable??
-\item Let the system bill the PowerUser for the total ride price and issue a payment request for that amount at the end of the ride.
+\item Let the system bill the PowerUser for the total ride fare and issue a payment request for that amount at the end of the ride.
 %TODO
 \item GOAL ADMINISTRATION ACCESS
 \end{enumerate}
