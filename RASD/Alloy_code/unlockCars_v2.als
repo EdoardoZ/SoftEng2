@@ -2,14 +2,12 @@ abstract sig Person{}
 
 sig Position{}
 sig Identifier{}
-
 sig PowerUser extends Person{
 	pos: one Position,
 	bookedVehicle:one LockedCar,
 	unlockRequest: lone UnlockRequest,
 	drivedCar: lone UnlockedCar
 	}
-
 
 sig UnlockRequest{
 	user:one PowerUser,
@@ -26,21 +24,21 @@ sig LockedCar extends Car{}
 
 sig UnlockedCar extends Car{}
 
-//FACT
+/*FACT*/
 
-fact userBook1Car{//2 utenti non possono prenotare la stessa macchina
+fact userBook1Car{
 	no p,p' :PowerUser | p.bookedVehicle=p'.bookedVehicle and p!=p' 
 	}
 
-fact drivedCarEqualToBooked{//macchina guidata=macchina prenotata
+fact drivedCarEqualToBooked{
 	 all p:PowerUser | p.drivedCar.ID=p.bookedVehicle.ID
 	}
 
-fact unlockedCarEqualLockedCar{// #macchineSbloccate<=#macchinebloccate
+fact unlockedCarEqualLockedCar{
 	#UnlockedCar<=#LockedCar
 	}
 
-fact noUserDriveSameCar{// 2 utenti non guidano la stessa macchina
+fact noUserDriveSameCar{
 	no p,p':PowerUser | p.drivedCar= p'.drivedCar and p!=p'
 	}
 
@@ -66,7 +64,7 @@ fact noUnlock4NonBookedCar{
 	all p:PowerUser, c:LockedCar | p.unlockRequest.car=c implies p.bookedVehicle=c
 	}
 
-fact UnlockCarImpliesRequest{
+fact twoCarsAreSame{
 	#UnlockedCar>0 implies #PowerUser>0    
 	}
 
@@ -79,7 +77,7 @@ fact unlockOnlyInUnlockArea{
 		(p.pos not in c.unlockArea) and p.unlockRequest.car.ID=c.ID 
 	}
 
-//PREDICATES
+/*PREDICATES*/
 
 pred unlockCar[uc:UnlockedCar, lc:LockedCar, p:PowerUser]{
 	p.bookedVehicle=lc &&
@@ -90,16 +88,14 @@ pred unlockCar[uc:UnlockedCar, lc:LockedCar, p:PowerUser]{
 
 run unlockCar
 
-//ASSERTS
+/*ASSERTS*/
 
-//2 macchine con lo stesso id sono uguali
 assert TwoCarAreSame{
 	all c,c':Car | c.ID=c'.ID implies c.unlockArea=c'.unlockArea
 	}
 
 check TwoCarAreSame
 
-// non c'è un altro utente che sblocca una macchina prenotata
 assert NoUserUnlockBookedCar{ 
 	all c:Car, u,u':UnlockRequest ,p,p':PowerUser | (p.bookedVehicle=c and p!=p' and u'!=u) implies ((u.user=p and u.car=c) and 
 		not(u'.user=p' and u'.car=c)) 
@@ -107,18 +103,16 @@ assert NoUserUnlockBookedCar{
 
 check NoUserUnlockBookedCar
 
-assert NoMultipleCarWithSameID{// non ci sono 2 macchine con lo stesso ID
+assert NoMultipleCarWithSameID{
 	no c,c':LockedCar | c'.ID=c.ID and c'!=c
 	no c,c':UnlockedCar | c'.ID=c.ID and c'!=c
 	}
 
 check  NoMultipleCarWithSameID
 
-//un utente fa richiesta per sbloccare la macchina
 assert UserMakeRequest{
 	all p:PowerUser,c:UnlockedCar,u:UnlockRequest |  
 		(p.pos in c.unlockArea and p=u.user and p.bookedVehicle.ID=c.ID) implies u.car.ID=c.ID 
 	}
 
 check UserMakeRequest
-
