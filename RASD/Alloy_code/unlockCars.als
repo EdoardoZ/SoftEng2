@@ -2,6 +2,7 @@ abstract sig Person{}
 
 sig Position{}
 sig Identifier{}
+
 sig PowerUser extends Person{
 	pos: one Position,
 	bookedVehicle:one LockedCar,
@@ -39,11 +40,11 @@ fact unlockedCarEqualLockedCar{// #macchineSbloccate<=#macchinebloccate
 	#UnlockedCar<=#LockedCar
 	}
 
-fact noUserDriveSameCar{
+fact noUserDriveSameCar{// 2 utenti non guidano la stessa macchina
 	no p,p':PowerUser | p.drivedCar= p'.drivedCar and p!=p'
 	}
 
-fact only2CarsWithSameID{//ptoblema 3 macchine non devono avere lo stesso ID
+fact only2CarsWithSameID{
 	all c,c':LockedCar | c.ID != c'.ID implies c != c'
  	all c,c':LockedCar | c.ID = c'.ID implies c = c'
  	all c,c':UnlockedCar | c.ID != c'.ID implies c != c'
@@ -65,7 +66,7 @@ fact noUnlock4NonBookedCar{
 	all p:PowerUser, c:LockedCar | p.unlockRequest.car=c implies p.bookedVehicle=c
 	}
 
-fact twoCarsAreSame{
+fact UnlockCarImpliesRequest{
 	#UnlockedCar>0 implies #PowerUser>0    
 	}
 
