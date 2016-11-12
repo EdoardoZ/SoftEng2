@@ -12,6 +12,7 @@ Text
 % EDO: per me questa sezione si potrebbe eliminare
 % LKPC: per me si potrebbe aggiungere una breve motivazione che spieghi quali componenti abbiamo preferito mdoellare in alloy e perchè, tipo: "Abbiamo modellato in alloy i componenti che riteniamo necessitino di una verifica formale atta a garantire la correttezza delle specifiche relativamente alle operazioni service-critical caratterizzanti la piattaforma PowerEnJoy (che detta in parole povere: voglio essere sicuro che la specifica non consenta a chiunque di fottersi le macchinette...).
 Following are some Alloy models for system components that we believe require a formal checking apt to ensure specifications correctness with respect to service-critical operations characterizing the PowerEnJoy platform.
+
 \subsubsection{Code}
 \begin{itemize}
 \item Reserved Cars Unlocking 
@@ -32,11 +33,34 @@ Following are some Alloy models for system components that we believe require a 
 \newline
 \includegraphics[scale=0.5]{{Alloy_code/unlockCar_world.png}}
 
+\item Cars Locking
 
-\item  Cars Lock
+\lstinputlisting[language=alloy]{Alloy_code/lockCars.als}
+
+
+6 commands were executed. The results are:\newline
+   -1: Instance found.turnOff is consistent.\newline
+   -2: Instance found.lockCar is consistent.\newline
+   -3: Instance found.show is consistent.\newline
+   -4: No counterexample found. UnlockedCarIsTheLockedOne may be valid.\newline
+   -5: No counterexample found. LockedCarStatus may be valid.\newline
+   -6: No counterexample found. UnlockedCarWithEngineOffStatus may be valid.
+
    
+\newpage
+
+\item Locking Cars World
+\newline
+\includegraphics[scale=0.3]{{Alloy_code/lockCar_world.png}}
    
 \end{itemize}   
 
 \subsubsection{Example worlds}
 Text
+
+\subsection{Hours of Work}
+\begin{itemize}
+\item Piccirillo Luca: h
+\item Zampogna Gian Luca: h
+\item Zini Edoardo: h
+\end{itemize}

@@ -1,3 +1,7 @@
+/**DESCRIBE A SITUATION WHERE CARS IS ALREADY BOOKED**/
+
+/**SIGNATURES**/
+
 abstract sig Person{}
 
 sig Position{}
@@ -17,14 +21,14 @@ sig UnlockRequest{
  
 abstract sig Car{
 	ID:one Identifier,
-	unlockArea: set Position
-	}{#unlockArea>0}
+	unlockArea: some Position
+	}
 
 sig LockedCar extends Car{}
 
 sig UnlockedCar extends Car{}
 
-/*FACT*/
+/**FACT**/
 
 fact userBook1Car{ /*one user can book only 1 car*/
 	no p,p' :PowerUser | p.bookedVehicle=p'.bookedVehicle and p!=p' 
@@ -77,7 +81,11 @@ fact unlockOnlyInUnlockArea{/*user can unlock a car only if he is in car's unloc
 		(p.pos not in c.unlockArea) and p.unlockRequest.car.ID=c.ID 
 	}
 
-/*PREDICATES*/
+fact sameCarHaveSameUnlockArea{ /* if 2 cars are the same, they have the same unlock area*/
+	all c,c':Car | c.ID=c'.ID implies c.unlockArea=c'.unlockArea
+	}
+
+/**PREDICATES**/
 
 pred unlockCar[uc:UnlockedCar, lc:LockedCar, p:PowerUser]{
 	p.bookedVehicle=lc &&
@@ -88,7 +96,7 @@ pred unlockCar[uc:UnlockedCar, lc:LockedCar, p:PowerUser]{
 
 run unlockCar
 
-/*ASSERTS*/
+/**ASSERTS**/
 
 assert TwoCarAreSame{/*cars with same ID and unlockArea are the same car*/
 	all c,c':Car | c.ID=c'.ID implies c.unlockArea=c'.unlockArea
@@ -111,8 +119,10 @@ assert NoMultipleCarWithSameID{
 check  NoMultipleCarWithSameID
 
 assert UserMakeRequest{/*users have to make request for unlock cars they have book*/
-	all p:PowerUser,c:UnlockedCar,u:UnlockRequest |  
-		(p.pos in c.unlockArea and p=u.user and p.bookedVehicle.ID=c.ID) implies u.car.ID=c.ID 
+	all p:PowerUser,uc:UnlockedCar,lc:LockedCar,u:UnlockRequest |  
+		unlockCar[uc,lc,p] implies (p.pos in lc.unlockArea and
+			 p=u.user and p.bookedVehicle=lc and u.car=p.bookedVehicle and lc.ID=uc.ID)
 	}
 
 check UserMakeRequest
+
