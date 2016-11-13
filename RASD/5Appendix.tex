@@ -1,17 +1,13 @@
 \section{Appendix}
 \subsection{Class diagram}
-Text
+\includegraphics[scale=0.36]{{Figures/ClassDiagram.png}}
 
-\newpage
-\subsection{Statechart diagram}
-Text
+
 
 \newpage
 \subsection{Alloy}
 \subsubsection{Purpose}
-% EDO: per me questa sezione si potrebbe eliminare
-% LKPC: per me si potrebbe aggiungere una breve motivazione che spieghi quali componenti abbiamo preferito mdoellare in alloy e perchè, tipo: "Abbiamo modellato in alloy i componenti che riteniamo necessitino di una verifica formale atta a garantire la correttezza delle specifiche relativamente alle operazioni service-critical caratterizzanti la piattaforma PowerEnJoy (che detta in parole povere: voglio essere sicuro che la specifica non consenta a chiunque di fottersi le macchinette...).
-Following are some Alloy models for system components that we believe require a formal checking apt to ensure specifications correctness with respect to service-critical operations characterizing the PowerEnJoy platform.
+The following are some Alloy models for system components that we believe require a formal checking apt to ensure specifications correctness with respect to the service-critical operations characterizing the PowerEnJoy platform.
 
 \subsubsection{Code}
 \begin{itemize}
@@ -29,9 +25,15 @@ Following are some Alloy models for system components that we believe require a 
    
 \newpage
 
-\item Unlocking Cars World
-\newline
-\includegraphics[scale=0.5]{{Alloy_code/unlockCar_world.png}}
+\begin{figure}[h!]
+    \centering
+        \includegraphics[scale=0.55]{{Alloy_code/unlockCar_world.png}}
+    \label{fig:1Unlocking car World}
+    \\Unlocking car world.
+\end{figure}
+
+
+\newpage
 
 \item Cars Locking
 
@@ -49,18 +51,54 @@ Following are some Alloy models for system components that we believe require a 
    
 \newpage
 
-\item Locking Cars World
-\newline
-\includegraphics[scale=0.3]{{Alloy_code/lockCar_world.png}}
-   
-\end{itemize}   
+\begin{figure}[h!]
+    \centering
+        \includegraphics[scale=0.4]{{Alloy_code/lockCar_world.png}}
+    \label{fig:2Locking Car World}
+    \\Locking car world.
+\end{figure}
 
-\subsubsection{Example worlds}
-Text
+\newpage
+   
+\item Money Saving Option 
+
+\lstinputlisting[language=alloy]{Alloy_code/msaving_v3.als}   
+
+2 commands were executed. The results are:\newline
+   -1: Instance found.getAlternative is consistent.\newline
+   -2: No counterexample found. ClosestAreaIsReachableAndFree may be valid.
+   
+\newpage
+
+\begin{figure}[h!]
+    \centering
+        \includegraphics[scale=0.35]{{Alloy_code/msaving_world.png}} 
+    \label{fig:3Money Saving World}
+    \\Money saving option world.
+\end{figure} 
+   
+\end{itemize}
+
+\newpage
+\subsection{Document revisions history}
+\begin{tabular}{| l | l | p{10cm} |}
+\hline
+\textbf{Version} & \textbf{Date} & \textbf{Changes}\\
+\hline
+1.0-RC1 & 13/11/2016 & First deadline release.\\
+\hline
+\end{tabular} 
+
 
 \subsection{Hours of Work}
-\begin{itemize}
-\item Piccirillo Luca: h
-\item Zampogna Gian Luca: h
-\item Zini Edoardo: h
-\end{itemize}
+\begin{tabular}{| p{5cm} | p{5cm} |}
+\hline
+Teamwork & h\\
+\hline
+Luca Piccirillo & h\\
+\hline
+Zampogna Gian Luca & h\\
+\hline
+Zini Edoardo & h\\
+\hline
+\end{tabular}
