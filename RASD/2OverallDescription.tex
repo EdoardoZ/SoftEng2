@@ -1,13 +1,13 @@
 \section{Overall Description}
 \subsection{Product perspective}
-The product to be developed supporting PowerEnJoy service consists of both a mobile application and an onboard ride assistant. The first, independently whether it will be implemented as standalone application or as web-based application, lets the customer perform all required interactions like registering to the service, searching for a Car, and reserving it. The second is intended to assist the customer up to the end of his ride. Customers will only need to interact with those two system components to access and make use of the service.
+The product to be developed in order to support PowerEnJoy service consists of both a mobile application and an onboard ride assistant. The first, independently whether it will be implemented as standalone application or as web-based application, lets the customer perform all required interactions like registering to the service, searching for a Car, and reserving it. The second is intended to assist the customer up to the end of his ride. Customers will only need to interact with those two system components to access and make use of the service.
 \subsubsection{Quality of Service}
 \begin{itemize}
     \item \textbf{Availability:} the system does not have any availability requirement.
     \item \textbf{Exceptions Handling:} the system must be able to handle exceptions in case of unsatisfying domain properties e.g. Credit card without enough money,...
     \item \textbf{Reliability:} the system does not have any reliability requirement.
     \item \textbf{Scalability:} the system must be able to properly manage an increasing number of users, or an unexpected peak of the number of request.
-    \item \textbf{Security:} the system must protect user data and ensure that online secure connections take place among the service, the Cars, the user and the payment structure the system relies on.
+    \item \textbf{Security:} the system must protect user data and ensure that online secure connections take place among the service, the Cars, the user and the payment processor provider the system relies on.
     \item \textbf{Usability:} the interface will be user-friendly (i.e. it will always shows the user only the actions he can actually perform).
 \end{itemize}
 
@@ -17,19 +17,19 @@ For better orienteering through this document, here is a main functionality summ
 \item Available Cars map explorer
 \item Personal account management
 \item Car reservation assistant
-\item On-board ride assistant
+\item Onboard ride assistant
 \item Automatic payment processing
-\item Remote vehicle management
+\item Remote vehicle interfacing
 \end{itemize}
 
 \subsection{User characteristics}
-All kinds of user interaction with the system start from the mobile application or from the onboard Car infotainment equipment. A Visitor can only have a preview of the Cars availability just by opening up the application. All other functions require the user to sign in the service as PowerUser.
+All kinds of user interaction with the system start from the mobile application or from the onboard ride assistant. A Visitor can only have a preview of the Cars availability just by opening up the application. All other functions require the user to sign in the service as PowerUser.
 
 \subsection{Constraints}
 \subsubsection{Regulatory policies}
-The system must satisfy existing privacy regulations about user's sensible data.
+The system must satisfy existing privacy regulations about users' sensible data.
 \subsubsection{Interfaces to other applications}
-The system must be compatible with payment API provided by the existing financial services partner.
+The system must be compatible with payment API of the existing payment processor provider.
 \subsubsection{Safety and security considerations}
 The system must not disclose customers private service-related information without the appropriate permissions.
 
@@ -42,7 +42,7 @@ The system must not disclose customers private service-related information witho
 \item Onboard navigation software will not be developed, an existing solution will be integrated.
 \item Predefined Safe Parking Areas are assumed to be under mobile data connectivity service coverage.
 \item Special Parking Areas and exclusive power sockets allocation are pre-determined in such a way that spreading Cars among all the available sockets and filling them all corresponds to the best possible distribution of vehicles.
-\item User's device used to access the service via mobile app is able to send geolocation data while nearby the booked Car (i.e. both data connectivity and GPS sensors are functional).
+\item User's device used to access the service via mobile app is able to send geolocation data while nearby the reserved Car (i.e. both data connectivity and GPS sensors are functional).
 \end{itemize}
 
 \subsection{Goal Summary}
@@ -63,8 +63,5 @@ The system must not disclose customers private service-related information witho
 \item Allow PowerUser to get a money saving alternative destination.
 \item Allow the system to lock the Car in a Safe Parking Area at the end of the ride.
 \item Allow the system to apply penalty or discount according to the given criteria.
-% Are PARAMETRIC CRITERIA reasonable??
 \item Let the system bill the PowerUser for the total ride fare and issue a payment request for that amount at the end of the ride.
-%TODO
-\item GOAL ADMINISTRATION ACCESS
 \end{enumerate}

@@ -1,7 +1,7 @@
 \section{Specific Requirements}
 \subsection{External interface requirements}
 \subsubsection{User interfaces}
-There are two user interfaces in our system: one for the smartphone used to access the service; one for the onboard infotainment system of the Car.
+There are two user interfaces in our system: one for the smartphone used to access the service; one for the onboard infotainment device of the Car.
 
 %
 %
@@ -19,7 +19,7 @@ There are two user interfaces in our system: one for the smartphone used to acce
     \centering
     \includegraphics[scale=0.4]{{Figures/Mockup/2MapNotLogged.png}}
     \label{fig:2MapNotLogged}
-    \\If a user chooses the map, he will see a map with the position and the remaining battery charge of all the available Cars; he is asked to sign in in order to proceed with the reservation.
+    \\If a user chooses the map, he will see a map with the positions of all the available Cars; he is asked to sign in in order to proceed with the reservation.
 \end{figure}
 
 
@@ -27,14 +27,14 @@ There are two user interfaces in our system: one for the smartphone used to acce
     \centering
     \includegraphics[scale=0.4]{{Figures/Mockup/3LoginForm.png}}
     \label{fig:3LoginForm}
-    \\Whether a user started from the map or from the first screen, he will have to either enter his credentials or to register. In case of forgotten credentials he is given the possibility to ask for a new password too.
+    \\Whether a user started from the map or from the first screen, he will have to either enter his credentials or to register. In case of forgotten credentials he is given the possibility to ask for a new password.
 \end{figure}
 
 \begin{figure}[p!]
     \centering
     \includegraphics[scale=0.4]{{Figures/Mockup/4CarReservationA}}
     \label{fig:4CarReservationA}
-    \\A PowerUser can look for a suitable Car nearby his position or entering an address in the appropriate bar above the map. After finding a Car the PowerUser can reserve it.
+    \\A PowerUser can look for a suitable Car nearby his position or entering an address in the appropriate bar above the map. After finding a Car the PowerUser can select it to know the residual battery and to reserve it.
 \end{figure}
 
 \begin{figure}[p!]
@@ -84,7 +84,7 @@ There are two user interfaces in our system: one for the smartphone used to acce
     \centering
     \includegraphics[scale=0.4]{{Figures/Mockup/8PersonalAccountPage.png}}
     \label{fig:8PersonalAccountPage}
-    \\A PowerUser can access his personal account page by tapping on the avatar in the up right corner of his smartphone screen. By doing so, this is what he will be shown. From this page it is also possible to modify both personal and payment information.
+    \\A PowerUser can access his personal account page by tapping on the avatar in the top-right corner. By doing so, this is what he will be shown. From this page it is also possible to modify both personal and payment information, or to sign out.
 \end{figure}
 
 \begin{figure}[p!]
@@ -110,21 +110,21 @@ There are two user interfaces in our system: one for the smartphone used to acce
     \centering
     \includegraphics[scale=0.6]{{Figures/Mockup/11FirstCarScreen.png}}
     \label{fig:11FirstCarScreen}
-    \\This is the first screen a PowerUser will see while entering in a Car. The map on the left is a placeholder for the third party navigation system.
+    \\This is the first screen a PowerUser will see entering in a Car. The map on the left is a placeholder for the third party navigation software.
 \end{figure}
 
 \begin{figure}[p!]
     \centering
     \includegraphics[scale=0.6]{{Figures/Mockup/12aCorrectDestination.png}}
     \label{fig:12aCorrectDestination}
-    \\A PowerUser searches for his destination and if it is inside the set of Safe Parking Areas he is allowed to start the navigation system. Furthermore he can enable the money saving option using "Get money saving destination", or ask for the list of the closest Special Parking Areas to his destination.
+    \\A PowerUser searches for his destination and if it is inside the set of Safe Parking Areas he is allowed to start the navigation software. Furthermore, he can enable the money saving option using "Get money saving destination", or ask for the list of the closest Special Parking Areas to his destination.
 \end{figure}
 
 \begin{figure}[p!]
     \centering
     \includegraphics[scale=0.6]{{Figures/Mockup/12bWrongDestination.png}}
     \label{fig:12bWrongDestination}
-    \\A PowerUser searches for his destination and if it is not inside the set of Safe Parking Areas he is asked to look for another destination. If he wants he can enable the money saving option using "Get money saving destination", or ask for the list of the closest Special Parking Areas to his destination.
+    \\A PowerUser searches for his destination and if it is not inside the set of Safe Parking Areas he is reminded he cannot park in that position. If he wants he can enable the money saving option using "Get money saving destination", or ask for the list of the closest Special Parking Areas to his destination.
 \end{figure}
 
 \begin{figure}[p!]
@@ -138,14 +138,14 @@ There are two user interfaces in our system: one for the smartphone used to acce
     \centering
     \includegraphics[scale=0.6]{{Figures/Mockup/13Ride.png}}
     \label{fig:13Ride}
-    \\This is the screen the PowerUser sees while he is driving. If he needs to change the destination he is free to do that, if he wants to know more about discounts and penalties he can tap the apposite button, if he decides to plug the car into the power grid he can ask a money saving destination or the list of the closest Special Parking Areas to his destination.
+    \\This is the screen the PowerUser sees while he is driving. If he needs to change the destination he is free to do that, if he wants to know more about discounts and penalties he can select the apposite button, if he decides to plug the car into the power grid he can ask a money saving destination or the list of the closest Special Parking Areas to his destination.
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.6]{{Figures/Mockup/14DiscountsAndPenalties.png}}
     \label{fig:14DiscountsAndPenalties}
-    \\This is the screen that sums up all discounts and penalties, and it also declares explicitly which one is valid at the moment. If a PowerUser needs a more detailed description he just have to tap to show a window containing all the details and the explanations of each discount and penalty.  
+    \\This is the screen that sums up all discounts and penalties, and it also declares explicitly which one is valid at the moment. If a PowerUser needs a more detailed description he just have to select the appropriate button to show a window containing all the details and the explanations of each discount and penalty. 
 \end{figure}
 
 \newpage
@@ -154,10 +154,10 @@ There are two user interfaces in our system: one for the smartphone used to acce
 The system interfaces directly with sensors and actuators of the Cars, like GPS, door locking and unlocking mechanism, battery sensor, power socket detector.
 
 \subsubsection{Communication interfaces}
-The system requires internet connectivity across all involved devices.
+The system requires Internet connectivity across all involved devices.
 
 \subsubsection{Software interfaces}
-The system relies on a third party payment service to issue payment requests, and a third party navigation system for the onboard Car equipment which provides driving directions.
+The system relies on a third party payment processor provider to issue payment requests, and a third party navigation software for the onboard Car equipment which provides driving directions.
 
 \subsection{Functional requirements}
 
@@ -165,7 +165,7 @@ The system relies on a third party payment service to issue payment requests, an
     \stepcounter{goalctr}
     \subsubsection{Goal \arabic{goalctr}}
     {[}G\arabic{goalctr}{]}
-    Allow any kind of user to view the map of the available nearby Cars
+    Allow any kind of user to view the map of the available nearby Cars.
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[label={[}R\arabic*{]},series=REQ]
@@ -197,9 +197,9 @@ The system relies on a third party payment service to issue payment requests, an
 			    \item The user must receive a system generated password to the registered email address.
         \end{enumerate}
         \item Domain properties
-        \begin{enumerate}[PRO]
+        \begin{itemize}
     			\item None
-        \end{enumerate}
+        \end{itemize}
     \end{itemize}
 
     \stepcounter{goalctr}
@@ -213,9 +213,9 @@ The system relies on a third party payment service to issue payment requests, an
 		        \item An input to perform log-out must always be available to the PowerUser if he's currently logged in.
         \end{enumerate}
         \item Domain properties
-        \begin{enumerate}[PRO]
+        \begin{itemize}
     			\item None
-        \end{enumerate}
+        \end{itemize}
     \end{itemize}
 
     \stepcounter{goalctr}
@@ -229,9 +229,9 @@ The system relies on a third party payment service to issue payment requests, an
 			    \item For each available Car the PowerUser must be able to view its current position.
         \end{enumerate}
         \item Domain properties
-        \begin{enumerate}[PRO]
+        \begin{itemize}
     			\item None
-        \end{enumerate}
+        \end{itemize}
     \end{itemize}
 
     \stepcounter{goalctr}
@@ -265,9 +265,9 @@ The system relies on a third party payment service to issue payment requests, an
     			\item If a reservation is cancelled because of timeout, notify the PowerUser about that occurrence.
         \end{enumerate}
         \item Domain properties
-        \begin{enumerate}[PRO]
+        \begin{itemize}
     			\item None
-        \end{enumerate}
+        \end{itemize}
     \end{itemize}
 
     \stepcounter{goalctr}
@@ -280,9 +280,9 @@ The system relies on a third party payment service to issue payment requests, an
     	        \item As long as a reservation exists for the PowerUser he must always be able to get the position of the reserved Car on the map.
         \end{enumerate}
         \item Domain properties
-        \begin{enumerate}[PRO]
-    		    \item None
-        \end{enumerate}
+        \begin{itemize}
+    			\item None
+        \end{itemize}
     \end{itemize}
 
     \stepcounter{goalctr}
@@ -316,7 +316,7 @@ The system relies on a third party payment service to issue payment requests, an
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
-    			\item Navigation software always provides effective directions to the user if destination it's included in Safe Areas.
+    			\item Navigation software always provides effective directions to the user if the destination is included in the Safe Parking Areas.
         \end{enumerate}
     \end{itemize}
     
@@ -328,13 +328,12 @@ The system relies on a third party payment service to issue payment requests, an
         \item Requirements
         \begin{enumerate}[REQ]
                 \item Start counting the billing time from the first engine ignition.
-    	        \item Make the system constantly show the updated Total Base Fare on the Car screen.
-    	        \item Stop the billing time counter after exactly 1 second after the Car locking.
+    	        \item Stop the billing time counter exactly 1 second after the Car locking.
         \end{enumerate}
         \item Domain properties
-        \begin{enumerate}[PRO]
-                \item None
-        \end{enumerate}
+        \begin{itemize}
+    			\item None
+        \end{itemize}
     \end{itemize}
 
     \stepcounter{goalctr}
@@ -348,23 +347,23 @@ The system relies on a third party payment service to issue payment requests, an
 			    \item PowerUser must be allowed anytime during the navigation to input a custom location and be acknowledged about all nearest Special Parking Areas from the selected location.
         \end{enumerate}
         \item Domain properties
-        \begin{enumerate}[PRO]
+        \begin{itemize}
     			\item None
-        \end{enumerate}
+        \end{itemize}
     \end{itemize}
     
     \stepcounter{goalctr}
     \subsubsection{Goal \arabic{goalctr}}
     {[}G\arabic{goalctr}{]}
-    Allow PowerUser to keep track of the current charged fare.
+    Allow PowerUser to keep track of the Current Fare.
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-    			\item Show on the Car screen a live updated counter indicating the Total Base Fare amount that the user will actually pay if the ride ends in that same moment, as long as the ride is being charged.
+    			\item Show on the Car screen a live updated counter indicating the Current Fare amount that the user would actually pay if the ride ended in that same moment, as long as the ride is being charged.
         \end{enumerate}
         \item Domain properties
         \begin{enumerate}[PRO]
-    			\item The PowerUser stops being charged in the same moment the Car is locked.
+    			\item The Current Fare starts being counted when the engine ignites for the first time and stops exactly 1 second after the Car locking.
         \end{enumerate}
     \end{itemize}
     
@@ -380,9 +379,9 @@ The system relies on a third party payment service to issue payment requests, an
     			\item For each shown discount or penalty allow the PowerUser to know if the current ride satisfies all needed criteria at the moment.
         \end{enumerate}
         \item Domain properties
-        \begin{enumerate}[PRO]
+        \begin{itemize}
     			\item None
-        \end{enumerate}
+        \end{itemize}
     \end{itemize}
  
     \stepcounter{goalctr}
@@ -430,62 +429,74 @@ The system relies on a third party payment service to issue payment requests, an
     			\item The system shall apply a discount of 10\% on the last ride Total Base Fare if the number of passengers at the end of the ride is greater or equal to the number of passengers at the start of the ride and the number of passengers at the start of the ride was at least 3, driver included.
     			\item The system shall apply a discount of 20\% on the last ride Total Base Fare if the remaining battery power at the end of the ride is greater or equal then 50\%.
     			\item The system shall apply a discount of 30\% on the last ride Total Base Fare if the Car position at the end of the ride is within a Special Parking Areas and the power socket is detected as connected two minutes from the Car locking.
-    			\item The system shall apply a penalty of 30\% on the last ride Total Base Fare if the position of the Car at the time of locking is more than 3km far from the nearest power grid station or the remaining battery power is less than 20\% and the Car is not detected as attached to power grid within two minutes from locking.
+    			\item The system shall apply a penalty of 30\% on the last ride Total Base Fare if the position of the Car at the time of locking is more than 3km far from the nearest power grid station, or the remaining battery power is less than 20\% and the Car is not detected as attached to power grid within two minutes from locking.
         \end{enumerate}
         \item Domain properties
-        \begin{enumerate}[PRO]
-    	        \item None
-    	\end{enumerate}
+        \begin{itemize}
+    			\item None
+        \end{itemize}
     \end{itemize} 
 
     \stepcounter{goalctr}
     \subsubsection{Goal \arabic{goalctr}}
     {[}G\arabic{goalctr}{]}
-    Let the system bill the PowerUser for the total ride fare and issue a payment request for that amount at the end of the ride.
+    Let the system bill the PowerUser for the Total Ride Fare and issue a payment request for that amount at the end of the ride.
     \begin{itemize}
         \item Requirements
         \begin{enumerate}[REQ]
-    			\item The system must charge the PowerUser the total fare after two minutes and an half from the Car locking.
-    			\item The system must issue the payment request to the payment processor provider.	
+    			\item The system must charge the PowerUser the Total Ride Fare after two minutes and an half from the Car locking.
+    			\item The system must issue the payment request to the Payment Processor Provider.	
     			\item The system must bill the PowerUser a penalty of 1$\euro$ as soon as a reservation he made expires by timeout.
     			\item The PowerUser shall be notified of any money charge by email.
     			\item The PowerUser shall be notified of the payment transaction result.
         \end{enumerate}
         \item Domain properties
-        \begin{enumerate}[PRO]
+        \begin{itemize}
     			\item None
-        \end{enumerate}
+        \end{itemize}
     \end{itemize}
 
 
+\newpage
 \subsection{Use cases}
 
+\begin{figure}[h!]
+    \includegraphics[scale=0.45]{{Figures/UseCaseDiagram.png}}
+    \label{fig:UseCaseDiagram}
+\end{figure}
 
+
+\newpage
 \subsubsection{Cars Map Exploration}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
-\textbf{Actor}      &       Visitor \\
+\textbf{Actor}      &       Visitor, PowerUser \\
 \hline
 \textbf{Goal}       &       [G1]\\
 \hline
 \textbf{Entry Condition} &  NULL\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	The user launches the application.\\&
+                            2.  He taps on "Show Map".\\&
+                            3.  He sees a map with the available Cars.\\&
+                            4.	He sees a pointer corresponding to his current position.\\&
+                            5.  He scrolls the map in any direction.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & NULL\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       •   Cannot obtain current position.\\& 
+                           The exception is handled notifying the user about the exception.\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/1CarMapExploration.png}}
+    \label{fig:1CarMapExploration}
+\end{figure}
 
+
+\newpage
 \subsubsection{Service Registration}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       Visitor \\
 \hline
@@ -493,23 +504,29 @@ The system relies on a third party payment service to issue payment requests, an
 \hline
 \textbf{Entry Condition} &  NULL\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	Visitor launches
+the application.\\&
+                        2. He accesses the Sign In view.\\&
+                        3. He taps on the apposite string to create a new account.\\&
+                                            3.	He compiles all required fields.\\&
+                                            4.	The system sends the password to the specified email.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & A new PoweUser account exists.\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       •   Input fields validation failure.\\& 
+                            •	Cannot send email to selected address.\\&
+                           These exceptions are handled notifying the user about the exception, asking him to give new valid/working inputs.\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/2ServiceRegistration.png}}
+    \label{fig:2ServiceRegistration}
+\end{figure}
 
 
+\newpage
 \subsubsection{Sign In}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       Visitor \\
 \hline
@@ -517,262 +534,250 @@ The system relies on a third party payment service to issue payment requests, an
 \hline
 \textbf{Entry Condition} &  NULL\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	Visitor reaches the Sign In page.\\&
+                        2. He inputs his PowerUser's email address and his Power-User's password.\\&
+                        3. He confirms tapping the "Sign In" button.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & Visitor is now authenticated as a PowerUser.\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       •   Wrong credentials.\\&
+                           The exception is handled notifying the user about the exception, asking him to check for errors in given credentials.\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/3SignIn.png}}
+    \label{fig:3SignIn}
+\end{figure}
 
 
+\newpage
 \subsubsection{Sign Out}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       PowerUser \\
 \hline
 \textbf{Goal}       &       [G3]\\
 \hline
-\textbf{Entry Condition} &  Existent PowerUser session.\\
+\textbf{Entry Condition} &  Existent PowerUser authenticated session.\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	PowerUser reaches his personal page.\\&
+2. He taps on the "Sign Out" button to deactivate the current signed-in session.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & PowerUser is no more recognized as such, until he signs in again.\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       NONE\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/4SignOut.png}}
+    \label{fig:4SignOut}
+\end{figure}
 
 
+\newpage
 \subsubsection{Car Status Checking}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       PowerUser \\
 \hline
 \textbf{Goal}       &       [G4]\\
 \hline
-\textbf{Entry Condition} &  NULL\\
+\textbf{Entry Condition} &  A Car is shown on the map.\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	The PowerUser selects an available Car on the map.\\&
+                            2.	He gets details about the remaining battery charge.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & PowerUser sees an input to proceed reserving that Car.\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       NONE\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/5CarStatusChecking.png}}
+    \label{fig:5CarStatusChecking}
+\end{figure}
 
+
+\newpage
 \subsubsection{Car Reservation}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       PowerUser \\
 \hline
 \textbf{Goal}       &       [G5]\\
 \hline
-\textbf{Entry Condition} &  NULL\\
+\textbf{Entry Condition} &  PowerUser has no other active reservation.\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	PowerUser starts the reservation wizard.\\&
+                            2.	He sees a warning about reservation cancellation timeout.\\&
+                            3.	He accepts to continue reserving the Car.\\&
+                            4.  He sees a timer to the time of reservation expiration.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & PowerUser has a pending reservation for the selected Car.\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       •   Car no longer available.\\& 
+                           The exception is handled notifying the user about the exception, asking him to choose another Car.\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/6CarReservation.png}}
+    \label{fig:6CarReservation}
+\end{figure}
 
 
+\newpage
 \subsubsection{Reservation Cancellation}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       PowerUser \\
 \hline
 \textbf{Goal}       &       [G6]\\
 \hline
-\textbf{Entry Condition} &  NULL\\
+\textbf{Entry Condition} &  Existent pending Car reservation for PowerUser.\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	PowerUser asks to cancel the current pending reservation.\\&
+                            2. He sees a confirmation message.\\&
+                            3.	He accepts to continue cancelling the reservation.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & PowerUser ha no pending Car reservation.\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       •   Reservation expired meanwhile.\\&
+                           The exception is handled aborting the cancellation wizard.\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/7ReservationCancellation.png}}
+    \label{fig:7ReservationCancellation}
+\end{figure}
 
 
+\newpage
 \subsubsection{Reserved Car Information}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       PowerUser \\
 \hline
 \textbf{Goal}       &       [G7]\\
 \hline
-\textbf{Entry Condition} &  NULL\\
+\textbf{Entry Condition} &  Existent pending Car reservation for PowerUser.\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	PowerUser asks to show the reserved Car on the map.\\&
+                            2.	He sees the Car on the map with its remaining battery charge.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & NULL\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       NONE\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/8ReservedCarInformation.png}}
+    \label{fig:8ReservedCarInformation}
+\end{figure}
 
 
+\newpage
 \subsubsection{Reserved Car Unlocking}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       PowerUser \\
 \hline
 \textbf{Goal}       &       [G8]\\
 \hline
-\textbf{Entry Condition} &  NULL\\
+\textbf{Entry Condition} &  Existent pending Car reservation for PowerUser and PowerUser is inside the allowed unlocking area.\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	PowerUser sees an option to unlock the reserved Car.\\&
+                            2.	He asks the Car to be unlocked.\\&
+                            3.	The system unlocks the Car.\\&
+                            4.  PowerUser opens the door and enters the Car.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & Car doors are unlocked.\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       •   Unable to unlock the Car.\\& 
+                           The exception is handled asking the PowerUser to retry in a few seconds.\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/9ReservedCarUnlocking.png}}
+    \label{fig:9ReservedCarUnlocking}
+\end{figure}
 
 
+\newpage
 \subsubsection{Getting Driving Directions}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       PowerUser \\
 \hline
 \textbf{Goal}       &       [G9]\\
 \hline
-\textbf{Entry Condition} &  NULL\\
+\textbf{Entry Condition} &  There exists a selected destination.\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	PowerUser chooses to start navigation in order to be given directions by the onboard navigator for the previously selected destination.\\&
+                            2.	He follows the directions.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & The destination is reached.\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       •	Cannot find driving direction for selected destination.\\& 
+                           The exception is handled asking the PowerUser to select another destination to get driving directions to which is surely reachable by car.\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/10GettingDrivingDirections.png}}
+    \label{fig:10GettingDrivingDirections}
+\end{figure}
 
 
-\subsubsection{???}
-\begin{tabular}{| l | p{8cm} |}
-\hline
-\textbf{Actor}      &       SBL \\
-\hline
-\textbf{Goal}       &       [G10]\\
-\hline
-\textbf{Entry Condition} &  NULL\\
-\hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
-\hline
-\textbf{Output Condition} & conditionExplanation\\
-\hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
-\hline
-\end{tabular} 
-
-
+\newpage
 \subsubsection{Special Parking Areas Listing}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       PowerUser \\
 \hline
 \textbf{Goal}       &       [G11]\\
 \hline
-\textbf{Entry Condition} &  NULL\\
+\textbf{Entry Condition} &  There exists a selected destination.\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	PowerUser asks for a list of Special Parking Areas.\\&
+                            2.	The system lets him scroll a list of Special parking Areas sorted by distance to his selected destination.\\&
+                            3.	PowerUser optionally selects one of those as new destination.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & NULL or current selected destination changed.\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       NONE\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/11SpecialParkingAreasListing.png}}
+    \label{fig:11SpecialParkingAreasListing}
+\end{figure}
 
 
-\subsubsection{Current Charged Fare Viewing}
-\begin{tabular}{| l | p{8cm} |}
+\newpage
+\subsubsection{Current Fare Viewing}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       PowerUser \\
 \hline
 \textbf{Goal}       &       [G12]\\
 \hline
-\textbf{Entry Condition} &  NULL\\
+\textbf{Entry Condition} &  Ride is being currently charged.\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	PowerUser sees the updated Current Fare amount on the onboard screen of the Car.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & NULL\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       NONE\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/12CurrentChargedFareViewing.png}}
+    \label{fig:12CurrentChargedFareViewing}
+\end{figure}
 
 
-\subsubsection{Discounts And Penalties ???(checking)}
-\begin{tabular}{| l | p{8cm} |}
+\newpage
+\subsubsection{Discounts And Penalties Browsing}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       PowerUser \\
 \hline
@@ -780,112 +785,72 @@ The system relies on a third party payment service to issue payment requests, an
 \hline
 \textbf{Entry Condition} &  NULL\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	PowerUser opens the discounts and penalties lists.\\&
+                            2.	He gets the lists of all existing available discounts and penalties policies.\\&
+                            3.  He gets a visible feedback stating if those criteria yield for the current ride.\\&
+                            4.	At the end of the lists he can ask for a detailed description.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & NULL\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &      NONE\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/13DiscountsAndPenaltiesBrowsing.png}}
+    \label{fig:13DiscountsAndPenaltiesBrowsing}
+\end{figure}
 
 
-\subsubsection{Money Saving Suggestion}
-\begin{tabular}{| l | p{8cm} |}
+\newpage
+\subsubsection{Getting Money Saving Destination}
+\begin{tabular}{| l | p{10cm} |}
 \hline
 \textbf{Actor}      &       PowerUser \\
 \hline
 \textbf{Goal}       &       [G14]\\
 \hline
-\textbf{Entry Condition} &  NULL\\
+\textbf{Entry Condition} &  A destination is being selected or there already exists one.\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	PowerUsers enables the Money Saving destination.\\&
+                            2.	The system provides him a single Special Parking Area and its location on a map.\\&
+                            3.	PowerUser either accepts the proposal by starting the navigation or rejects it by disabling the Money Saving destination.\\&
+                            4.  If accepted, the selected destination is updated accordingly.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & Suggested proposal rejected or accepted.\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       NONE\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/14MoneySavingSuggestion.png}}
+    \label{fig:14MoneySavingSuggestion}
+\end{figure}
 
 
-\subsubsection{Car Locking}
-\begin{tabular}{| l | p{8cm} |}
-\hline
-\textbf{Actor}      &       SBL \\
-\hline
-\textbf{Goal}       &       [G15]\\
-\hline
-\textbf{Entry Condition} &  NULL\\
-\hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
-\hline
-\textbf{Output Condition} & conditionExplanation\\
-\hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
-\hline
-\end{tabular} 
-
-
-\subsubsection{Discounts And Penalties ???(application)}
-\begin{tabular}{| l | p{8cm} |}
-\hline
-\textbf{Actor}      &       SBL \\
-\hline
-\textbf{Goal}       &       [G16]\\
-\hline
-\textbf{Entry Condition} &  NULL\\
-\hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
-\hline
-\textbf{Output Condition} & conditionExplanation\\
-\hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
-\hline
-\end{tabular} 
-
-
+\newpage
 \subsubsection{Payment Deduction}
-\begin{tabular}{| l | p{8cm} |}
+\begin{tabular}{| l | p{10cm} |}
 \hline
-\textbf{Actor}      &       SBL \\
+\textbf{Actor}      &       Payment Processor Provider \\
 \hline
 \textbf{Goal}       &       [G17]\\
 \hline
-\textbf{Entry Condition} &  NULL\\
+\textbf{Entry Condition} &  Locking grace period expired.\\
 \hline
-\textbf{Event Flow}     &   1.	a.\\&
-                                            2.	b.\\&
-                                            3.	c.\\&
-                                            4.  d.\\
+\textbf{Event Flow}     &   1.	The system locks the Car and stops charging the PowerUser.\\&
+                            2.	The system creates a new payment request for the ride just ended.\\&
+                            3.	The system merges it with all pending payments for penalties or previous rides of the same account into a single comprehensive payment request.\\&
+                            2.	The system issues the payment request to the PPP.\\&
+                            3.	PPP responds back with operation result and transaction details.\\&
+                            4.  The system sends an email to the PowerUser with payment result and details.\\
 \hline
-\textbf{Output Condition} & conditionExplanation\\
+\textbf{Output Condition} & The amount of money has been transferred from PowerUser to PEJ.\\
 \hline
-\textbf{Exceptions} &       ?   ex1.\\& 
-                            ?	ex2.\\&
-                            ?	ex3.\\& 
-                           How expections are managed.\\
+\textbf{Exceptions} &       •   Not enough money.\\&
+                           The exception is handled notifying the user of the issue and adding that payment request to the pending ones.\\
 \hline
 \end{tabular} 
+\begin{figure}[h!]
+    \includegraphics[scale=0.6]{{Figures/SequenceDiagram/15PaymentDeduction.png}}
+    \label{fig:15PaymentDeduction}
+\end{figure}
