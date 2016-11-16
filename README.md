@@ -1,32 +1,38 @@
 #Software Engineering 2: "PowerEnJoy"
 
 ##Overall amount of time spent on the project
+- Teamwork:
 - Piccirillo Luca: 
 - Zampogna Gian Luca: 
 - Zini Edoardo: 
 
 ##Overall amount of time spent on each part of the project
 ###RASD
-- Piccirillo Luca: 
-- Zampogna Gian Luca: 
-- Zini Edoardo: 
+- Teamwork: ∼22h
+- Piccirillo Luca: ∼25h
+- Zampogna Gian Luca: ∼25h
+- Zini Edoardo: ∼29h
 
 ###DD
+- Teamwork:
 - Piccirillo Luca: 
 - Zampogna Gian Luca: 
 - Zini Edoardo: 
 
 ###Testing document
+- Teamwork:
 - Piccirillo Luca: 
 - Zampogna Gian Luca: 
 - Zini Edoardo: 
 
 ###Project management
+- Teamwork:
 - Piccirillo Luca: 
 - Zampogna Gian Luca: 
 - Zini Edoardo: 
 
 ###Code inspection
+- Teamwork:
 - Piccirillo Luca: 
 - Zampogna Gian Luca: 
 - Zini Edoardo: 
