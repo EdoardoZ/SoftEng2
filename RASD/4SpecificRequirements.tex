@@ -463,6 +463,8 @@ The system relies on a third party payment processor provider to issue payment r
 \begin{figure}[h!]
     \includegraphics[scale=0.45]{{Figures/UseCaseDiagram.png}}
     \label{fig:UseCaseDiagram}
+    \newline
+    A use case \textit{extends} another use case when its use is optional and the use case that is extended is already reasonably complete.
 \end{figure}
 
 
@@ -639,7 +641,7 @@ the application.\\&
                             2. He sees a confirmation message.\\&
                             3.	He accepts to continue cancelling the reservation.\\
 \hline
-\textbf{Output Condition} & PowerUser ha no pending Car reservation.\\
+\textbf{Output Condition} & PowerUser has no pending Car reservation.\\
 \hline
 \textbf{Exceptions} &       •   Reservation expired meanwhile.\\&
                            The exception is handled aborting the cancellation wizard.\\
@@ -706,7 +708,7 @@ the application.\\&
 \subsubsection{Getting Driving Directions}
 \begin{tabular}{| l | p{10cm} |}
 \hline
-\textbf{Actor}      &       PowerUser \\
+\textbf{Actor}      &       PowerUser, Navigator \\
 \hline
 \textbf{Goal}       &       [G9]\\
 \hline
