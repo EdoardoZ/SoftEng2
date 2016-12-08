@@ -2,39 +2,83 @@
 
 
 \subsection{Getting money saving destination}
-This algorithm runs in the Special Areas Assistant component and it takes care of looking for the closest available Special Parking Area to the destination provided by the user.
+
+\subsubsection{Part 1}
+
+The first algorithm runs in the Special Areas Assistant component and it takes care of looking for the available Special Parking Areas located inside a certain range from the specified destination.
+
+\begin{itemize}
+    \item The \textit{isFull} method returns true if the Special Parking Area is full and no further vehicle can be parked there and plugged to the power grid.
+    \item The \textit{getRange} method returns the value of the range of the provided zone.\newline
+    This way the algorithm can be adapt to zones with different conformations just by changing the value of the range.
+    \item The \textit{calcAirDistance} method returns the air distance from the provided position to the the known position of the provided Special Parking Area. The air distance is used in order to keep low the level of the required computational power.
+\end{itemize}
 
 \begin{algorithm}
 \caption{}\label{euclid}
 \begin{algorithmic}[1]
-\Function{getMoneySavingDestination}{\textit{DestPosition}}
-\State \textit{var Distance} = 0
-\State \textit{var MSDestination}
+\Function{getAvailableMoneySavingDestinations}{\textit{DestPosition}}
+\State \textit{var MSDestinations}[] = \textit{empty}
+\State \textit{var SpecialParkAreas}[] = \textit{PEJContex}.\textit{getSPAreas}(\textit{DestPosition}.\textit{getZone})
 \For {(\textit{int i}=0; \textit{i}<\textit{SpecialParkAreas}[].\textit{count}; \textit{i}++)}
 \If {\textit{not}(\textit{SpecialParkAreas}[\textit{i}].\textit{isFull}) \textit{and}
-\State \textit{not}(\textit{Distance}<=\textit{calcDistance}(\textit{DestPosition},\textit{ SpecialParkAreas}[\textit{i}]))}
-\State \textit{Distance} = \textit{calcDistance}(\textit{DestPosition},\textit{ SpecialParkAreas}[\textit{i}])
-\State \textit{MSDestination} = \textit{SpecialParkAreas}[\textit{i}]
+\State (\textit{PEJContex.\textit{getRange}(\textit{DestPosition}.\textit{getZone})}>\State\textit{calcAirDistance}(\textit{DestPosition},\textit{ SpecialParkAreas}[\textit{i}]))}
+\State \textit{MSDestinations}[].\textit{append}(\textit{SpecialParkAreas}[\textit{i}])
 \EndIf
 \EndFor
-\State \Return \textit{MSDestination}
+\State \Return \textit{MSDestinations}[]
 \EndFunction
 \State \textbf{end function}
 \end{algorithmic}
 \end{algorithm}
 
+
+%\newpage
+\subsubsection{Part 2}
+
+The second algorithm runs in the COMPONENT OF THE CAR TO BE DECIDED component and it uses the list of feasible Special Parking Areas returned by the previous algorithm to establish which one is actually the closest to the destination.
+
 \begin{itemize}
-    \item The \textit{isFull} method returns true if the Special Parking Area is full and no further vehicle can be parked there and plugged to the power grid.
-    \item The \textit{calcDistance} method returns the distance from the provided position to the the known position of the provided Special Parking Area.
+    \item The \textit{calcDistance} method returns the street distance from the provided position to the the known position of the provided Special Parking Area contained in \textit{MSDestinations}. This real world distance is provided relying on the Navigator that can compute the actual distance between two provided positions.
 \end{itemize}
 
-
+\begin{algorithm}
+\caption{}\label{euclid}
+\begin{algorithmic}[1]
+\Function{getMoneySavingDestination}{\textit{MSDestinations}[]}
+\State \textit{var Distance =99999}
+\If{\textit{MSDestinations}[]==\textit{empty}}
+\State\Return \textit{errorMsgNoMoneySavingDestinationFound}
+\EndIf
+\For{\textit{int i}=0; \textit{i}<\textit{MSDestinations}.\textit{count}[]; \textit{i}++}
+\If {(\textit{Distance}>\textit{calcDistance}(\textit{DestPosition}, \textit{MSDestinations}[\textit{i}]))}
+\State \textit{Distance} = \textit{calcDistance}(\textit{DestPosition}, \textit{MSDestinations}[\textit{i}])
+\State \textit{MSDestination} = \textit{MSDestinations}[\textit{i}]
+\EndIf
+\EndFor
+\State\Return \textit{MSDestination}
+\EndFunction
+\State \textbf{end function}
+\end{algorithmic}
+\end{algorithm}
 
 \newpage
+
 
 \subsection{Total Ride Fare}
 This algorithm runs in the Payment Processor component and it takes care of applying any discount or penalty the user is eligible for at the end of the ride. In case the user has never started the ride, after the reservation expiration, this algorithm applies the penalty fee. Furthermore, it checks whether the user has any pending payment in order to add it to the total ride fare.
 
+\begin{itemize}
+    \item The \textit{getTotalBaseFare} method returns the Total Base Fare value which depends only on the amount of time of the Ride.
+    \item The \textit{hasStarted} method returns true if the user has ignited the engine of the Car at least one; otherwise returns false.
+    \item The \textit{getDiscounts} method is provided via PEJ Context, given a zone it returns the discounts and the penalties that can be applied in that particular zone.\newline
+    This way this algorithm can adapt to new discounts or penalties, or to removal of one of them, without needing of any modification.
+    \item The \textit{isApplicable} method returns true if that particular discount can be applied to that particular ride.
+    \item The \textit{applyDiscount} method compute the new value of the Total Ride Fare after the applicatin of the discount or penalty.
+    \item The \textit{getExpirationFee} method returns the amount of fee the user is charged with in case of expired reservation.
+    \item The \textit{hasPendingPayment} method return true if there is at least one payment for that particular user that has not completed successfully and still need to be collected.
+     \item The \textit{getPendingPaymentValue} method return the value of the money the user still owe the company from previous rides.
+\end{itemize}
 
 \begin{algorithm}
 \caption{}\label{euclid}
@@ -59,14 +103,4 @@ This algorithm runs in the Payment Processor component and it takes care of appl
 \end{algorithmic}
 \end{algorithm}
 
-\begin{itemize}
-    \item The \textit{getTotalBaseFare} method returns the Total Base Fare value which depends only on the amount of time of the Ride.
-    \item The \textit{hasStarted} method returns true if the user has ignited the engine of the Car at least one; otherwise returns false.
-    \item The \textit{getDiscounts} method is provided via PEJ Context, given a zone it returns the discounts and the penalties that can be applied in that particular zone.\newline
-    This way this algorithm can adapt to new discounts or penalties, or to removal of one of them, without needing of any modification.
-    \item The \textit{isApplicable} method returns true if that particular discount can be applied to that particular ride.
-    \item The \textit{applyDiscount} method compute the new value of the Total Ride Fare after the applicatin of the discount or penalty.
-    \item The \textit{getExpirationFee} method returns the amount of fee the user is charged with in case of expired reservation.
-    \item The \textit{hasPendingPayment} method return true if there is at least one payment for that particular user that has not completed successfully and still need to be collected.
-     \item The \textit{getPendingPaymentValue} method return the value of the money the user still owe the company from previous rides.
-\end{itemize}
+\leavevmode\thispagestyle{empty}\newpage
