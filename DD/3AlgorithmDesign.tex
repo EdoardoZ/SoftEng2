@@ -2,7 +2,7 @@
 
 
 \subsection{Getting money saving destination}
-This algorithm runs in the Special Areas Assistant component and it takes care of looking for the closest Special Parking Area to the destination provided by the user.
+This algorithm runs in the Special Areas Assistant component and it takes care of looking for the closest available Special Parking Area to the destination provided by the user.
 
 \begin{algorithm}
 \caption{}\label{euclid}
@@ -33,7 +33,8 @@ This algorithm runs in the Special Areas Assistant component and it takes care o
 \newpage
 
 \subsection{Total Ride Fare}
-This algorithm runs in the Payment Processor and it takes care of applying any discounts or penalties the user is eligible for at the end of the ride. Furthermore it checks whether the user has any pending payment in order to add it to the total fare.
+This algorithm runs in the Payment Processor component and it takes care of applying any discount or penalty the user is eligible for at the end of the ride. In case the user has never started the ride, after the reservation expiration, this algorithm applies the penalty fee. Furthermore, it checks whether the user has any pending payment in order to add it to the total ride fare.
+
 
 \begin{algorithm}
 \caption{}\label{euclid}
@@ -41,13 +42,13 @@ This algorithm runs in the Payment Processor and it takes care of applying any d
 \Function{caculateTotalRideFare}{\textit{Ride}}
 \State \textit{var TotalRideFare} = \textit{Ride}.\textit{getTotalBaseFare}
 \If {\textit{Ride}.\textit{hasStarted}}
-\For{(\textit{Discount} \textbf{in} \textit{EntityProvider}.\textit{getDiscounts}(\textit{Ride}.\textit{getZone}))}
+\For{(\textit{Discount} \textbf{in} \textit{PEJContex}.\textit{getDiscounts}(\textit{Ride}.\textit{getZone}))}
 \If{\textit{Ride}.\textit{isApplicable}(\textit{Discount})}
 \State \textit{TotalRideFare}=\textit{TotalRideFare}.\textit{applyDiscount}(\textit{Discount})
 \EndIf
 \EndFor
 \Else
-\State \textit{TotalRideFare} = 1
+\State \textit{TotalRideFare} = \textit{PEJContex}.\textit{getExpirationFee}(\textit{Ride}.\textit{getZone})
 \EndIf
 \If {\textit{Ride}.\textit{getUser}.\textit{hasPendingPayment}}
 \State \textit{TotalRideFare}+=\textit{Ride}.\textit{getUser}.\textit{getPendingPaymentValue}
@@ -60,11 +61,12 @@ This algorithm runs in the Payment Processor and it takes care of applying any d
 
 \begin{itemize}
     \item The \textit{getTotalBaseFare} method returns the Total Base Fare value which depends only on the amount of time of the Ride.
-    \item The \textit{hasStarted} method returns true if the user has ignited the engine of the Car at least one; otherwiser returns false.
-    \item The \textit{getDiscounts} method is provided via Entity Provider and given a zone it returns the discounts and the penalties that can be applied in that particular zone.\newline
+    \item The \textit{hasStarted} method returns true if the user has ignited the engine of the Car at least one; otherwise returns false.
+    \item The \textit{getDiscounts} method is provided via PEJ Context, given a zone it returns the discounts and the penalties that can be applied in that particular zone.\newline
     This way this algorithm can adapt to new discounts or penalties, or to removal of one of them, without needing of any modification.
     \item The \textit{isApplicable} method returns true if that particular discount can be applied to that particular ride.
     \item The \textit{applyDiscount} method compute the new value of the Total Ride Fare after the applicatin of the discount or penalty.
-      \item The \textit{hasPendingPayment} method return true if there is at least one payment for that particular user that has not completed successfully and still need to be collected.
-       \item The \textit{getPendingPaymentValue} method return the value of the money the user still owe the company from previous rides.
+    \item The \textit{getExpirationFee} method returns the amount of fee the user is charged with in case of expired reservation.
+    \item The \textit{hasPendingPayment} method return true if there is at least one payment for that particular user that has not completed successfully and still need to be collected.
+     \item The \textit{getPendingPaymentValue} method return the value of the money the user still owe the company from previous rides.
 \end{itemize}
