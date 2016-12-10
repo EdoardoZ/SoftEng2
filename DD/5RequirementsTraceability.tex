@@ -1,1 +1,247 @@
 \section{Requirements Traceability}
+
+\subsection {Goal 1} Allow any kind of user to view the map of the available nearby Cars.
+\begin{itemize}
+ \item |R1| Users must have access to a map indicating the user current location.
+    \newline - 2.2.2 Map Explorer component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R2| Users must be able to pan and scroll a map in any direction.
+    \newline - 2.2.2 Map Wrapper component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R3| Every available Car must be shown on a map.
+     \newline - 2.2.2 Map Explorer component.
+     \newline - 4 User Interface Design Figure 4.
+ \item |R4| Users shall have an input for inserting an address in which center the map.
+    \newline - 2.2.2 View component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R5| Users shall have an input to center the map view on their position.
+    \newline - 2.2.2 View component.
+    \newline - 4 User Interface Design Figure 4.
+\end{itemize}
+
+\subsection {Goal 2} Allow Visitor user to register to the service.
+\begin{itemize}
+ \item |R6| Let a Visitor user start the registration wizard while he’s still not logged in.
+    \newline - 2.2.2 View \& Account components.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R7| The registration form must contain input fields for user identity, email, contact
+info, driving license number and expiration, privacy agreement confirmation,
+credit card number and expiration, billing identity.
+    \newline - 2.2.2 View \& Account components.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R8| The chosen email address must not be already used by another PowerUser.
+    \newline - 2.2.1 Account component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R9| The credit card must be verified not to be blocked or expired upon registration.
+    \newline - 2.2.1 Account component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R10| The user must receive a system generated password to the registered email
+address.    
+    \newline - 2.2.1 Account component.
+    \newline - 4 User Interface Design Figure 4.
+\end{itemize}
+
+\subsection {Goal 3} Allow Visitor user to log-in and out as a PowerUser.
+\begin{itemize}
+ \item |R11| A Visitor user must always see an input to access log-in form as long as he’s
+still not logged in.
+    \newline - 2.2.2 View \& Account components.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R12| An input to perform log-out must always be available to the PowerUser if he’s
+currently logged in.
+    \newline - 2.2.2 View \& Account components.
+    \newline - 4 User Interface Design Figure 4.
+\end{itemize}
+
+\subsection {Goal 4} Allow PowerUser to check the status of the Car.
+\begin{itemize}
+ \item |R13| For each available Car the PowerUser must be able to view its remaining
+battery charge.
+    \newline - 2.2.2 Map Explorer component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R14| For each available Car the PowerUser must be able to view its current position.
+    \newline - 2.2.2 Map Explorer component.
+    \newline - 4 User Interface Design Figure 4.
+\end{itemize}
+
+\subsection {Goal 5} Allow PowerUser to reserve a Car.
+\begin{itemize}
+ \item |R15| The PowerUser must have the ability to start the reservation wizard for all
+and only available Cars.
+    \newline - 2.2.2 Map Explorer component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R16| The PowerUser must see a reminder about unfulfilled reservation penalty before
+confirmation.
+    \newline - 2.2.2 Map Explorer component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R17| Show an input to allow the PowerUser to confirm and finalize the reservation.
+    \newline - 2.2.2 Map Explorer component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R18| The system shall prevent the PowerUser to reserve more than a Car from the
+same geographical region at a time.
+    \newline - 2.2.1 Booking Handler component.
+\end{itemize}
+
+\subsection {Goal 6} Allow PowerUser to cancel a reservation.
+\begin{itemize}
+ \item |R19| If a reservation exists for the PowerUser, show him an input to request cancellation.
+    \newline - 2.2.2 Reserved Car Viewer component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R20| The system shall prompt the PowerUser for cancellation confirmation.
+    \newline - 2.2.1 Booking Handler component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R21| A reservation must be automatically cancelled by the system after 1 hour from
+its creation.
+    \newline - 2.2.1 Booking Handler component.
+ \item |R22| If a reservation is cancelled because of timeout, notify the PowerUser about
+that occurrence.
+    \newline - 2.2.1 Booking Handler component.
+\end{itemize}
+
+\subsection {Goal 7} Allow PowerUser to check the position of the reserved car.
+\begin{itemize}
+ \item |R23| As long as a reservation exists for the PowerUser he must always be able to
+get the position of the reserved Car on the map.
+    \newline - 2.2.2 Reserved Car Viewer component.
+    \newline - 4 User Interface Design Figure 4.
+\end{itemize}
+
+\subsection {Goal 8} Allow PowerUser to unlock and enter the Car when inside the specific range.
+\begin{itemize}
+ \item |R24| The system must be able to remotely unlock the Car.
+    \newline - 2.4 Runtime View Figure 1.
+    \newline - 2.2.1 Booking Handler component.
+ \item |R25| The system must be able to compute the distance between the user location
+and his reserved Car.
+    \newline - 2.4 Runtime View Figure 1.
+    \newline - 2.2.1 Booking Handler component.
+ \item |R26| The PowerUser must have an input allowing him to send an unlock request.
+    \newline - 2.4 Runtime View Figure 1.
+    \newline - 2.2.2 Reserved Car Viewer component.
+    \newline - 4 User Interface Design Figure 4.
+ \item |R27| The system must accept the unlock request issued by the PowerUser if and
+only if the PowerUser is in the unlock allowance area.
+    \newline - 2.4 Runtime View Figure 1.
+    \newline - 2.2.1 Booking Handler component.
+ \item |R28| If the unlock request is accepted, the PowerUser must be able to enter the
+Car.
+\newline - 2.4 Runtime View Figure 1
+\end{itemize}
+
+\subsection {Goal 9} Allow PowerUser to get driving directions to his destination.
+\begin{itemize} 
+ \item |R29| The user must be allowed to select a custom destination and start navigating
+to that location.
+    \newline - 2.4 Runtime View Figure 2.
+    \newline - 2.2.3 Map Wrapper component.
+\end{itemize}
+
+\subsection {Goal 10} Bill the PowerUser for the amount of time spent riding a Car.
+\begin{itemize}
+ \item |R30| Start counting the billing time from the first engine ignition.
+    \newline - 2.2.2 Booking Handler component.
+ \item |R31| Stop the billing time counter exactly 1 second after the Car locking.
+    \newline - 2.2.2 Booking Handler component.
+\end{itemize}
+
+\subsection {Goal 11} Allow PowerUser to see a list of the closest Special Parking Areas to his destination.
+\begin{itemize}
+ \item |R32| The system must be capable of providing a list of Special Parking Areas sorted
+by distance from an input location.
+     \newline - 2.4 Runtime View Figure 2 \& Figure 3.
+
+ \item |R33| PowerUser must be allowed anytime during the navigation to input a custom
+location and be acknowledged about all nearest Special Parking Areas from
+the selected location.
+    \newline - 2.4 Runtime View Figure 2 \& Figure 3.
+    \newline - 2.2.3 Map Wrapper \& View components.
+\end{itemize}
+
+\subsection {Goal 12} Allow PowerUser to keep track of the Current Fare.
+\begin{itemize}
+ \item |R34| Show on the Car screen a live updated counter indicating the Current Fare
+amount that the user would actually pay if the ride ended in that same moment,
+as long as the ride is being charged.
+    \newline - 2.2.3 Status Monitor component.
+\end{itemize}
+
+\subsection {Goal 13} Allow PowerUser to check whether he can be eligible for any discount or penalty.
+\begin{itemize}
+ \item |R35| Provide through Car screen an input to access an overview of all discounts
+and penalties.
+    \newline - 2.2.3 Status Monitor component.
+ \item |R36| For each shown discount or penalty allow the PowerUser to get a brief informal
+description of corresponding criteria.
+    \newline - 2.2.3 Status Monitor component.
+ \item |R37| For each shown discount or penalty allow the PowerUser to know if the current
+ride satisfies all needed criteria at the moment.
+    \newline - 2.2.3 Status Monitor component.
+\end{itemize}
+
+\subsection {Goal 14} Allow PowerUser to get a money saving alternative destination.
+\begin{itemize}
+ \item |R38| Show the PowerUser the option to get a money saving destination alternative
+after entering desired destination address.
+    \newline - 2.4 Runtime View Figure 2 \& Figure 3.
+    \newline - 3.1.1 Algorithm design Algorithm 1 \& 2.    
+ \item |R39| Always show to PowerUser an input to get money saving proposal even if
+there already exists a selected destination.
+    \newline - 2.4 Runtime View Figure 2 \& Figure 3.
+ \item |R40| The destination proposal must correspond to the nearest (w.r.t. PowerUser
+selected destination) Special Parking Area where there are less than N\# Cars
+attached to the power source.
+    \newline - 2.4 Runtime View Figure 2 \& Figure 3.
+    \newline - 3.1.1 Algorithm design Algorithm 1 \& 2. 
+ \item |R41| If the PowerUser accepts the money saving destination proposal, the current
+selected destination must be updated accordingly.
+    \newline - 2.4 Runtime View Figure 2 \& Figure 3.
+\end{itemize}
+
+\subsection {Goal 15} Allow the system to lock the Car in a Safe Parking Area at the end of the ride.
+\begin{itemize}
+ \item |R42| The system must lock the Car if its position belong to the set of Safe Parking
+Areas, engine is stopped, all doors are closed and S\# seconds passed from the
+last door closure.
+    \newline - 2.2.1 Booking Manager component.
+\end{itemize}
+
+\subsection {Goal 16} Allow the system to apply penalty or discount according to the given criteria.
+\begin{itemize}
+ \item |R43| The system shall apply a discount of 10\% on the last ride Total Base Fare
+if the number of passengers at the end of the ride is greater or equal to the
+number of passengers at the start of the ride and the number of passengers at
+the start of the ride was at least 3, driver included.
+    \newline - 2.2.1 Booking Manager component.   
+ \item |R44| The system shall apply a discount of 20\% on the last ride Total Base Fare if
+the remaining battery power at the end of the ride is greater or equal then
+50%.
+    \newline - 2.2.1 Booking Manager component.
+ \item |R45| The system shall apply a discount of 30\% on the last ride Total Base Fare if
+the Car position at the end of the ride is within a Special Parking Areas and
+the power socket is detected as connected two minutes from the Car locking.
+    \newline - 2.2.1 Booking Manager component.
+ \item |R46| The system shall apply a penalty of 30\% on the last ride Total Base Fare if
+the position of the Car at the time of locking is more than 3km far from the
+nearest power grid station, or the remaining battery power is less than 20%
+and the Car is not detected as attached to power grid within two minutes
+from locking.
+    \newline - 2.2.1 Booking Manager component.
+\end{itemize}
+
+\subsection {Goal 17} Let the system bill the PowerUser for the Total Ride Fare and issue a payment
+request for that amount at the end of the ride.
+\begin{itemize}
+ \item |R47| The system must charge the PowerUser the Total Ride Fare after two minutes
+and an half from the Car locking.
+    \newline - 2.2.1 Booking Manager component.
+ \item |R48| The system must issue the payment request to the Payment Processor Provider.
+    \newline - 2.2.1 Payment Processor component.
+ \item |R49| The system must bill the PowerUser a penalty of 1e as soon as a reservation
+he made expires by timeout.
+    \newline - 2.2.1 Booking Manager component.
+ \item |R50| The PowerUser shall be notified of any money charge by email.
+    \newline - 2.2.1 Account Manager component.
+ \item |R51| The PowerUser shall be notified of the payment transaction result.
+    \newline - 2.2.1 Account Manager component.
+\end{itemize}
+
