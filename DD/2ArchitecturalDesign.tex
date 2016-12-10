@@ -28,21 +28,21 @@ Represent the pool of embedded controllers devoted to remotely interfacing the v
 \item{\textbf{Front-end service roles}}
 \begin{itemize}
 \item{\textbf{Client Worker}}\newline
-A single Client Worker node acts as a proxy between any remote interactive client and back-end components. In other words, it exposes all interfaces needed by any application the end user directly interacts with to allow decoupling from core service feature components, avoiding any client technology-dependent issue to be addressed by back-end design decisions. It is able to validate an existing authentication token avoiding redundant messaging to the back-end. It also provides access to static/cached resources and it's designed to be fully stateless, allowing automatic/on-demand scale-up of nodes instances to distribute workload across, dramatically increasing reliability and performance. A CW node can return execution results to remote clients both in synchronous (request/response) or asynchronous mode (event/notification).
+A single Client Worker node acts as a proxy between any remote interactive client and back-end components. In other words, it exposes all interfaces needed by any application the end user directly interacts with to allow decoupling from core service feature components, avoiding any client technology-dependent issue to be addressed by back-end design decisions. It is able to validate an existing authentication token avoiding redundant messaging to the back-end. It also provides access to static/cached resources and it's designed to be fully stateless, allowing automatic/on-demand scale-up of nodes instances to distribute workload across, dramatically increasing reliability and performance. A Client Worker node can return execution results to remote clients both in synchronous (request/response) or asynchronous mode (event/notification).
 \item{\textbf{Vehicle Worker}}\newline
-A single Vehicle Worker node acts as a proxy between any remote supported vehicle platform and back-end components. In other words, it exposes all interfaces needed by any supported vehicle to allow decoupling from core service feature components, avoiding any platform-dependent issue to be addressed by back-end design decisions. it's designed to manage and keep track of an huge number of status/telemetry updates. Inside a VW node, updates from multiple different vehicles are stored until expiration and timestamped. When an event is triggered by a new vehicle the node registers itself to the back-end as the handler of that vehicle. This way we are still allowing automatic/on-demand scale-up of nodes instances to distribute workload across, dramatically increasing reliability and performance. A VW node works only in asynchronous mode (event/notification) w.r.t. the remote vehicle.
+A single Vehicle Worker node acts as a proxy between any remote supported vehicle platform and back-end components. In other words, it exposes all interfaces needed by any supported vehicle to allow decoupling from core service feature components, avoiding any platform-dependent issue to be addressed by back-end design decisions. It's designed to manage and keep track of an huge number of status/telemetry updates. Inside a Vehicle Worker node, updates from multiple different vehicles are stored until expiration and timestamped. When an event is triggered by a new vehicle the node registers itself to the back-end as the handler of that vehicle. This way we are still allowing automatic/on-demand scale-up of nodes instances to distribute workload across, dramatically increasing reliability and performance. A Vehicle Worker node works only in asynchronous mode (event/notification) w.r.t. the remote vehicle.
 \item{\textbf{Elastic load balancing request router}}\newline
-Available from any common cloud provider. Provides automatic scale-uo/-down of nodes instances based on their resources utilization and redirects request messages to nodes guaranteeing a fair workload distribution across them.
+Available from any common cloud provider. Provides automatic scale-up/-down of nodes instances based on their resources utilization and redirects request messages to nodes guaranteeing a fair workload distribution across them.
 \item{\textbf{Elastic load balancing event hub}}\newline
-Available from any common cloud provider. Provides automatic scale-uo/-down of nodes instances based on their resources utilization and manages to forward an huge number of event messages to nodes guaranteeing a fair workload distribution across them.
+Available from any common cloud provider. Provides automatic scale-up/-down of nodes instances based on their resources utilization and manages to forward an huge number of event messages to nodes guaranteeing a fair workload distribution across them.
 \item{\textbf{Elastic async push messages dispatcher}}\newline
 Available from any common cloud provider. Provides efficient queuing of large number of messages to dispatch to multiple groups of targets. It also takes care of creating and keeping up network notification channels.
 \end{itemize}
 
 \item{\textbf{Back-end service roles}}
 \begin{itemize}
-\item{\textbf{Service Back-end Logic Worker}}\newline
-Each SBL Worker node provides all PowerEnJoy core service features. They actually runs the whole service logic decoupled from any presentation layers and communication protocols to front-end devices. Each SBL Worker is fully stateless and supports simultaneous multiple worker's instances with obvious redundancy and performance advantages. For better performances a single node is restricted by design to only serve a specific service zone. An SBL Worker also provides some data access optimization (i.e. caching, mirroring) to inner components and can be instantiated both automatically by scaling managers or manually if needed. For example, if interface compatibility is preserved, will be possible to manually instantiate an SBL Worker running a different software version, allowing seamless on-field testing, debugging and upgrade experience.
+\item{\textbf{Service Business Logic Worker}}\newline
+Each SBL Worker node provides all PowerEnJoy core service features. They actually runs the whole service logic decoupled from any presentation layers and communication protocols to front-end devices. Each SBL Worker is fully stateless and supports simultaneous multiple worker's instances with obvious redundancy and performance advantages. For better performances a single node is restricted by design to serve only a specific service zone. An SBL Worker also provides some data access optimization (i.e. caching, mirroring) to inner components and can be instantiated both automatically by scaling managers or manually if needed. For example, if interface compatibility is preserved, it will be possible to manually instantiate an SBL Worker running a different software version, allowing seamless on-field testing, debugging and upgrade experience.
 \item{\textbf{Elastic load balancing service bus}}\newline
 Available from any major cloud provider. Allows efficient interconnection of components between back-end and front-end roles. It can be configured to act as an automatic scaling manager if the cloud provider offers that option.
 \item{\textbf{User Account Data}}\newline
@@ -52,22 +52,22 @@ Stores all service global parameters that system administrators can modify accor
 \item{\textbf{Single Zone Data}}\newline
 Stores all data related to a single zone covered by the PowerEnJoy service such as vehicles, Safe and Special Parking Areas, active bookings and any parameter override that should only be applied to that zone.
 \item{\textbf{Management API}}\newline
-Provides administrative and monitoring low-level access to core components, designed to be easily interfaced with any business management platform (ERP, CRM, enterprise portals etc.). It's existence has been taken into account only to adapt current solution design for future software evolution. No further design or development effort will be spent on this component unless requirements renegotiation. As of this document revision, the described solution is fully functional and serviceable without this component by direct manipulation of data.
+Provides administrative and monitoring low-level access to core components, designed to be easily interfaced with any business management platform (ERP, CRM, enterprise portals, etc.). It's existence has been taken into account only to adapt current solution design for future software evolution. No further design or development effort will be spent on this component unless requirements renegotiation. As of this document revision, the described solution is fully functional and serviceable without this component by direct manipulation of data.
 \end{itemize}
 \end{itemize}
 
 \subsection{Component view}
-This section contains the component view and the descriptions of each component. Their interfaces are described in the section 2.5 Component interfaces.
-\subsubsection{Service Back-end Logic}
+This section contains the component view and the descriptions of each component. Their interfaces are described in the section component interfaces (2.5).
+\subsubsection{Service Business Logic}
 \begin{figure} [h!]
 \centering
 \includegraphics[scale=0.5]{{Figures/Component_Diagram/SBL.png}}
 \label{fig:SBL}
 \end{figure}
-The Service Back-end Logic subsystem is composed of:
+The Service Business Logic subsystem is composed of:
 \begin{itemize}
     \item\textbf{PEJ Context}\newline
-    It is the component through which all the others can access data entities containing all the information and details about zone, vehicles, accounts and configurations.
+    It is the component through which all the others can access data entities containing all the information and details about zone, vehicles, accounts, configurations, bookings, rides and payments.
     \item\textbf{Zone Manager}\newline
     It is the component that connects Booking Handler to related Vehicle Tracker and Special Parking Areas of inherent zone applying any zone-specific configurations.
     \item\textbf{Special Areas Assistant}\newline
@@ -85,25 +85,27 @@ and it interacts with:
 \begin{itemize}
     \item\textbf{Entity Framework}\newline
     It is the set of external sub-components that is in charge of binding data entity models to corresponding datasource schema.
-    \item\textbf{Vehicle Management Platform}\newline
-    It is the component that connects to a vehicle in order to get its data including positions, battery level, engine ignited, and all the other data provided by the vehicle sensors.
+    \item\textbf{Live Vehicle API}\newline
+    It is the component that connects to a vehicle management platforms in order to get live data including positions, battery level, engine ignited, and all the other data provided by the vehicle sensors.
     \item\textbf{Payment Processor Provider}\newline
     It is the third party system PowerEnJoy relies on in order to bill the customer's credit cards.
     \item\textbf{Client API/Accounting}\newline
-    It is the middleware between SBL and mobile apps the user interact with. It exposes only the set of interfaces required to register, sign in or modify the personal user data.
+    It is the middleware between SBL and client-side apps the user interact with. It exposes only the set of interfaces required to register, sign in or modify the personal user data.
     \item\textbf{Client API/Booking}\newline
-    It is the middleware between SBL and mobile apps the user interact with. It exposes the set of interfaces required to create or cancel a reservation, and manage the whole ride including access to the map of available vehicles, the position of the reserved Car or to get lists of Special Parking Areas.
+    It is the middleware between SBL and client-side apps the user interact with. It exposes the set of interfaces required to create or cancel a reservation, and manage the whole ride including access to the map of available vehicles, the position of the reserved Car or to get lists of Special Parking Areas.
+    \item\textbf{Mail Server}\newline
+    It is the component in charge of sending to the specified user the mail containing payment result and details of the ride.
 \end{itemize}
 %Add \newpage here if necessary
-\newpage
+%\newpage
 
-\subsubsection{Mobile App}
+\subsubsection{User Device Mobile App}
 \begin{figure} [h!]
 \centering
 \includegraphics[scale=0.5]{{Figures/Component_Diagram/MobileApp.png}}
 \label{fig:MobileApp}
 \end{figure}
-The Mobile App is composed of:
+The User Device Mobile App is composed of:
 \begin{itemize}
     \item\textbf{View}\newline
     It is a set of sub-components representing something the user can see and interact with; each sub-component renders the view relying on the view models provided by other components and translates user inputs to well-formed and sanitized requests sent through other components.
@@ -113,7 +115,7 @@ The Mobile App is composed of:
     \item\textbf{Map Wrapper}\newline
     It is the component that wrap the outsourced map images into an user control that makes them scrollable and zoomable, with the ability to overlay custom objects in defined position. It allows the application not to be coupled to a specific third-party maps provider.
     \item\textbf{Map Explorer}\newline
-    It is the component that takes the map provided by the Map Wrapper and takes care of showing the position of all available Cars. These positions are obtained via Client API/Booking call.
+    It is the component that takes the map provided by the Map Wrapper and takes care of showing the position of all available Cars on that map. These positions are obtained via Client API/Booking call.
     \item\textbf{Reserved Car Viewer}\newline
     It is the component that takes the map provided by the Map Wrapper and adds the position of the reserved Car. This position is stored within the app or it is requested via Client API/Booking call if necessary. It allows the user to request a booking cancellation or the unlock of its associated Car.
     \item\textbf{Account}\newline
@@ -122,7 +124,7 @@ The Mobile App is composed of:
 and it interacts with:
 \begin{itemize}
     \item\textbf{Google Maps}\newline
-    It is the third party map provider whose maps are used in the mobile app.
+    It is the third party map provider whose maps are used in the user device mobile app.
     \item\textbf{Client API/Accounting}\newline
     \textit{See above.}
     \item\textbf{Client API/Booking}\newline
@@ -137,7 +139,7 @@ and it interacts with:
 \includegraphics[scale=0.5]{{Figures/Component_Diagram/CarApp.png}}
 \label{fig:CarApp}
 \end{figure}
-The Ride Assistant App is composed of:
+The Onboard Ride Assistant App is composed of:
 \begin{itemize}
     \item\textbf{View}\newline
     It is a set of sub-components representing something the user can see and interact with; each sub-component renders the view relying on the view models provided by other components and translates user inputs to well-formed and sanitized requests sent through other components.
@@ -216,30 +218,40 @@ In particular it shows what happens whenever:
 \subsection{Component interfaces}
 In this section are defined the interfaces shown in the component view section. To make them easier to find they are listed in alphabetic order.
 \begin{itemize}
-    \item\textbf{TITLE}\newline
-    EXPLANATION
-    \item\textbf{TITLE}\newline
-    EXPLANATION
-    \item\textbf{TITLE}\newline
-    EXPLANATION
-    \item\textbf{TITLE}\newline
-    EXPLANATION
-    \item\textbf{TITLE}\newline
-    EXPLANATION
-    \item\textbf{TITLE}\newline
-    EXPLANATION
-    \item\textbf{TITLE}\newline
-    EXPLANATION
-    \item\textbf{TITLE}\newline
-    EXPLANATION
-    \item\textbf{TITLE}\newline
-    EXPLANATION
-    \item\textbf{TITLE}\newline
-    EXPLANATION
-    \item\textbf{TITLE}\newline
-    EXPLANATION
-    \item\textbf{TITLE}\newline
-    EXPLANATION
+    \item\textbf{IAccountable}\newline
+    It is the interface to the Account Manager of the SBL through which it can handle requests about signing in, registration to the service and modification of account data.
+    \item\textbf{IAccountingProvider}\newline
+    It is the interface the Client API/Accounting component shows to client-side apps. Via this interface the Account component of client-side apps can access the functions needed to signing in, register a new user, modifying user data.
+    \item\textbf{IBookable}\newline
+    It is the interface to the SBL through which it can handle requests regarding positions of available Cars, their status, position of the reserved Car, unlocking of the reserved Car, positions of the Special Parking Areas close to the user provided destination, ride data, discounts and penalties applicability evaluation and any other active ride information.
+    \item\textbf{IBookingProvider}\newline
+    It is the interface the Client API/Booking component shows to client-side apps. Via this interface the apps can submit their request about Cars positions, Cars status, Car unlocking, Special Parking Areas locations, ride details.
+    \item\textbf{IConnectable}\newline
+    It is the interface that gives access to hardware sensor data of a vehicle. In particular about its location, the engine status, ignited or not, battery level and any other available sensor data.
+    \item\textbf{IDataProvider}\newline
+    It is the interface provided by the entity framework the PEJ Context relies on to get bidirectional access to data in form of object entities whenever one of the SBL components requests or store a piece of data.
+    \item\textbf{IExplorable}\newline
+    It is the interface in charge of providing the components which use it with the set of functions required to explore the map, such as zoom and scrolling.
+    \item\textbf{IMailer}\newline
+    It is the interface used to send to Mail Server the recipient email address and content that must be sent.
+    \item\textbf{IManagableAccount}\newline
+    It is the interface the Booking Handler relies on to get the data of the user who is making a reservation.
+    \item\textbf{IMapProvider}\newline
+    It is the interface the Map Wrapper uses to get the data on the map, but it provides other functions too; in particular the possibility to look for a specific address, and by doing so checking whether that address exists or not, and to get the distance between two provided locations.
+    \item\textbf{INavigable}\newline
+    It is the interface each View has to expose in order to support navigation and acceptance of input viewmodels.
+    \item\textbf{IPaymentProvider}\newline
+    It is the interface exposed by Payment Processor accepting payment requests and returning transaction outcome on completion.
+    \item\textbf{IPaymentRequest}\newline
+    It is the interface the Booking Handler uses to create a pending payment for a particular user. Via this interface the ride reference is passed to the Payment Processor in order to apply discounts or penalties before issuing the payment.
+    \item\textbf{IQueryable}\newline
+    It is the interface the Special Areas Assistant exposes to be queried about the positions of the Special Parking Areas, in particular via this interface the Zone Manager can answer to the Booking Handler requests about the list of the closest SPA to a provided location.
+    \item\textbf{ITrackable}\newline
+    It is the interface the Zone Manager uses to check the position and the other data of each vehicle. Furthermore it is via this interface that the Zone Manager can receive inform about engine ignition or shut down.
+    \item\textbf{IViewable}\newline
+    It is the interface that components with visual contents expose to the View component in order to provide the information and the data to be rendered.
+    \item\textbf{IZoneService}\newline
+    It is the interface the Zone Manager provides the Booking Handler with the set of functions required by the latter to accomplish its tasks, including getting vehicles location, asking for Car unlocking, asking for the closest set of SPA from a given location. Furthermore the Zone Manager uses this interface to notify the Booking Handler about vehicle status changes, such as location or engine ignition.
 \end{itemize}
 
 
@@ -252,13 +264,19 @@ As most significant ones we would like to underline:
     \item Car sharing services, at the moment are experiencing a significant growth in terms of user adoption, therefore exists a concrete chance that the architecture would be heavy loaded even on service launch date which will probably require huge resources deployment that will take relatively long time to be completed with on-premise infrastructures.
 \end{itemize}
 \subsubsection{Cloud Design Patterns}
-Designing cloud-ready software solutions has an immediate positive side-effect: each single taken design decision must always keep that elasticity and abstraction level the environment itself is characterized by. This practically turns out into helping solution architects to avoid many kinds of bad and harmful decisions that often come from technological concerns. The PowerEnJoy software platform this document describes follows most common recommended guidelines and best practices about roles subdivision across virtual compute units, message queuing and processing, data replication and caching. For more detailed description of those concepts you can refer to the MSDN library article you find in the External References section (ยง\ref{external_ref}) of this document.
+Designing cloud-ready software solutions has an immediate positive side-effect: each single taken design decision must always keep that elasticity and abstraction level the environment itself is characterized by. This practically turns out into helping solution architects to avoid many kinds of bad and harmful decisions that often come from technological concerns. The PowerEnJoy software platform this document describes follows most common recommended guidelines and best practices about roles subdivision across virtual compute units, message queuing and processing, data replication and caching. For more detailed description of those concepts you can refer to the MSDN library article you find in the External References section (ง\ref{external_ref}) of this document.
 
 \subsubsection{Architectural Design Patterns}
 The whole PowerEnJoy software platform consists of a distributed, multi-tier architecture with a presentation layer split into a common front-end proxy and two different remote mobile clients, a middle tier that implements the PowerEnJoy business logic, a data tier which splits into multiple datasources and an IoT tier which includes both remote embedded devices and incoming telemetry data proxy. Each remote mobile client adopt an MVC style pattern, but its actual interpretation varies across different frameworks supported by the target OSs.
 
 \subsubsection{Communication Design Patterns}
+Given the distributed architectural layout, we had to keep particular attention designing each communication layer across various types of components. Where appropriate we have adopted a different approach always trying to leverage well-known design patterns in conjunction with open communication protocols that make much easier to integrate components based on heterogeneous technologies.\\
 
+For interconnection of front-end and back-end roles a standard Enterprise Service Bus has been adopted. Being its queuing and dispatching mechanisms both REST-based and event-driven, it accommodates our necessity of distributing message processing workloads across multiple different worker instances.\\
+
+Mobile clients are connected to front-end roles by typical REST-based Client-Server patterns but are also able to receive asynchronous messages from the server via standard push notification service which basically resemble a Publisher-Subscriber channel. All messages sent through REST channels are encoded in JSON format. The choice of JSON/REST protocol suite over XML/SOAP has been adopted to minimize network loads caused by unnecessary XML verbosity, and also to maximize compatibility with existing messaging services from major cloud providers.\\
+
+The connection between Vehicle Embedded Platforms is built over open AMQP/1.0 protocol, which turns out to be the most efficient one that integrates all security and performance features that the communication to IoT devices is expected to have. Those AMQP messages are processed by an Event Hub, a kind of Service Bus specifically designed to collect event streams at high throughput, which makes it perfect for IoT telemetry and management scenarios.
 
 \subsection{Other design decisions}
 Following paragraphs refer to relevant design decisions not explicitly explained anywhere else in this document.\\
@@ -268,6 +286,5 @@ The SBL supports configurable timeout values for any event regarding a ride. Thi
 The SBL supports configurable discounts policies. This means that each required feature regarding discount applicability can be modified or updated in future without any software upgrade. Each discount policy is defined by a set of conditions to be satisfied at a specific point of a booking (on Car unlocking, on engine turn-off, on Car locking) and parameters that allow to modify the charged fare (percentage discount ratio, absolute discount amount).\\
 
 As said in previous chapters, each zone served by PowerEnJoy can override any global setting from the shared configuration datasource.\\
-
-The mobile clients are expected to evolve much more frequently with respect to other service components. Therefore sounds reasonable not to define further the MVC pattern variant technicalities, taking advantage of any platform specific framework which best integrates with the target at the time of development. These components are designed in such a way that the development of a brand-new version based on a completely different MVC framework should complete in short time and without generating issues to be addressed into other components of the solution, in the event of new target OSs release/update.\\ 
-
+    
+The mobile clients are expected to evolve much more frequently with respect to other service components. Therefore sounds reasonable not to define further the MVC pattern variant technicalities, taking advantage of any platform specific framework which best integrates with the target at the time of development. These components are designed such that the development of a brand-new version based on a completely different MVC framework should complete in short time and without generating issues to be addressed into other components of the solution, in the event of new target OSs release/update.
