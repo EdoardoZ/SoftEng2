@@ -1,16 +1,20 @@
 \section{Introduction}
 
 \subsection{Purpose}
-
+The goal of this document is to provide an overall description of PowerEnJoy software architectural design together with a brief overview of service peculiar algorithms. Several standard description diagrams will help the reader to better understand taken design decisions. This document is intended for an audience of software developers and project managers.
 
 \subsection{Scope}
-
+PowerEnJoy is an application for a new electric car-sharing service.\newline
+User must be able to register to the service, with user-friendly mobile application, find a car nearby and book it. Once arrived near the car user must be able to unlock, enter and drive towards his destination.\newline
+Inside the car, the user can interact with the car onboard ride assistant for getting details about his ride or driving directions.
+\newline
+Once the ride is ended the car will be locked by the system and user is billed.
 
 \subsection{Definitions, Acronyms, Abbreviations}
 \subsubsection{Acronyms, Abbreviations}
 \begin{itemize}
     \item PEJ = PowerEnJoy
-    \item PPP = Payment Processor Provider
+   % \item PPP = Payment Processor Provider
     \item SBL = Service Business Logic
     \item SPA = Special Parking Area
 \end{itemize}
@@ -28,7 +32,7 @@
 \subsection{Internal Reference Documents}
 \label{internal_ref}
 \begin{itemize}
-    \item Project?s Assignment document: AA 2016-2017 Software Engineering 2 - Project goal, schedule, and rules.
+    \item Project’s Assignment document: AA 2016-2017 Software Engineering 2 - Project goal, schedule, and rules.
     \item Software Engineering 2: "PowerEnJoy" Requirements Analysis and Specification Document.
     \item See section \ref{external_ref} for external references.
 \end{itemize}

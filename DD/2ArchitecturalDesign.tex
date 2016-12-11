@@ -167,10 +167,27 @@ and it interacts with:
 \includegraphics[scale=0.51]{{Figures/Deployment.png}}
 \label{fig:Deployment}
 \end{figure}
-EXPLANATION TEXT
+\begin{itemize}
+    \item\textbf{Mobile User's device}\newline
+    It's the mobile device owned by a generic user. He can download and install the PowerEnJoy application via platform specific app. Any major mobile systems are supported.
+    \item\textbf{PowerEnJoy Car}
+    \begin{itemize}
+        \item\textbf{Onboard User's Device}\newline
+        It's the device which every Car is equipped with, it executes a preloaded interactive application, and includes the third-party navigator software along with offline map data. This device also shares GPS sensor data and Internet connectivity with any other onboard device.
+        \item\textbf{Onboard Vehicle Controller}\newline
+        It's an embedded device which every Car is equipped with, it's connected to Car hardware interface and sensor pool.
+    \end{itemize}
+    \item\textbf{Public Cloud Service Provider}
+    \begin{itemize}
+        \item\textbf{App Service}\newline
+        It's an IaaS virtual machine already configured to run web-based services. It can be replicated into new instances by scaling managers. The app service setup is stored in virtual storage and every app service instance has access to a virtual copy of that setup. The deployment is managed by continuous integration services or other specific tools by the cloud provider. Most software components of this solution runs on such kind of compute units.
+        \item\textbf{Data Wharehouse Service}\newline
+        It's a virtual relational data storage, running on a DBaaS environment. Every database for PowerEnJoy take place in this cluster but each database can also be configured to be phisically located in preferred country or region in case of regulatory constraints.
+    \end{itemize}
+    \item\textbf{Communication protocols}\newline
+    For a comprehensive description of deployed communication protocols refer to section §\ref{com_patterns}.
+\end{itemize}
 %Add \newpage here if necessary
-\newpage
-
 
 \subsection{Runtime view}
 
@@ -178,8 +195,7 @@ This section contains some Sequence Diagrams of the application.\\
 In particular it shows what happens whenever:
 \begin{itemize}
 \item User send a request for unlock the Car;
-\item User set ride destination and drive towards it; \newline
-    the third diagram extends the second one and shows the Special Parking Area List and the Money Saving option features.
+\item User set ride destination and drive towards it; the third diagram extends the second one and shows the Special Parking Area List and the Money Saving option features.
 \end{itemize}
 
 \newpage
@@ -264,17 +280,18 @@ As most significant ones we would like to underline:
     \item Car sharing services, at the moment are experiencing a significant growth in terms of user adoption, therefore exists a concrete chance that the architecture would be heavy loaded even on service launch date which will probably require huge resources deployment that will take relatively long time to be completed with on-premise infrastructures.
 \end{itemize}
 \subsubsection{Cloud Design Patterns}
-Designing cloud-ready software solutions has an immediate positive side-effect: each single taken design decision must always keep that elasticity and abstraction level the environment itself is characterized by. This practically turns out into helping solution architects to avoid many kinds of bad and harmful decisions that often come from technological concerns. The PowerEnJoy software platform this document describes follows most common recommended guidelines and best practices about roles subdivision across virtual compute units, message queuing and processing, data replication and caching. For more detailed description of those concepts you can refer to the MSDN library article you find in the External References section (�\ref{external_ref}) of this document.
+Designing cloud-ready software solutions has an immediate positive side-effect: each single taken design decision must always keep that elasticity and abstraction level the environment itself is characterized by. This practically turns out into helping solution architects to avoid many kinds of bad and harmful decisions that often come from technological concerns. The PowerEnJoy software platform this document describes follows most common recommended guidelines and best practices about roles subdivision across virtual compute units, message queuing and processing, data replication and caching. For more detailed description of those concepts you can refer to the MSDN library article you find in the External references section (§\ref{external_ref}) of this document.
 
 \subsubsection{Architectural Design Patterns}
-The whole PowerEnJoy software platform consists of a distributed, multi-tier architecture with a presentation layer split into a common front-end proxy and two different remote mobile clients, a middle tier that implements the PowerEnJoy business logic, a data tier which splits into multiple datasources and an IoT tier which includes both remote embedded devices and incoming telemetry data proxy. Each remote mobile client adopt an MVC style pattern, but its actual interpretation varies across different frameworks supported by the target OSs.
+The whole PowerEnJoy software platform consists of a distributed, multi-tier architecture with a presentation layer split into a common front-end proxy and two different remote client-side apps, a middle tier that implements the PowerEnJoy business logic, a data tier which splits into multiple datasources and an IoT tier which includes both remote embedded devices and incoming telemetry data proxy. Each remote client-side app adopt an MVC style pattern, but its actual interpretation varies across different frameworks supported by the target OSs.
 
 \subsubsection{Communication Design Patterns}
+\label{com_patterns}
 Given the distributed architectural layout, we had to keep particular attention designing each communication layer across various types of components. Where appropriate we have adopted a different approach always trying to leverage well-known design patterns in conjunction with open communication protocols that make much easier to integrate components based on heterogeneous technologies.\\
 
 For interconnection of front-end and back-end roles a standard Enterprise Service Bus has been adopted. Being its queuing and dispatching mechanisms both REST-based and event-driven, it accommodates our necessity of distributing message processing workloads across multiple different worker instances.\\
 
-Mobile clients are connected to front-end roles by typical REST-based Client-Server patterns but are also able to receive asynchronous messages from the server via standard push notification service which basically resemble a Publisher-Subscriber channel. All messages sent through REST channels are encoded in JSON format. The choice of JSON/REST protocol suite over XML/SOAP has been adopted to minimize network loads caused by unnecessary XML verbosity, and also to maximize compatibility with existing messaging services from major cloud providers.\\
+Client-side apps are connected to front-end roles by typical REST-based Client-Server patterns but are also able to receive asynchronous messages from the server via standard push notification service which basically resemble a Publisher-Subscriber channel. All messages sent through REST channels are encoded in JSON format. The choice of JSON/REST protocol suite over XML/SOAP has been adopted to minimize network loads caused by unnecessary XML verbosity, and also to maximize compatibility with existing messaging services from major cloud providers.\\
 
 The connection between Vehicle Embedded Platforms is built over open AMQP/1.0 protocol, which turns out to be the most efficient one that integrates all security and performance features that the communication to IoT devices is expected to have. Those AMQP messages are processed by an Event Hub, a kind of Service Bus specifically designed to collect event streams at high throughput, which makes it perfect for IoT telemetry and management scenarios.
 
@@ -287,4 +304,4 @@ The SBL supports configurable discounts policies. This means that each required 
 
 As said in previous chapters, each zone served by PowerEnJoy can override any global setting from the shared configuration datasource.\\
     
-The mobile clients are expected to evolve much more frequently with respect to other service components. Therefore sounds reasonable not to define further the MVC pattern variant technicalities, taking advantage of any platform specific framework which best integrates with the target at the time of development. These components are designed such that the development of a brand-new version based on a completely different MVC framework should complete in short time and without generating issues to be addressed into other components of the solution, in the event of new target OSs release/update.
+The client-side apps are expected to evolve much more frequently with respect to other service components. Therefore sounds reasonable not to define further the MVC pattern variant technicalities, taking advantage of any platform specific framework which best integrates with the target at the time of development. These components are designed such that the development of a brand-new version based on a completely different MVC framework should complete in short time and without generating issues to be addressed into other components of the solution, in the event of new target OSs release/update.
