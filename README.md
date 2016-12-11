@@ -14,10 +14,10 @@
 - Zini Edoardo: ∼29h
 
 ###DD
-- Teamwork:
-- Piccirillo Luca: 
-- Zampogna Gian Luca: 
-- Zini Edoardo: 
+- Teamwork: ∼13h
+- Piccirillo Luca: ∼28h
+- Zampogna Gian Luca: ∼21h
+- Zini Edoardo: ∼21h
 
 ###Testing document
 - Teamwork:
