@@ -1,0 +1,64 @@
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{wrapfig,lipsum}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{fmtcount}
+\usepackage{hyperref}
+\usepackage{eurosym}
+\usepackage{amstext} % for \text
+\DeclareRobustCommand{\officialeuro}{%
+  \ifmmode\expandafter\text\fi
+  {\fontencoding{U}\fontfamily{eurosym}\selectfont e}}
+\usepackage[dvipsnames]{xcolor} %for alloy package
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{pdflscape}
+
+\title{Software Engineering 2: "PowerEnJoy"\newline\newline
+Integration Test Plan Document}
+\subtitle{Version 1.0}
+\author{Piccirillo Luca - 790380\\
+Zampogna Gian Luca - 863097\\
+Zini Edoardo - 875275}
+\date{January 15\textsuperscript{th}, 2017}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\begin{document}
+\pagenumbering{gobble}
+\begin{figure} [h!]
+    \centering
+    \includegraphics[scale=0.6]{{Figures/LogoPolimi.png}}
+    \label{fig:LogoPolimi}
+    \maketitle
+\end{figure}
+\newpage
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+\input{1Introduction.tex}
+\newpage
+\input{2IntegrationStrategy.tex}
+\newpage
+\input{3IndividualStepsAndTestDescription.tex}
+\newpage
+\input{4ToolsAndTestEquipmentRequired.tex}
+\newpage
+\input{5ProgramStubsAndTestDataRequired.tex}
+\newpage
+\input{6EffortSpent.tex}
+
+\end{document}
