@@ -195,7 +195,9 @@ This section contains some Sequence Diagrams of the application.\\
 In particular it shows what happens whenever:
 \begin{itemize}
 \item User send a request for unlock the Car;
+	\newline in this diagram the SBL communicates with Car using asynchronous messages: SBL send messages to Live Vehicle API that route them to the car and answer once has the information required.
 \item User set ride destination and drive towards it; the third diagram extends the second one and shows the Special Parking Area List and the Money Saving option features.
+\newline in this diagram SBL communicates with Car through synchronous messages because we implies Live Vehicle API usage.
 \end{itemize}
 
 \newpage
