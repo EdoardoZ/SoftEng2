@@ -487,7 +487,7 @@ The system relies on a third party payment processor provider to issue payment r
 \hline
 \textbf{Output Condition} & NULL\\
 \hline
-\textbf{Exceptions} &       ?   Cannot obtain current position.\\& 
+\textbf{Exceptions} &       •   Cannot obtain current position.\\& 
                            The exception is handled notifying the user about the exception.\\
 \hline
 \end{tabular} 
@@ -516,8 +516,8 @@ the application.\\&
 \hline
 \textbf{Output Condition} & A new PoweUser account exists.\\
 \hline
-\textbf{Exceptions} &       ?   Input fields validation failure.\\& 
-                            ?	Cannot send email to selected address.\\&
+\textbf{Exceptions} &       •   Input fields validation failure.\\& 
+                            •	Cannot send email to selected address.\\&
                            These exceptions are handled notifying the user about the exception, asking him to give new valid/working inputs.\\
 \hline
 \end{tabular} 
@@ -543,7 +543,7 @@ the application.\\&
 \hline
 \textbf{Output Condition} & Visitor is now authenticated as a PowerUser.\\
 \hline
-\textbf{Exceptions} &       ?   Wrong credentials.\\&
+\textbf{Exceptions} &       •   Wrong credentials.\\&
                            The exception is handled notifying the user about the exception, asking him to check for errors in given credentials.\\
 \hline
 \end{tabular} 
@@ -618,7 +618,7 @@ the application.\\&
 \hline
 \textbf{Output Condition} & PowerUser has a pending reservation for the selected Car.\\
 \hline
-\textbf{Exceptions} &       ?   Car no longer available.\\& 
+\textbf{Exceptions} &       •   Car no longer available.\\& 
                            The exception is handled notifying the user about the exception, asking him to choose another Car.\\
 \hline
 \end{tabular} 
@@ -644,7 +644,7 @@ the application.\\&
 \hline
 \textbf{Output Condition} & PowerUser has no pending Car reservation.\\
 \hline
-\textbf{Exceptions} &       ?   Reservation expired meanwhile.\\&
+\textbf{Exceptions} &       •   Reservation expired meanwhile.\\&
                            The exception is handled aborting the cancellation wizard.\\
 \hline
 \end{tabular} 
@@ -695,7 +695,7 @@ the application.\\&
 \hline
 \textbf{Output Condition} & Car doors are unlocked.\\
 \hline
-\textbf{Exceptions} &       ?   Unable to unlock the Car.\\& 
+\textbf{Exceptions} &       •   Unable to unlock the Car.\\& 
                            The exception is handled asking the PowerUser to retry in a few seconds.\\
 \hline
 \end{tabular} 
@@ -709,7 +709,7 @@ the application.\\&
 \subsubsection{Getting Driving Directions}
 \begin{tabular}{| l | p{10cm} |}
 \hline
-\textbf{Actor}      &       PowerUser, Navigator \\
+\textbf{Actor}      &       PowerUser, Onboard Navigation Software \\
 \hline
 \textbf{Goal}       &       [G9]\\
 \hline
@@ -720,7 +720,7 @@ the application.\\&
 \hline
 \textbf{Output Condition} & The destination is reached.\\
 \hline
-\textbf{Exceptions} &       ?	Cannot find driving direction for selected destination.\\& 
+\textbf{Exceptions} &       •	Cannot find driving direction for selected destination.\\& 
                            The exception is handled asking the PowerUser to select another destination to get driving directions to which is surely reachable by car.\\
 \hline
 \end{tabular} 
@@ -849,7 +849,7 @@ the application.\\&
 \hline
 \textbf{Output Condition} & The amount of money has been transferred from PowerUser to PEJ.\\
 \hline
-\textbf{Exceptions} &       ?   Not enough money.\\&
+\textbf{Exceptions} &       •   Not enough money.\\&
                            The exception is handled notifying the user of the issue and adding that payment request to the pending ones.\\
 \hline
 \end{tabular} 
