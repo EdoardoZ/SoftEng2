@@ -113,7 +113,7 @@ The User Device Mobile App is composed of:
     \item\textbf{View Router}\newline
     It is the component that implements and keep tracks of navigation paths across various views, providing for a given view model the right view component to be navigated that is able to present it to the user. It also implements backward navigation feature.
     \item\textbf{Map Wrapper}\newline
-    It is the component that wrap the outsourced map images into an user control that makes them scrollable and zoomable, with the ability to overlay custom objects in defined position. It allows the application not to be coupled to a specific third-party maps provider.
+    It is the component that wraps the maps provided by the third party map provider and makes it scrollable and zoomable, with the ability to overlay custom objects in defined position. It allows the application not to be coupled to a specific third-party maps provider.
     \item\textbf{Map Explorer}\newline
     It is the component that takes the map provided by the Map Wrapper and takes care of showing the position of all available Cars on that map. These positions are obtained via Client API/Booking call.
     \item\textbf{Reserved Car Viewer}\newline
@@ -195,7 +195,7 @@ This section contains some Sequence Diagrams of the application.\\
 In particular it shows what happens whenever:
 \begin{itemize}
 \item User send a request for unlock the Car;
-	\newline in this diagram the SBL communicates with Car using asynchronous messages: SBL send messages to Live Vehicle API that route them to the car and answer once has the information required.
+\newline in this diagram the SBL communicates with Car using asynchronous messages: SBL send messages to Live Vehicle API that route them to the car and answer once has the information required.
 \item User set ride destination and drive towards it; the third diagram extends the second one and shows the Special Parking Area List and the Money Saving option features.
 \newline in this diagram SBL communicates with Car through synchronous messages because we implies Live Vehicle API usage.
 \end{itemize}
