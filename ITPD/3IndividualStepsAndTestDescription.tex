@@ -1,27 +1,822 @@
 \section{Individual Steps and Test Description}
 
+
+CONVENZIONI USATE
+- verso frecce
+- suite ciascuna contenente più test
+- per identificare inequivovabilmente i vari test: "test can be unequivocally identified by putting the name of the test suite before the specific test identification label/name."
+
+
 {\renewcommand{\arraystretch}{1.2}%spazio interlinea
 
+%NEW SUBSECTION
+\subsection{Service Business Logic}
+\subsubsection{Account Manager}
 \begin{tabularx}{\textwidth}{l X}
     \hline 
-    \textbf{Test Case Identifier} & prova\\ 
+    \textbf{Test Case Identifier} & AccountManager.Creation\\ 
     \hline 
     
-    \textbf{Test Item(s)} & a $\rightarrow$ b\\
+    \textbf{Test Item(s)} & IAccountable $\rightarrow$ Account Manager $\rightarrow$ IMailer, PEJ Context\\
     \hline 
     
-    \textbf{Input Specification} & ....\\
+    \textbf{Input Specification} &  \textbf{T1, T2:} valid Registration Form.\\
+                                &   \textbf{T3, T4:} not valid Registration Form.\\
+
     \hline 
     
-    \textbf{Output Specification} & .... \\
+    \textbf{Output Specification} & \textbf{T1:} PEJ Context contains a new tuple containing the data of Registration Form.\\
+                                &   \textbf{T2:} send email request sended via IMAiler interface to email address contained in Registration Form.\\
+                                & \textbf{T3:} PEJ Context remains unchanged.\\
+                                & \textbf{T4:} no send email request is made via IMailer interface.\\
     \hline 
     
-    \textbf{Environmental Needs} & ....  \\
+    \textbf{Environmental Needs} &  Mail Server stub\\
     \hline
 \end{tabularx}
-\newline 
+\bigskip
+
+\noindent 
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & AccountManager.Authentication\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IAccountable $\rightarrow$ Account Manager $\rightarrow$ PEJ Context\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} valid Login Form.\\
+                                &   \textbf{T2:} not valid Login Form.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} a valid authentication token exists and user data are sended via IAccountable.\\
+                                &   \textbf{T2:} no new authentication token is created and an error code is sended via IAccountable.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & none\\
+    \hline
+\end{tabularx}
+\bigskip
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & AccountManager.ProfileManagement\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IAccountable $\rightarrow$ Account Manager $\rightarrow$ IMailer,  PEJ Context\\
+    \hline 
+    
+    \textbf{Input Specification} &  \textbf{T1:} valid modification request driving licence.\\
+                                &\textbf{T2:} valid modification request personal information.\\
+                                &\textbf{T3:} valid modification request credit card information.\\
+                                &  \textbf{T4:} not valid modification request driving licence.\\
+                                &\textbf{T5:} not valid modification request personal information.\\
+                                &\textbf{T6:} not valid modification request credit card information.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1, T2, T3:} Data are modified and a notification is sent via IMailer.\\
+                                & \textbf{T4, T5, T6:} data are not modified and a error code is send via IAccountable.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Mail Server stub\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & AccountManager.DetailsRetrieval\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IManageableAccount $\rightarrow$ Account Manager $\rightarrow$ PEJ Context\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} Existing user ID. \\
+                                & \textbf{T2:} Not existing user ID.\\
+    \hline  
+    
+    \textbf{Output Specification} & \textbf{T1:} User ID is found and information are sent via IManageableAccount.\\
+                                & \textbf{T2:} No user ID is found and an error is sent via IManageableAccount.\\
+    \hline 
+    
+    
+    \textbf{Environmental Needs} & none\\
+    \hline
+\end{tabularx}
+%\bigskip
+
+\subsubsection{Payment Processor}
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & PaymentProcessor.Billing\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IPaymentRequest $\rightarrow$ Payment Processor $\rightarrow$ PEJ Context\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} payment request data about a ride satisfying a given discount policy.\\
+                                & \textbf{T2:} payment request data about a ride satisfying several given discount policies.\\
+                                &  \textbf{T3:} payment request data about a ride satisfying no existing discount policy.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} a new pending payment is added in PEJ Context to the userID contained in data and the appropriate discount is applied.\\
+    & \textbf{T2:} a new pending payment is added in PEJ Context to the user ID contained in data and all appropriate discounts are applied.\\
+    & \textbf{T3:} a new pending payment is added in PEJ Context to the user ID contained in data and no discount is applied.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & none\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & PaymentProcessor.RequestProcessing\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & Payment Processor $\rightarrow$ IPaymentProvider, PEJ Context\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} user ID.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} a payment request is sended via IPaymentProvider and there is no pending payment for the billed userID.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Payment Processor Provider stub\\
+    \hline
+\end{tabularx}
+%\bigskip 
+
+\noindent 
+\subsubsection{Vehicle Tracker}
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & VehicleTracker.Monitoring\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & ITrackable $\rightarrow$ Vehicle Tracker $\rightarrow$ IConnectable, PEJ Context\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} new vehicle status update.\\
+                                & \textbf{T2:} vehicle status request.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} vehicle status in PEJ Context is updated and published on ITrackable.\\
+    & \textbf{T2:} vehicle status is extracted from PEJ Context and sent via ITrackable.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Live Vehicle API stub\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & VehicleTracker.Controlling\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & ITrackable $\rightarrow$ Vehicle Tracker $\rightarrow$ IConnectable, PEJ Context\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} car ID and coherent action.\\
+                                & \textbf{T2:} car ID and not coherent action.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} action command is sent via IConnectable to the car identified by car ID.\\
+                                & \textbf{T2:} no command is sent via IConnectable to the car identified by car ID.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Live Vehicle API stub\\
+    \hline
+\end{tabularx}
+%\bigskip 
+
+\noindent 
+\subsubsection{Apecial areas Assistant}
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & SpecialAreasAssistant.Filtering\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IQueryable $\rightarrow$ Special Areas Assistant $\rightarrow$ PEJ Context\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} valid position.\\
+                                & \textbf{T2:} not valid position.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} list of available special parking areas within a given distance from the given location.\\
+                                & \textbf{T1:} empty list.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & none\\
+    \hline
+\end{tabularx}
+%\bigskip 
+
+\noindent 
+\subsubsection{Zone Manager}
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & ZoneManager.AvailableCarBrowsing\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IZoneService $\rightarrow$ Zone Manager $\rightarrow$ PEJ Context\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} Valid position.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} A list of available Car is sent back via IZoneService.\\
+                                
+    \hline 
+    
+    \textbf{Environmental Needs} & Special Areas Assistant component, Vehicle Tracker stub\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent 
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & ZoneManager.VehicleStatusUpdating\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IZoneService $\rightarrow$ Zone Manager $\rightarrow$ ITrackable\\ %non è il flusso dati (il flusso dati è al contrario)
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} vehicle status update where its position is within a Special Parking Area with its plugg into the power grid.\\
+                                & \textbf{T2:} vehicle status update where its position is within Safe Areas but not within a Special Parking Area.\\
+                                & \textbf{T3:} vehicle status update where its position is neither within Safe Areas nor within a Special Parking Area.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} vehicle status is sent via IZoneService with Special Parking Area flag equals to true.\\
+                                & \textbf{T2:} vehicle status is sent via IZoneService with Special Parking Area flag equals to false and Safe Area flag equals to true.\\
+                                & \textbf{T3:} vehicle status is sent via IZoneService with Safe Area flag equals to false.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Vehicle Tracker component, Special Areas Assistant stub\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+
+\noindent 
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & ZoneManager.VehicleActionHandling\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IZoneService $\rightarrow$ Zone Manager $\rightarrow$ ITrackable\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} unlock car ID.\\
+                                & \textbf{T2:} lock car ID.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} unlock car request is routed to ITrackable. \\
+                                & \textbf{T2:} lock car request is routed to ITrackable. \\
+    \hline 
+    
+    \textbf{Environmental Needs} & Vehicle Tracker component\\
+    \hline
+\end{tabularx}
+%\bigskip
+
+\subsubsection{Booking Handler}
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & BookingHandler.Creation\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IManageableAccount, IZoneService\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} Free Car ID and User ID. \\
+                                & \textbf{T2:} Booked Car ID and User ID. \\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} Create a new instance and send a notification via IManageableAccount and IZoneService.\\
+                                & \textbf{T2:} Send a error message back via IBookable.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Account Manager component, Zone Manager component\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & BookingHandler.Cancellation\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IManageableAccount, IZoneService\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} User ID and Car ID. \\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} Instance is cancelled and send a notification via IManageableAccount and IZoneService.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Account Manager component, Zone Manager component, Paymant Processor component\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & BookingHandler.Expiration\\ %expiration chiama cancellation
+    \hline 
+    
+    \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IManageableAccount, IZoneService, IPaymentRequest\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} User ID and Car ID. \\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} A bill request is sent via IPaymentRequest and BookingHandler.Cancellation is triggered.  \\
+    \hline 
+    
+    \textbf{Environmental Needs} & Account Manager component, Zone Manager component, Paymant Processor component\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & BookingHandler.UserVehicleUnlocking\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IZoneService\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} Car ID.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} Unlock request is sent via IZoneService.  \\
+    \hline 
+    
+    \textbf{Environmental Needs} & Zone Manager component\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & BookingHandler.RideStatusUpdating\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IZoneService\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} Car ID.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} Request car condition via IZoneService.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Zone Manager component\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & BookingHandler.AutomaticVehicleLocking\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IZoneService\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} Car ID. \\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} Locking request is sent via IZoneService.  \\
+    \hline 
+    
+    \textbf{Environmental Needs} & Zone Manager component\\
+    \hline
+\end{tabularx}
 
 
 
+
+%NEW SUBSECTION
+\subsection{User Device Mobile App}
+
+\subsubsection{Map Wrapper}
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & MapWrapper.MapLooking\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IExplorable $\rightarrow$ Map Wrapper $\rightarrow$ IMapProvider\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} GPS coordinates.\\
+                                 & \textbf{T2:} valid address.\\
+                                 & \textbf{T3:} not valid address.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1, T2:} scrollable and zoomable map frame of the place specified by given coordinates returned via IExplorable.\\
+                                & \textbf{T3:} map frame is not updated.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Google Maps\\
+    \hline
+\end{tabularx}
+%\bigskip 
+
+\subsubsection{Account}
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & Account.Creation\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & View $\rightarrow$ Account $\rightarrow$ IAccountingProvider\\
+    \hline 
+    
+    \textbf{Input Specification}  & \textbf{T1:} user filled in registration form.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} registration form data sent via IAccountingProvider.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & ClientAPI/Accounting stub\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & Account.Authentication\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & View $\rightarrow$ Account $\rightarrow$ IAccountingProvider\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} login data.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} login data are received via IAccountingProvider.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & ClientAPI/Accounting stub\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & Account.Recap\\
+    %per accedere alla schermata coi dettagli dell'account 
+    \hline 
+    
+    \textbf{Test Item(s)} & View $\rightarrow$ Account\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} cached user data.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} no exception occurs.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & none.\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & Account.DataUpdate\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & View $\rightarrow$ Account $\rightarrow$ IAccountingProvider\\
+    \hline 
+    
+    \textbf{Input Specification}  & \textbf{T1:} user filled in form containing updated data.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} form containing updated data is sent via IAccountingProvider.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & ClientAPI/Accounting stub.\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & Account.SignOut\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & View $\rightarrow$ Account\\
+    \hline 
+    
+    \textbf{Input Specification}  & \textbf{T1:} none.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} login data deleted.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & none.\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+
+%\subsubsection{Map Explorer}
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & MapExplorer.ShowMap\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IViewable $\rightarrow$ MapExplorer $\rightarrow$ IExplorable, IBookingProvider\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} map frame and available cars' positions.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} show map including cars' positions.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Map Wrapper component and ClientAPI/Booking stub.\\
+    \hline
+\end{tabularx}
+%\bigskip 
+
+\subsubsection{Reserved Car Viewer}
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & ReservedCarView.ShowMap\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} &  IViewable $\rightarrow$ Reserved Car Viewer $\rightarrow$ IExplorable, IBookingProvider\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} map frame and reserved car position.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} show map including reserved car position.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Map Wrapper component and ClientAPI/Booking stub.\\
+    \hline
+\end{tabularx}
+%\bigskip 
+
+
+\subsubsection{View}
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & View.ModelBinding\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & INavigable $\rightarrow$ View $\rightarrow$ IViewable\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} ViewModel.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} A view is visualized with successful binding.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & View Router driver, Map Explorer and Reserved Car View components.\\
+    \hline
+\end{tabularx}
+%\bigskip 
+
+\subsubsection{View Router}
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & ViewRouter.Navigation\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & View Router $\rightarrow$ INavigable\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} Valid and consistent Viewmodel.\\
+                                & \textbf{T2:} Unsupported or inconsistent viewmodel.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} Create a new instance of a view capable of bind the input viewmodel and perform navigation to that view.\\
+                                & \textbf{T2:} An error pop-up message is displayed.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & View stub.\\
+    \hline
+\end{tabularx}
+%\bigskip 
+
+
+%NEW SUBSECTION
+\subsection{Onboard Ride Assistant App}
+
+\subsubsection{Map Wrapper}
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & MapWrapper.MapLooking\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IExplorable $\rightarrow$ Map Wrapper $\rightarrow$ IMapProvider\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} GPS coordinates.\\
+                                 & \textbf{T2:} valid address.\\
+                                 & \textbf{T3:} not valid address.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1, T2:} scrollable and zoomable map frame of the place specified by given coordinates returned via IExplorable.\\
+                                & \textbf{T3:} map frame is not updated.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & Navigator.\\
+    \hline
+\end{tabularx}
+%\bigskip 
+
+\subsubsection{Status Monitor}
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & StatusMonitor.SearchAddress\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IViewable $\rightarrow$ Status Monitor $\rightarrow$ IMapProvider, IBookingProvider\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} user provided address.\\
+                                & \textbf{T2:} Navigator recognized address.\\
+                                & \textbf{T3:} Navigator not recognized address.\\
+                                & \textbf{T4:} server response to safe area check.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} the address is sent via IMapProvider to Navigator.\\
+                                & \textbf{T2:} the address is sent via IBookingProvider to ClientAPI/Booking.\\%sent to very if it is a safe area or not
+                                & \textbf{T3:} no exception occurs.\\
+                                & \textbf{T3:} server response is shown.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & ClientAPI/Booking stub and Navigator.\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & StatusMonitor.SpaListing\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IViewable $\rightarrow$ Status Monitor $\rightarrow$ IBookingProvider\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} Address.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} SPA list is returned via IViewable. \\
+    \hline 
+    
+    \textbf{Environmental Needs} & ClientAPI/Booking stub.\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & StatusMonitor.MoneySavingDestination\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IViewable $\rightarrow$ Status Monitor $\rightarrow$ IBookingProvider\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} Address.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} The money saving destination closest to the address is set as destination.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & ClientAPI/Booking stub and Navigator.\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & StatusMonitor.ShowDiscounts\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IViewable $\rightarrow$ Status Monitor $\rightarrow$ IBookingProvider\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} None.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} Return discounts and send them via IViewable.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & ClientAPI/Booking stub.\\
+    \hline
+\end{tabularx}
+\bigskip 
+
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & StatusMonitor.StatusUpdate\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & IViewable $\rightarrow$ Status Monitor $\rightarrow$ IBookingProvider\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} Viewmodel.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} Update viewmodel of the actual view. \\
+    \hline 
+    
+    \textbf{Environmental Needs} & ClientAPI/Booking stub.\\
+    \hline
+\end{tabularx}
+%\bigskip 
+
+\subsubsection{View}
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & View.ModelBinding\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & INavigable $\rightarrow$ View $\rightarrow$ IViewable\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} ViewModel.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} A view is visualized with successful binding.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & View Router driver, Map Wrapper and Status Monitor components.\\
+    \hline
+\end{tabularx}
+%\bigskip 
+
+\subsubsection{View Router}
+\noindent
+\begin{tabularx}{\textwidth}{l X}
+    \hline 
+    \textbf{Test Case Identifier} & ViewRouter.Navigation\\ 
+    \hline 
+    
+    \textbf{Test Item(s)} & View Router $\rightarrow$ INavigable\\
+    \hline 
+    
+    \textbf{Input Specification} & \textbf{T1:} Valid and consistent Viewmodel.\\
+                                & \textbf{T2:} Unsupported or inconsistent viewmodel.\\
+    \hline 
+    
+    \textbf{Output Specification} & \textbf{T1:} Create a new instance of a view capable of bind the input viewmodel and perform navigation to that view.\\
+                                & \textbf{T2:} An error pop-up message is displayed.\\
+    \hline 
+    
+    \textbf{Environmental Needs} & View stub.\\
+    \hline
+\end{tabularx}
+\bigskip 
 
 }
+
+%READ ME
+%al laboratorio mottola ha detto che per ogni test ci devono essere:
+%-input (tutti i possibili)
+%-expected output (per ogni tipo di input)
+%-successful criteria
+
+%ALMENO UN TEST PER OGNI INTERFACCIA/API
+
+%for the most critical functions the test may include more components (only few test and NOT for login, only for service-related functions).
