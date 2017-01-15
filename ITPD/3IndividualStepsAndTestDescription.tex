@@ -1,10 +1,6 @@
 \section{Individual Steps and Test Description}
 
-
-CONVENZIONI USATE
-- verso frecce
-- suite ciascuna contenente più test
-- per identificare inequivovabilmente i vari test: "test can be unequivocally identified by putting the name of the test suite before the specific test identification label/name."
+Here follows a exhaustive description of each component feature testing. For each feature a test suite is provided (foolowing \textit{Component.Feature} naming convention). All tests in a test suite come at the same point in the component integration  so they share the same test items and environmental needs. Input and Output specifications are respectively given in the shape of pre- and post- conditions that the single test (T\textit{n}, where \textit{n} is a number relative to that test suite) requires to be matched in order to be marked as successfully passed. For better readability test items are listed with arrows that resembles interface symbols used in component diagrams, so the reader shouldn't need to continuously go back to diagrams in order to follow this section.
 
 
 {\renewcommand{\arraystretch}{1.2}%spazio interlinea
@@ -20,15 +16,15 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IAccountable $\rightarrow$ Account Manager $\rightarrow$ IMailer, PEJ Context\\
     \hline 
     
-    \textbf{Input Specification} &  \textbf{T1, T2:} valid Registration Form.\\
-                                &   \textbf{T3, T4:} not valid Registration Form.\\
+    \textbf{Input Specification} &  \textbf{T1, T2:} valid registration form.\\
+                                &   \textbf{T3, T4:} not valid registration form.\\
 
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} PEJ Context contains a new tuple containing the data of Registration Form.\\
-                                &   \textbf{T2:} send email request sended via IMAiler interface to email address contained in Registration Form.\\
+    \textbf{Output Specification} & \textbf{T1:} PEJ Context contains a new tuple containing the data of the registration form.\\
+                                &   \textbf{T2:} send email request sended via IMAiler interface to email address contained in registration form.\\
                                 & \textbf{T3:} PEJ Context remains unchanged.\\
-                                & \textbf{T4:} no send email request is made via IMailer interface.\\
+                                & \textbf{T4:} no email send request is made via IMailer interface.\\
     \hline 
     
     \textbf{Environmental Needs} &  Mail Server stub\\
@@ -45,15 +41,15 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IAccountable $\rightarrow$ Account Manager $\rightarrow$ PEJ Context\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} valid Login Form.\\
-                                &   \textbf{T2:} not valid Login Form.\\
+    \textbf{Input Specification} & \textbf{T1:} valid login form.\\
+                                &   \textbf{T2:} not valid login form.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} a valid authentication token exists and user data are sended via IAccountable.\\
-                                &   \textbf{T2:} no new authentication token is created and an error code is sended via IAccountable.\\
+    \textbf{Output Specification} & \textbf{T1:} a valid authentication token exists and user data are sent via IAccountable.\\
+                                &   \textbf{T2:} no new authentication token is created and an error code is sent via IAccountable.\\
     \hline 
     
-    \textbf{Environmental Needs} & none\\
+    \textbf{Environmental Needs} & None\\
     \hline
 \end{tabularx}
 \bigskip
@@ -67,16 +63,16 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IAccountable $\rightarrow$ Account Manager $\rightarrow$ IMailer,  PEJ Context\\
     \hline 
     
-    \textbf{Input Specification} &  \textbf{T1:} valid modification request driving licence.\\
-                                &\textbf{T2:} valid modification request personal information.\\
-                                &\textbf{T3:} valid modification request credit card information.\\
-                                &  \textbf{T4:} not valid modification request driving licence.\\
-                                &\textbf{T5:} not valid modification request personal information.\\
-                                &\textbf{T6:} not valid modification request credit card information.\\
+    \textbf{Input Specification} &  \textbf{T1:} valid modification request of driving licence.\\
+                                &\textbf{T2:} valid modification request of personal information.\\
+                                &\textbf{T3:} valid modification request of credit card information.\\
+                                &  \textbf{T4:} not valid modification request of driving licence.\\
+                                &\textbf{T5:} not valid modification request of personal information.\\
+                                &\textbf{T6:} not valid modification request of credit card information.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1, T2, T3:} Data are modified and a notification is sent via IMailer.\\
-                                & \textbf{T4, T5, T6:} data are not modified and a error code is send via IAccountable.\\
+    \textbf{Output Specification} & \textbf{T1, T2, T3:} data are modified and a notification is sent via IMailer.\\
+                                & \textbf{T4, T5, T6:} data are not modified and an error code is sent via IAccountable.\\
     \hline 
     
     \textbf{Environmental Needs} & Mail Server stub\\
@@ -93,16 +89,16 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IManageableAccount $\rightarrow$ Account Manager $\rightarrow$ PEJ Context\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} Existing user ID. \\
-                                & \textbf{T2:} Not existing user ID.\\
+    \textbf{Input Specification} & \textbf{T1:} existing user ID. \\
+                                & \textbf{T2:} not existing user ID.\\
     \hline  
     
-    \textbf{Output Specification} & \textbf{T1:} User ID is found and information are sent via IManageableAccount.\\
-                                & \textbf{T2:} No user ID is found and an error is sent via IManageableAccount.\\
+    \textbf{Output Specification} & \textbf{T1:} user ID is found and information are sent via IManageableAccount.\\
+                                & \textbf{T2:} no user ID is found and an error is sent via IManageableAccount.\\
     \hline 
     
     
-    \textbf{Environmental Needs} & none\\
+    \textbf{Environmental Needs} & None\\
     \hline
 \end{tabularx}
 %\bigskip
@@ -116,17 +112,17 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IPaymentRequest $\rightarrow$ Payment Processor $\rightarrow$ PEJ Context\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} payment request data about a ride satisfying a given discount policy.\\
-                                & \textbf{T2:} payment request data about a ride satisfying several given discount policies.\\
-                                &  \textbf{T3:} payment request data about a ride satisfying no existing discount policy.\\
+    \textbf{Input Specification} & \textbf{T1:} ride satisfies a given discount policy.\\
+                                & \textbf{T2:} ride satisfies several given discount policies.\\
+                                &  \textbf{T3:} ride does not satisfy any existing discount policy.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} a new pending payment is added in PEJ Context to the userID contained in data and the appropriate discount is applied.\\
+    \textbf{Output Specification} & \textbf{T1:} a new pending payment is added in PEJ Context to the user ID contained in data and the appropriate discount is applied.\\
     & \textbf{T2:} a new pending payment is added in PEJ Context to the user ID contained in data and all appropriate discounts are applied.\\
     & \textbf{T3:} a new pending payment is added in PEJ Context to the user ID contained in data and no discount is applied.\\
     \hline 
     
-    \textbf{Environmental Needs} & none\\
+    \textbf{Environmental Needs} & None\\
     \hline
 \end{tabularx}
 \bigskip 
@@ -140,10 +136,10 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & Payment Processor $\rightarrow$ IPaymentProvider, PEJ Context\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} user ID.\\
+    \textbf{Input Specification} & \textbf{T1:} at least one pending payment exists for a given user.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} a payment request is sended via IPaymentProvider and there is no pending payment for the billed userID.\\
+    \textbf{Output Specification} & \textbf{T1:} a payment request is sent via IPaymentProvider and there is no pending payment for the billed user ID.\\
     \hline 
     
     \textbf{Environmental Needs} & Payment Processor Provider stub\\
@@ -161,12 +157,12 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & ITrackable $\rightarrow$ Vehicle Tracker $\rightarrow$ IConnectable, PEJ Context\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} new vehicle status update.\\
-                                & \textbf{T2:} vehicle status request.\\
+    \textbf{Input Specification} & \textbf{T1:} a new vehicle status update has been received.\\
+                                & \textbf{T2:} status data available for a given vehicle.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} vehicle status in PEJ Context is updated and published on ITrackable.\\
-    & \textbf{T2:} vehicle status is extracted from PEJ Context and sent via ITrackable.\\
+    \textbf{Output Specification} & \textbf{T1:} vehicle status in PEJ Context is updated accordingly to the new status.\\
+    & \textbf{T2:} vehicle status read from PEJ Context is sent via ITrackable.\\
     \hline 
     
     \textbf{Environmental Needs} & Live Vehicle API stub\\
@@ -183,12 +179,12 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & ITrackable $\rightarrow$ Vehicle Tracker $\rightarrow$ IConnectable, PEJ Context\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} car ID and coherent action.\\
-                                & \textbf{T2:} car ID and not coherent action.\\
+    \textbf{Input Specification} & \textbf{T1:} an action compatible with current given vehicle status is requested.\\
+                                & \textbf{T2:} a status incompatible action is requested for a given vehicle.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} action command is sent via IConnectable to the car identified by car ID.\\
-                                & \textbf{T2:} no command is sent via IConnectable to the car identified by car ID.\\
+    \textbf{Output Specification} & \textbf{T1:} action command is sent via IConnectable to the same vehicle.\\
+                                & \textbf{T2:} no command is sent to any vehicle.\\
     \hline 
     
     \textbf{Environmental Needs} & Live Vehicle API stub\\
@@ -206,15 +202,15 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IQueryable $\rightarrow$ Special Areas Assistant $\rightarrow$ PEJ Context\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} valid position.\\
-                                & \textbf{T2:} not valid position.\\
+    \textbf{Input Specification} & \textbf{T1:} given position is valid and exist at least one available special parking area.\\
+                                & \textbf{T2:} given position is not valid.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} list of available special parking areas within a given distance from the given location.\\
-                                & \textbf{T1:} empty list.\\
+    \textbf{Output Specification} & \textbf{T1:} a non empty list of available special parking areas within a given distance from the given location is returned.\\
+                                & \textbf{T2:} an empty list is returned.\\
     \hline 
     
-    \textbf{Environmental Needs} & none\\
+    \textbf{Environmental Needs} & None\\
     \hline
 \end{tabularx}
 %\bigskip 
@@ -223,17 +219,18 @@ CONVENZIONI USATE
 \subsubsection{Zone Manager}
 \begin{tabularx}{\textwidth}{l X}
     \hline 
-    \textbf{Test Case Identifier} & ZoneManager.AvailableCarBrowsing\\ 
+    \textbf{Test Case Identifier} & ZoneManager.AvailableVehiclerBrowsing\\ 
     \hline 
     
     \textbf{Test Item(s)} & IZoneService $\rightarrow$ Zone Manager $\rightarrow$ PEJ Context\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} Valid position.\\
+    \textbf{Input Specification} & \textbf{T1:} given position is valid.\\
+                                & \textbf{T2:} given postition is not valid.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} A list of available Car is sent back via IZoneService.\\
-                                
+    \textbf{Output Specification} & \textbf{T1:} list of available vehicles is sent back via IZoneService.\\
+                                 & \textbf{T2:} empty list is sent back via IZoneService.\\
     \hline 
     
     \textbf{Environmental Needs} & Special Areas Assistant component, Vehicle Tracker stub\\
@@ -250,7 +247,7 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IZoneService $\rightarrow$ Zone Manager $\rightarrow$ ITrackable\\ %non è il flusso dati (il flusso dati è al contrario)
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} vehicle status update where its position is within a Special Parking Area with its plugg into the power grid.\\
+    \textbf{Input Specification} & \textbf{T1:} a vehicle status update where its position is within a Special Parking Area and its plug is connected to the power grid is received.\\
                                 & \textbf{T2:} vehicle status update where its position is within Safe Areas but not within a Special Parking Area.\\
                                 & \textbf{T3:} vehicle status update where its position is neither within Safe Areas nor within a Special Parking Area.\\
     \hline 
@@ -275,8 +272,8 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IZoneService $\rightarrow$ Zone Manager $\rightarrow$ ITrackable\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} unlock car ID.\\
-                                & \textbf{T2:} lock car ID.\\
+    \textbf{Input Specification} & \textbf{T1:} unlock car ID whose corresponding vehicle belongs to the zone managed by that instance of Zone Manager.\\
+                                & \textbf{T2:} lock car ID whose corresponding vehicle belongs to the zone managed by that instance of Zone Manager.\\
     \hline 
     
     \textbf{Output Specification} & \textbf{T1:} unlock car request is routed to ITrackable. \\
@@ -297,12 +294,12 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IManageableAccount, IZoneService\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} Free Car ID and User ID. \\
-                                & \textbf{T2:} Booked Car ID and User ID. \\
+    \textbf{Input Specification} & \textbf{T1:} chosen vehicle is available for booking and the user has no existing booking. \\
+                                & \textbf{T2:} chosen veicle is not available for booking. \\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} Create a new instance and send a notification via IManageableAccount and IZoneService.\\
-                                & \textbf{T2:} Send a error message back via IBookable.\\
+    \textbf{Output Specification} & \textbf{T1:} a new booking instance is created and a notification is sent via IManageableAccount and IZoneService.\\
+                                & \textbf{T2:} an error message is sent back via IBookable.\\
     \hline 
     
     \textbf{Environmental Needs} & Account Manager component, Zone Manager component\\
@@ -319,13 +316,13 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IManageableAccount, IZoneService\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} User ID and Car ID. \\
+    \textbf{Input Specification} & \textbf{T1:} given user has an existing vehicle booking. \\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} Instance is cancelled and send a notification via IManageableAccount and IZoneService.\\
+    \textbf{Output Specification} & \textbf{T1:} booking instance for that user and that vehicle is destroyed, vehicle availability is refreshed and a notification is sent via IManageableAccount and IZoneService.\\
     \hline 
     
-    \textbf{Environmental Needs} & Account Manager component, Zone Manager component, Paymant Processor component\\
+    \textbf{Environmental Needs} & Account Manager component, Zone Manager component\\
     \hline
 \end{tabularx}
 \bigskip 
@@ -339,10 +336,10 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IManageableAccount, IZoneService, IPaymentRequest\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} User ID and Car ID. \\
+    \textbf{Input Specification} & \textbf{T1:} given user has an existing vehicle booking for which expiration timer has triggered. \\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} A bill request is sent via IPaymentRequest and BookingHandler.Cancellation is triggered.  \\
+    \textbf{Output Specification} & \textbf{T1:} a bill request is sent via IPaymentRequest and BookingHandler.Cancellation is triggered.\\
     \hline 
     
     \textbf{Environmental Needs} & Account Manager component, Zone Manager component, Paymant Processor component\\
@@ -359,10 +356,13 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IZoneService\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} Car ID.\\
+    \textbf{Input Specification} & \textbf{T1:} a request from a given user is received to unlock the vehicle from a given position within unlocking range.\\
+                                & \textbf{T2:} a request from a given user is received to unlock the vehicle from a given position outside unlocking range.\\
+                                & \textbf{T3:} a request from a given user is received to unlock the vehicle but no vehicle booking exists for that user.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} Unlock request is sent via IZoneService.  \\
+    \textbf{Output Specification} & \textbf{T1:} unlock request for user's booked vehicle is sent via IZoneService.  \\
+                                & \textbf{T2, T3:} no vehicle unlocking performed.\\
     \hline 
     
     \textbf{Environmental Needs} & Zone Manager component\\
@@ -379,10 +379,10 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IZoneService\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} Car ID.\\
+    \textbf{Input Specification} & \textbf{T1:} given vehicle is currently in a state of ride in progress.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} Request car condition via IZoneService.\\
+    \textbf{Output Specification} & \textbf{T1:} request for car status and position info is sent via IZoneService.\\
     \hline 
     
     \textbf{Environmental Needs} & Zone Manager component\\
@@ -399,10 +399,10 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IBookable $\rightarrow$ Booking Handler $\rightarrow$ IZoneService\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} Car ID. \\
+    \textbf{Input Specification} & \textbf{T1:} given vehicle is currently in a state of ride in progress.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} Locking request is sent via IZoneService.  \\
+    \textbf{Output Specification} & \textbf{T1:} locking request for the vehicle related to this booking is sent via IZoneService.\\
     \hline 
     
     \textbf{Environmental Needs} & Zone Manager component\\
@@ -414,6 +414,8 @@ CONVENZIONI USATE
 
 %NEW SUBSECTION
 \subsection{User Device Mobile App}
+
+From now on, Input and Output specifications are no longer given in the shape of pre- and post- conditions. This is done since applications components are mostly view-related and user-interaction-related.
 
 \subsubsection{Map Wrapper}
 \noindent
@@ -430,7 +432,7 @@ CONVENZIONI USATE
                                  & \textbf{T3:} not valid address.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1, T2:} scrollable and zoomable map frame of the place specified by given coordinates returned via IExplorable.\\
+    \textbf{Output Specification} & \textbf{T1, T2:} scrollable and zoomable map frame of the place specified by given coordinates is returned via IExplorable.\\
                                 & \textbf{T3:} map frame is not updated.\\
     \hline 
     
@@ -496,7 +498,7 @@ CONVENZIONI USATE
     \textbf{Output Specification} & \textbf{T1:} no exception occurs.\\
     \hline 
     
-    \textbf{Environmental Needs} & none.\\
+    \textbf{Environmental Needs} & None\\
     \hline
 \end{tabularx}
 \bigskip 
@@ -536,13 +538,13 @@ CONVENZIONI USATE
     \textbf{Output Specification} & \textbf{T1:} login data deleted.\\
     \hline 
     
-    \textbf{Environmental Needs} & none.\\
+    \textbf{Environmental Needs} & None\\
     \hline
 \end{tabularx}
-\bigskip 
+%\bigskip 
 
 
-%\subsubsection{Map Explorer}
+\subsubsection{Map Explorer}
 \noindent
 \begin{tabularx}{\textwidth}{l X}
     \hline 
@@ -552,13 +554,13 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IViewable $\rightarrow$ MapExplorer $\rightarrow$ IExplorable, IBookingProvider\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} map frame and available cars' positions.\\
+    \textbf{Input Specification} & \textbf{T1:} map frame and available Cars' positions.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} show map including cars' positions.\\
+    \textbf{Output Specification} & \textbf{T1:} map including Cars' positions is shown.\\
     \hline 
     
-    \textbf{Environmental Needs} & Map Wrapper component and ClientAPI/Booking stub.\\
+    \textbf{Environmental Needs} & Map Wrapper component, ClientAPI/Booking stub\\
     \hline
 \end{tabularx}
 %\bigskip 
@@ -573,13 +575,13 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} &  IViewable $\rightarrow$ Reserved Car Viewer $\rightarrow$ IExplorable, IBookingProvider\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} map frame and reserved car position.\\
+    \textbf{Input Specification} & \textbf{T1:} map frame and reserved Car position.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} show map including reserved car position.\\
+    \textbf{Output Specification} & \textbf{T1:} map including reserved Car position is shown.\\
     \hline 
     
-    \textbf{Environmental Needs} & Map Wrapper component and ClientAPI/Booking stub.\\
+    \textbf{Environmental Needs} & Map Wrapper component, ClientAPI/Booking stub.\\
     \hline
 \end{tabularx}
 %\bigskip 
@@ -601,7 +603,7 @@ CONVENZIONI USATE
     \textbf{Output Specification} & \textbf{T1:} A view is visualized with successful binding.\\
     \hline 
     
-    \textbf{Environmental Needs} & View Router driver, Map Explorer and Reserved Car View components.\\
+    \textbf{Environmental Needs} & View Router driver, Map Explorer component, Reserved Car View component\\
     \hline
 \end{tabularx}
 %\bigskip 
@@ -616,15 +618,15 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & View Router $\rightarrow$ INavigable\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} Valid and consistent Viewmodel.\\
-                                & \textbf{T2:} Unsupported or inconsistent viewmodel.\\
+    \textbf{Input Specification} & \textbf{T1:} valid and consistent viewmodel.\\
+                                & \textbf{T2:} unsupported or inconsistent viewmodel.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} Create a new instance of a view capable of bind the input viewmodel and perform navigation to that view.\\
-                                & \textbf{T2:} An error pop-up message is displayed.\\
+    \textbf{Output Specification} & \textbf{T1:} a new instance of a view capable of binding the input viewmodel and performing navigation to that view is created.\\
+                                & \textbf{T2:} an error pop-up message is displayed.\\
     \hline 
     
-    \textbf{Environmental Needs} & View stub.\\
+    \textbf{Environmental Needs} & View stub\\
     \hline
 \end{tabularx}
 %\bigskip 
@@ -648,11 +650,11 @@ CONVENZIONI USATE
                                  & \textbf{T3:} not valid address.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1, T2:} scrollable and zoomable map frame of the place specified by given coordinates returned via IExplorable.\\
+    \textbf{Output Specification} & \textbf{T1, T2:} scrollable and zoomable map frame of the place specified by given coordinates is returned via IExplorable.\\
                                 & \textbf{T3:} map frame is not updated.\\
     \hline 
     
-    \textbf{Environmental Needs} & Navigator.\\
+    \textbf{Environmental Needs} & Navigator\\
     \hline
 \end{tabularx}
 %\bigskip 
@@ -679,7 +681,7 @@ CONVENZIONI USATE
                                 & \textbf{T3:} server response is shown.\\
     \hline 
     
-    \textbf{Environmental Needs} & ClientAPI/Booking stub and Navigator.\\
+    \textbf{Environmental Needs} & ClientAPI/Booking stub, Navigator\\
     \hline
 \end{tabularx}
 \bigskip 
@@ -693,13 +695,13 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IViewable $\rightarrow$ Status Monitor $\rightarrow$ IBookingProvider\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} Address.\\
+    \textbf{Input Specification} & \textbf{T1:} address.\\
     \hline 
     
     \textbf{Output Specification} & \textbf{T1:} SPA list is returned via IViewable. \\
     \hline 
     
-    \textbf{Environmental Needs} & ClientAPI/Booking stub.\\
+    \textbf{Environmental Needs} & ClientAPI/Booking stub\\
     \hline
 \end{tabularx}
 \bigskip 
@@ -713,13 +715,13 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IViewable $\rightarrow$ Status Monitor $\rightarrow$ IBookingProvider\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} Address.\\
+    \textbf{Input Specification} & \textbf{T1:} address.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} The money saving destination closest to the address is set as destination.\\
+    \textbf{Output Specification} & \textbf{T1:} the closest money saving destination to the given address is set as destination.\\
     \hline 
     
-    \textbf{Environmental Needs} & ClientAPI/Booking stub and Navigator.\\
+    \textbf{Environmental Needs} & ClientAPI/Booking stub, Navigator\\
     \hline
 \end{tabularx}
 \bigskip 
@@ -734,13 +736,13 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IViewable $\rightarrow$ Status Monitor $\rightarrow$ IBookingProvider\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} None.\\
+    \textbf{Input Specification} & \textbf{T1:} none.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} Return discounts and send them via IViewable.\\
+    \textbf{Output Specification} & \textbf{T1:} discounts are returned and sent via IViewable.\\
     \hline 
     
-    \textbf{Environmental Needs} & ClientAPI/Booking stub.\\
+    \textbf{Environmental Needs} & ClientAPI/Booking stub\\
     \hline
 \end{tabularx}
 \bigskip 
@@ -754,13 +756,13 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & IViewable $\rightarrow$ Status Monitor $\rightarrow$ IBookingProvider\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} Viewmodel.\\
+    \textbf{Input Specification} & \textbf{T1:} viewmodel.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} Update viewmodel of the actual view. \\
+    \textbf{Output Specification} & \textbf{T1:} viewmodel of the actual view is update. \\
     \hline 
     
-    \textbf{Environmental Needs} & ClientAPI/Booking stub.\\
+    \textbf{Environmental Needs} & ClientAPI/Booking stub\\
     \hline
 \end{tabularx}
 %\bigskip 
@@ -775,13 +777,13 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & INavigable $\rightarrow$ View $\rightarrow$ IViewable\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} ViewModel.\\
+    \textbf{Input Specification} & \textbf{T1:} viewmodel.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} A view is visualized with successful binding.\\
+    \textbf{Output Specification} & \textbf{T1:} a view is visualized with successful binding.\\
     \hline 
     
-    \textbf{Environmental Needs} & View Router driver, Map Wrapper and Status Monitor components.\\
+    \textbf{Environmental Needs} & View Router driver, Map Wrapper component, Status Monitor component\\
     \hline
 \end{tabularx}
 %\bigskip 
@@ -796,27 +798,17 @@ CONVENZIONI USATE
     \textbf{Test Item(s)} & View Router $\rightarrow$ INavigable\\
     \hline 
     
-    \textbf{Input Specification} & \textbf{T1:} Valid and consistent Viewmodel.\\
-                                & \textbf{T2:} Unsupported or inconsistent viewmodel.\\
+    \textbf{Input Specification} & \textbf{T1:} valid and consistent viewmodel.\\
+                                & \textbf{T2:} unsupported or inconsistent viewmodel.\\
     \hline 
     
-    \textbf{Output Specification} & \textbf{T1:} Create a new instance of a view capable of bind the input viewmodel and perform navigation to that view.\\
-                                & \textbf{T2:} An error pop-up message is displayed.\\
+    \textbf{Output Specification} & \textbf{T1:} a new instance of a view capable of binding the input viewmodel and performing navigation to that view is created.\\
+                                & \textbf{T2:} an error pop-up message is displayed.\\
     \hline 
     
-    \textbf{Environmental Needs} & View stub.\\
+    \textbf{Environmental Needs} & View stub\\
     \hline
 \end{tabularx}
 \bigskip 
 
 }
-
-%READ ME
-%al laboratorio mottola ha detto che per ogni test ci devono essere:
-%-input (tutti i possibili)
-%-expected output (per ogni tipo di input)
-%-successful criteria
-
-%ALMENO UN TEST PER OGNI INTERFACCIA/API
-
-%for the most critical functions the test may include more components (only few test and NOT for login, only for service-related functions).

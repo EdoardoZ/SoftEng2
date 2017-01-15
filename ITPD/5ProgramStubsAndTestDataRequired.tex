@@ -1,57 +1,41 @@
 \section{Program Stubs and Test Data Required}
 
 %\subsection{Program Stubs}
-List of all program stubs and test suites which require them; stubs listed here are only those used to substitute external components of our system.\\
+List of all program stubs and test suites which require them; stubs listed here are only those used to substitute external components of our system. Their existence is intended to allow parallel testing of multiple subsystems while decoupling different integration steps. It is recommended to re-run each test suite with the actual component before any internal or public build if feasible.\\
 
  \begin{itemize}
 
-    \item \textbf{ClientAPI/Accounting Stub}\\
+    \item \textbf{Client API/Accounting Stub}\\
         Test suites:\\\textit{Account.Creation\\
 Account.Authentication\\Account.DataUpdate\\}
-        TESTO DI LUCA
-    \item \textbf{ClientAPI/Booking Stub}\\
+        Needed as long as test runs in non deployment environment and fake client applications are not available.
+    \item \textbf{Client API/Booking Stub}\\
         Test suites:\\\textit{MapExplorer.ShowMap\\ReservedCarView.ShowMap\\StatusMonitor.SearchAddress\\StatusMonitor.SpaListing\\StatusMonitor.MoneySavingDestination\\StatusMonitor.ShowDiscounts\\StatusMonitor.StatusUpdate\\}
-        TESTO DI LUCA
+        Needed as long as test runs in non deployment environment and fake client applications are not available.
     \item \textbf{Live Vehicle API Stub}\\
-        Test suites:\\\textit{VehicleTracker.Controlling\\}
-        TESTO DI LUCA
+        Test suite:\\\textit{VehicleTracker.Controlling\\}
+        Needed as long as test runs in non deployment environment and fake vehicle platform is not available.
     \item \textbf{Mail Server Stub}\\
         Test suites:\\\textit{AccountManager.Creation\\AccountManager.ProfileManagement\\}
-        TESTO DI LUCA
+        Needed to avoid coupling with an external or remote mail service during testing phases.
     \item \textbf{Payment Processor Provider Stub}\\
-        Test suites:\\\textit{PaymentProcessor.RequestProcessing\\}
-        TESTO DI LUCA
+        Test suite:\\\textit{PaymentProcessor.RequestProcessing\\}
+        Needed to emulate payment transactions. 
 \end{itemize}
 
 
-\begin{comment}
-\noindent
-\begin{tabularx}{\textwidth}{l X}
-\hline
-\textbf{STUBS} & \textbf{TEST SUITES}\\
-\hline
-Mail Server & AccountManager.Creation\\
-            & AccountManager.ProfileManagement\\
-\hline
-Payment Processor Provider & PaymentProcessor.RequestProcessing\\
-\hline
-STUBNAME & TESTSUITES\\
-\hline
-STUBNAME & TESTSUITES\\
-\hline
-STUBNAME & TESTSUITES\\
-\hline
-STUBNAME & TESTSUITES\\
-\hline
-STUBNAME & TESTSUITES\\
-\hline
-STUBNAME & TESTSUITES\\
-\hline
-\end{tabularx}
-\end{comment}
-
 %\subsection{Test Data Required}
-TODOOOOOOO\\
--un po' di vie e macchine\\
--account e messaggi premade
--input app: by xamarin
+To enable various testing scenario a consistent dummy dataset must populate the PEJ Context as one of entity framework supported datasource, such as XML, SQLite, SQLExpress or static classes.\\
+It is recommended to provide dummy data covering most of the interesting world instances. To get help into this task it is advised to build a complete model of the data context with tools like Alloy or similar and let them generate different scenarios.\\
+Here follows a non-exhaustive list of rules that must be met by a minimal dummy dataset:
+\begin{itemize}
+\item more than one user account exists
+\item all existing user must have a complete profile
+\item more than a vehicle exists in test zone
+\item at least a vehicle for each status combination exists
+\item at least one not expired booking exists
+\item at least one user has pending payments
+\item some Special Parking Areas must belong to the testing zone
+\item at least one Special Parking Area has a number of parked vehicle which is less than the exclusive slots amount
+\item testing zone has a non empty set of Safe Parking Areas
+\end{itemize}

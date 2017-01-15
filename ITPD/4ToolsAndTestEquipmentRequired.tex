@@ -1,12 +1,12 @@
 \section{Tools and Test Equipment Required}
 \subsection{xUnit}
-Since we want to give more freedom to the development team we will use a xUnit test framework depending on the programming language chosen from developers (e.g.:  JUnit for Java), for testing all the SBL and generic tests for User Device Mobile and Onboard Ride Assistant Apps.
+Most of test that are listed in previous section of this document should (as they're designed to) be implemented by a xUnit compatible test framework depending on the application framework chosen to develop the single subsystem.
 
 \subsection{Mocking tool}
-As for the test framework, the mocking tool depends from the chosen language (e.g.: Mockito for Java).
+Depending on chosen testing framework, the adoption of an appropriate mocking provider toolkit is strongly recommended to ease and automatize test doubles generation for not yet implemented components.
 
 \subsection{Xamarin Test Cloud}
-Xamarin Test Cloud is a cloud service for run automated tests for user interface and performace of mobile applications. We will use it for testing User Device Mobile App on different devices.
+Xamarin Test Cloud will provide a set of features to run automated tests upon many different emulated user interaction cases and to profile client application performances across different types of supported devices.
 
 \subsection{HockeyApp}
-HockeyApp is a tool that allow beta testing, crash reporting and other useful functions like user metrics and feedback. We will use HockeyApp for generating test cases based on users' crash reports once both User Device Mobile App and Onboard Ride Assistant App has entered the beta phase. 
+HockeyApp is a platform that provides a set of tools intended to assist the development team during a first stage of alpha and beta distribution such as crash reporting and other useful functions like user metrics and feedback. We plan to use HockeyApp crash reports and metrics to generate issue specific test cases once both User Device Mobile App and Onboard Ride Assistant App have been deployed to testing devices and also during future alpha and beta testing phases. 
