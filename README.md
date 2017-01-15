@@ -20,10 +20,10 @@
 - Zini Edoardo: ∼21h
 
 ###Testing document
-- Teamwork:
-- Piccirillo Luca: 
-- Zampogna Gian Luca: 
-- Zini Edoardo: 
+- Teamwork: ∼11h
+- Piccirillo Luca: ∼8h
+- Zampogna Gian Luca: ∼11h
+- Zini Edoardo: ∼10h
 
 ###Project management
 - Teamwork:
