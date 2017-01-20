@@ -1,5 +1,5 @@
 \section{Risk Management}
-This section contains all the contingecy plan for the identified risks. To help understating the classification, we add a brief explanation of probability coefficients:
+This section contains the contingency plans for the identified risks. To help understating the classification, we add a brief explanation of probability coefficients:
 \begin{itemize}
     \item \textbf{Low Probability}: risk is unlikely to arise.
     \item \textbf{Moderate Probability}: risk should not arise, but it is possible it will.
@@ -38,7 +38,9 @@ R9 & New laws impose unavoidable changing in the requirements. & Moderate & From
 \hline
 R10 & New stakeholders are discovered during the development of the system. & Moderate & From Moderate to Catastrophic\\
 \hline
-R11 & Agreement issues with one of the possible internet provider that need to provide data connectivity to Cars. & Moderate & Critical\\
+R11 & Agreement issues with one of the possible Internet provider that need to provide data connectivity to Cars. & Moderate & Critical\\
+\hline
+R12 & Positioning system (GPS, GLONASS, Galileo,...) availability is restricted and can no longer be used for users and Cars localization. & Low & Critical\\
 \hline
 \end{tabular}
 
@@ -65,13 +67,15 @@ R7 & Any major bug should have been discovered during testing phase. Remaining b
 \hline
 R8 & Depending on the economic and marketing strength of the competitor, it might be used to consider its functions and then decided whether invest to add new functions to the system we are developing, or to speed up the release in order to reach the market before the competitor, or organize a marketing campaign to ensure our system will have a better coverage than the one of the competitor.\\
 \hline
-R9 & Like \textit{R2} but with the impossibility of binding the customers. If the extent of the required modifications are too big it is possible that the system will no longer fit the budget even with the extra time described in R2. In this case a feasibility study should be done to evaluate whether increase the budget or, if possible, cut out some funcions from the system.\\
+R9 & Like \textit{R2} but with the impossibility of binding the customers. If the extent of the required modifications are too big it is possible that the system will no longer fit the budget even with the extra time described in R2. In this case a feasibility study should be done to evaluate whether increase the budget or, if possible, cut out some functions from the system.\\
 \hline
 R10 & Depending on the influence and the impact of interest of the new stakeholders we may end up in situation described in \textit{R2} or \textit{R9}.\\
 \hline
 \end{tabular}
 \begin{tabular}{| l | p{13cm}  |}
 \hline
-R11 & Since the system relies on internet data connectivity to send data back and forth from Cars to the central system, an issue with the internet provider would restrain the system from being deployed. Due to number of internet provider it is unlikely that an agreement cannot be reach with any of them; however exploring different solutions requires more time than just one solution. To ensure the lowest delay possible agreement with internet provider should be done as soon as possible.\\
+R11 & Since the system relies on Internet data connectivity to send data back and forth from Cars to the central system, an issue with the Internet provider would restrain the system from being deployed. Due to number of Internet provider it is unlikely that an agreement cannot be reach with any of them; however exploring different solutions requires more time than just one solution. To ensure the lowest delay possible agreement with Internet provider should be done as soon as possible.\\
+\hline
+R12 & It is unlikely to happen due to the large impact that disabling the usage of a positioning system would have; however, especially after recent political events, it should be wise to rely on hardware that support at least a pair of different positioning systems.\\ 
 \hline
 \end{tabular}
