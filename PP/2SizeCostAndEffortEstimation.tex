@@ -2,4 +2,193 @@
 
 \subsection{Size Estimation: Function Points}
 
+\noindent
+{
+\begin{center}
+\begin{tabular}{ lccc }
+\hline
+\multicolumn{4}{c}{\textbf{UFP Complexity Weights}} \\
+\hline
+\textbf{Function type} & \textbf{Low} & \textbf{Average} & \textbf{High} \\ 
+\hline
+Internal Logic Files & 7 & 10 & 15 \\
+\hline
+External Interface Files & 5 & 7 & 10 \\
+\hline
+External Inputs & 3 & 4 & 6 \\ 
+\hline
+External Output & 4 & 5 & 7 \\
+\hline
+External Inquiries & 3 & 4 & 6 \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+
+
+\subsubsection{Internal Logical File}
+\begin{itemize}
+    \item \textbf{Safe Areas Data}\\
+    It consist of a set of Coordinates (\textit{Longitude}, \textit{Latitude}), so we consider it with a low weight.
+    \hfill
+    \textbf{7 FPs}
+    
+    \item \textbf{SPA data}\\
+    As for the Safe Area this is a list of Coordinates, it can be considered with a low weight.
+    \hfill
+    \textbf{7 FPs}
+    
+    \item \textbf{User Data}\\
+    It has different fields (Name, Surname, E-mail, Password, Credit Card, Driving Licence) but some of those require encryption and special check like Password, Credit Card and Driving Licence, because of that we consider it with a average weight.
+    \hfill
+    \textbf{10 FPs}
+    
+    \item \textbf{Car Data}\\
+    As for the user, it is one entity and contains car attributes, so we consider it with a low weight.
+    \hfill
+    \textbf{7 FPs}
+    
+    \item \textbf{Discount Data}\\
+    It's an entity where all discounts are stored and so is pretty simple, we consider it with a low weight.
+    \hfill
+    \textbf{7 FPs}
+    
+    \item \textbf{Booking Data}\\
+    It has a simple structure: contains (bookingTime, CarID, UserID), so it will be considered with a low weight.
+    \hfill
+    \textbf{7 FPs}
+    
+    \item \textbf{Ride Data}\\
+    It has a simple structure: contains (rideStart, rideEnd, CarID, UserID), so it will be considered with a low weight.
+    \hfill
+    \textbf{7 FPs}
+\end{itemize}
+
+
+\subsubsection{External Interface File}
+\begin{itemize}
+    \item \textbf{Localization Service}\\
+    Contains the Coordinates of the vehicle, since it has a simple structure we consider it with a low weight.
+    \hfill
+    \textbf{5 FPs}
+    
+    \item \textbf{Map Retrieval}\\
+    Contains a complex structure acquired from the third party map provider, so we assigned an high weight.
+    \hfill
+    \textbf{10 FPs}
+    
+    \item \textbf{Payment Data}\\
+    Contains the Payment Data, since this information needs to be safely stored we consider it with an average weight.
+    \hfill
+    \textbf{7 FPs}
+\end{itemize}
+
+
+\subsubsection{External Inputs}
+\begin{itemize}
+    \item \textbf{Account Creation}\\
+    It involves only the Account Manager but some data needs to be carefully checked, we assign an average weight.
+    \hfill
+    \textbf{4 FPs}
+    
+    \item \textbf{Login/Logout}\\
+    They are simple operation: involves only the Account Manager.
+    \hfill
+    2x3=\textbf{6 FPs}
+    
+    \item \textbf{Profile Management}\\
+    As for the Account Creation we may need to do some check, so we assign an average weight.
+    \hfill
+    \textbf{4 FPs}
+    
+    \item \textbf{Car Booking}\\
+    It involves several entities, because of that we assign an high weight.
+    \hfill
+    \textbf{6 FPs}
+    
+    \item \textbf{Reservation Deletion}\\
+    It's a quite simple operation: set the booked car as free and delete the booking instance, so we consider it with a low weight.
+    \hfill
+    \textbf{3 FPs}
+    
+    \item \textbf{Car Unlocking}\\
+    It involves several entities and some conditions must be checked, we assign an high weight.
+    \hfill
+    \textbf{6 FPs}
+\end{itemize}
+
+
+\subsubsection{External Outputs}
+\begin{itemize}
+    \item \textbf{Ride and Base Fare}\\
+    The Base Fare value must be shown in real time, Ride Fare is calculated at the end of the ride from the Base Fare value, because of that we assign to them a low weight.
+    \hfill
+    2x4=\textbf{8 FPs}
+    
+    \item \textbf{Successful Book Notification}\\
+    It's a simple notification sent to the user, we consider it with a low weight.
+    \hfill
+    \textbf{4 FPs}
+    
+    \item \textbf{Penalty Notification}\\
+    This notify the user a bill him for the penalty amount, since it involves also the payment service we assign an average weight.
+    \hfill
+    \textbf{5 FPs}
+    
+\end{itemize}
+
+
+\subsubsection{External Inquiries}
+\begin{itemize}
+    \item \textbf{Retrieve Booked Car}\\
+    It's a quite simple query, we only need to look for the right Car ID, so we consider it with a low weight.
+    \hfill
+    \textbf{3 FPs}
+    
+    \item \textbf{SPA List}\\
+    Retrieve a list of closest SPAs, it's quite simple we assign a low weight.
+    \hfill
+    \textbf{3 FPs}
+    
+    \item \textbf{Closest SPA}\\
+    Retrieve the closest SPA, to a given position, that satisfy our criteria, this is a simple function and for that we assign a low weight.
+    \hfill
+    \textbf{3 FPs}
+    
+    \item \textbf{Discount Available}\\
+    It retrieve the discount available and check if they are applicable, so we assign an average weight.
+    \hfill
+    \textbf{4 FPs}
+    
+    \item \textbf{Map with Cars Position}\\
+    This needs to retrieve both map and Cars position, because of that we consider  it with an average weight.
+    \hfill
+    \textbf{4 FPs}
+\end{itemize}
+
+
+\subsubsection{Summary}
+
+\begin{center}
+\begin{tabular}{ |l|c| }
+\hline
+\textbf{Function Type} & \textbf{Total FPs} \\
+\hline
+Internal Logic Files & 7+7+10+7+7+7+7=\textbf{52} \\
+\hline
+External Interface Files & 5+10+7=\textbf{22}\\
+\hline
+External Inputs & 4+6+4+6+3+6=\textbf{29} \\ 
+\hline
+External Output & 8+4+5=\textbf{17} \\
+\hline
+External Inquiries & 3+3+3+4+4=\textbf{17} \\
+\hline
+Total & \textbf{137}\\
+\hline
+\end{tabular}
+\end{center}
+
+
 \subsection{Cost and Effort Estimation: COCOMO II}
