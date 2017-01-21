@@ -185,10 +185,162 @@ External Output & 8+4+5=\textbf{17} \\
 \hline
 External Inquiries & 3+3+3+4+4=\textbf{17} \\
 \hline
-Total & \textbf{137}\\
+Total UFPs & \textbf{137}\\
 \hline
 \end{tabular}
 \end{center}
 
 
+
 \subsection{Cost and Effort Estimation: COCOMO II}
+\subsubsection{Scale Drivers}
+\begin{itemize}
+    \item \textbf{Precedentedness}\\
+    The product belongs to a category which is not newly to our company. We expect to reuse most techniques and methodologies from previous experiences or well known patterns. However some features regarding the automotive IoT will certainly result in some challenges to be overcome.
+    \hfill Nominal(3.72)
+    
+    \item \textbf{Development Flexibility}\\
+    The customer imposed some requirements over high-level end-user experience. So we have enough freedom in designing inner components but the expected distributed characterization of the solution will certainly impose lots of constraints regarding internal subsystems interactions as well as external components interfacing.
+    \hfill Low(4.05)
+    
+    \item \textbf{Architecture / Risk Resolution}\\
+    To prevent major compatibility problems across various parts of the solution we intend to give strict guidelines regarding its architecture perspective. Such a choice will give relevant robustness to the solution design against unexpected issues affecting development phase.
+    \hfill High(2.83)
+    
+    \item \textbf{Team Cohesion}\\
+    Most of members of the team have previous experience working together at the same product. We wont expect the addition of new members will disrupt inner interpersonal relationships. Moreover each member has reasonably no reasons to leave the team.
+    \hfill Very High(1.10)
+    
+    \item \textbf{Process Maturity}\\
+    As a software production company working with cutting-edge technologies we're continuously in search of new approaches to address new design scenarios, therefore major production phases are subject to processes for which no maturity rating is available.
+    \hfill Low(6.24)
+\end{itemize}
+
+\subsubsection{Cost Drivers}
+\begin{itemize}
+    \item Product
+    \begin{itemize}
+        \item \textbf{Required Software Reliability}\\
+        As stated in RASD, the customer has not expressed any reliability need so we expect to implement basics reliability oriented patterns in order to invest less effort as possible on this point even keeping reliability at a more than sufficient level.
+        \hfill Low(0.88)
+        
+        \item \textbf{Database Size}\\
+        The solution will not require more than a middle-low amount of data to be managed as long as the customer does not intend to keep temporary data for other reasons like mining or selling. In any case the amount of real-time managed data does not grow over some predictable levels.
+        \hfill Nominal(1.00)
+        
+        \item \textbf{Product Complexity}\\
+        The solution will manage a large amount of devices that need to be concurrently connected and synchronized by many different protocols. We expect to decompose the product into many different components to help managing that level of complexity.
+        \hfill High(1.15)
+        
+        \item \textbf{Developed for Reusability}\\
+        The abstraction levels of many solution elements will be high to overcome the front-end volatility. Moreover, the application scenario at this historical moment is quite common so we expect much of our work may come handy in future if we plan to reuse some elements.
+        \hfill Very High(1.29)
+        
+        \item \textbf{Documentation Match to Life-Cycle Needs}\\
+        We provide deeply detailed documentation for each step of solution life-cycle. The suitability of those documents should give a valuable speed-up in terms of effort.
+        \hfill High(1.06)
+    \end{itemize}
+    
+    \item Personnel
+    \begin{itemize}
+        \item \textbf{Analyst Capability}\\
+        Analysts involved in this project have proven experience into providing very good solutions to various kind of problems this product could arise. 
+        \hfill High(0.83)
+        
+        \item \textbf{Programmer Capability}\\
+        We expect most of the team will be able to work without major problems on the coding of required features.
+        \hfill Nominal(1.00)
+        
+        \item \textbf{Personnel Continuity}\\
+        We have very good reasons to grant for sure that each member of the team will remain part of this project until the end of the academic course this project relates to.
+        \hfill High(0.92)
+        
+        \item \textbf{Applications Experience}\\
+        The whole team has an average experience in working onto this specific kind of applications. To give a more realistic and tolerant effort prediction we prefer to keep its rating at a low level.
+        \hfill Low(1.10)
+        
+        \item \textbf{Platform Experience}\\
+        Given that the deployment platform of the solution is still undefined we prefer to keep this rating at a low level to better adapt to new platforms eventually which would eventually serve better the architecture choices.
+        \hfill Low(1.10)
+        
+        \item \textbf{Language and Toolset Experience}\\
+        Most of the team members have a very good familiarity with any kind of software development framework and its related environments. We expect am high level of knowledge sharing across team members.
+        \hfill High(0.88)
+    \end{itemize}
+    
+    \item Platform
+    \begin{itemize}
+        \item \textbf{Time Constraint}\\
+        No kind of requirements from the customer. However we prefer to keep the solution as usable as other similar competitors solutions.
+        \hfill Nominal(1.00)
+        
+        \item \textbf{Storage Constraint}\\
+        No kind of requirements from the customer. Since no further decisions will be taken on this point, we keep its effort rating to a standard level.
+        \hfill Nominal(1.00)
+        
+        \item \textbf{Platform Volatility}\\
+        We expect to base our solution on cutting-edge technologies which are subject to a well known rating of volatility. Also some subsystems will probably need to be reworked in future, especially in the set of user-premise elements subject to frequent upgrades.
+        \hfill  Very High(1.30)
+    \end{itemize}
+    
+    \item Project
+    \begin{itemize}
+        \item \textbf{Use of Software Tools}\\
+        The use of powerful enterprise frameworks will give a valuable advantage in terms of the effort taken to configure and setup both development and production environments
+        \hfill High(0.86)
+        
+        \item \textbf{Multi-site Development}\\
+        The whole team is collocated in the same site. Any interaction with the customer will not take any effort in time since the customer location is the same of our company.
+        \hfill Very High(0.84)
+        
+        \item \textbf{Required Development Schedule}\\
+        Since we had no release timing requirement from the customer we keep a standard rating for this point.
+        \hfill Nominal(1.00)
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Expected effort summary}
+Given the effort ($\epsilon$) equation, which is:
+    \begin{equation*}
+        \epsilon = A \times Size^E \times EAF
+    \end{equation*}
+    Where:
+    \begin{itemize}
+        \item A = 2.94 as in COCOMO II.2000
+
+        \item Size: actual size of the product to be developed in terms of KSLOC (thousands of Source Lines Of Code).
+        \begin{equation*}
+            Size = \frac{UFP \times LF}{1000}
+        \end{equation*}
+        Where LF = 46 SLOCs as for the avarage value of J2EE applications.
+
+        \item E : Exponent derived from the five Scale Drivers, with
+        \begin{equation*}
+            E = B + 0.01 \times \sum_{j=1}^5 SF_j
+        \end{equation*}
+        With B = 0.91 as in COCOMO II.2000
+
+        \item EAF : Effort Adjustment Factor derived from the Cost Drivers, with
+        \begin{equation*}
+            EAF = \prod_{i=1}^N EM_i
+        \end{equation*}
+    \end{itemize}
+
+
+Therefore the estimated effort is:
+\begin{equation*}
+        \epsilon = 2.94 \times (\frac{137\times 46}{1000})^{0.91+0.01\times 17.94} \times 1.15 = \textbf{29.4 person-month}
+\end{equation*}
+
+with an estimated duration of:
+\begin{equation*}
+        \delta = C \times \epsilon^{D+0.2\times(E-B)} = 
+        \textbf{11.2 months}
+\end{equation*}
+
+\textit{Note: C = 3.67 and D = 0.28 as for COCOMO II.2000}\\\\
+
+And a (minimum) required number of people of:
+\begin{equation*}
+        \pi = \lceil \epsilon / \delta \rceil = \textbf{4 persons}
+\end{equation*}
