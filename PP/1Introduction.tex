@@ -1,17 +1,22 @@
 \section{Introduction}
 
 \subsection{Purpose and Scope}
+This document analyze the size, cost and effort of realizing the PowerEnJoy project. It is done relying on Function Points and COCOMO II methodologies. Following the result of these operations, tasks needed to complete the project are identified and grouped in order to obtain a schedule for the project that can be visualized using Gantt chart. At the end of the document, a risks list including appropriate mitigation strategies can be found.
+
 
 \subsection{Acronyms}
 \begin{itemize}
-    \item EIF = External Interface File
-    %\item GPS = Global Positioning System
-    \item ILF = Internal Logical File
+    %\item EIF = External Interface File
+    \item FP = Function Points
+    \item GLONASS = GLObal NAvigation Satellite System
+    \item GPS = Global Positioning System
+    %\item ILF = Internal Logical File
     %\item ORAA = Onboard Ride Assistant App
     %\item PEJ = PowerEnJoy
     %\item PPP = Payment Processor Provider
     %\item SBL = Service Business Logic
-    %\item SPA = Special Parking Area
+    \item SPA = Special Parking Area
+    \item RASD = Requirements Analysis and Specification Document
     %\item UDMA = User Device Mobile App
     \item UFP = Unadjusted Function Points
 \end{itemize}
@@ -19,13 +24,14 @@
 \subsection{Definitions}
 \begin{itemize}
     \item \textbf{Car:} every vehicle, which respects the requirements, that the system allows the users to use.
+    \item \textbf{Galileo:} GPS-like system managed by Europe.
     %\item \textbf{Onboard Ride Assistant App:} software logic that manage what is shown on the Car screen.
     %\item\textbf{PowerUser:} user who is already registered to the service and is currently logged in.
-    %\item \textbf{Safe Parking Area:} pre-defined areas (i.e. streets) where a user is allowed to park.
+    \item \textbf{Safe (Parking) Area:} pre-defined areas (i.e. streets) where a user is allowed to park.
     %\item \textbf{Service Business Logic:} software logic of the service the user do not directly interact with.
-    %\item \textbf{Special Parking Area:} pre-defined areas (i.e. streets) where a user is allowed to park and where the batteries of the Cars can be plugged into the power grid.
-    %\item \textbf{Total Base Fare:} amount of money that the user pays for the ride duration only. It does not include any discount or penalty for any other specific condition.
-    %\item \textbf{Total Ride Fare:} amount of money that the user pays. It includes any discount or penalty for any other specific condition satisfied during the ride.
+    \item \textbf{Special Parking Area:} pre-defined areas (i.e. streets) where a user is allowed to park and where the batteries of the Cars can be plugged into the power grid.
+    \item \textbf{Base Fare:} amount of money that the user pays for the ride duration only. It does not include any discount or penalty for any other specific condition.
+    \item \textbf{Ride Fare:} amount of money that the user pays. It includes any discount or penalty for any other specific condition satisfied during the ride.
     %\item \textbf{User Device Mobile App:} mobile application the user will interact with on his mobile phone.
 \end{itemize}
 
@@ -33,4 +39,6 @@
 \begin{itemize}
     \item Project’s Assignment document: AA 2016-2017 Software Engineering 2 - Project goal, schedule, and rules.
     \item Software Engineering 2: "PowerEnJoy" Requirements Analysis and Specification Document.
+    \item Software Engineering: Principles and Practice, Hans van Vliet, 2007 \href{https://github.com/EdoardoZ/SoftEng2/raw/master/PP/References/Software\%20Engineering\%20-\%20Principles\%20and\%20Practice.pdf}{
+    (\underline{source})}
 \end{itemize}
