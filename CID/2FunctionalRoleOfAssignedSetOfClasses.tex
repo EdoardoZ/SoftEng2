@@ -1,2 +1,91 @@
 \section{Functional role of assigned set of classes}
-TEXT
+The inspection phase started with an attempt to understand the goal of the Apache OFBiz Framework. Given the lack of javadoc all our understanding has been based on official framework wiki pages and a careful reading of the code itself which contains a little amount of short comments.\\
+After some researches, it turns out that the Open For Business Framework is intended to speed-up the development of FOD (\textit{Forms-Over-Data}) web-based applications where most components (i.e. forms, views and data entities) are defined by XML files that matches the "minilang" schema.\\
+Each element of the schema maps to a minilang statement or method which is actually implemented in Java extending different appropriate parent classes. To extend the built-in operations of minilang, Groovy scripts inclusion is supported.
+
+\subsection{UrlServletHelper class}
+File \code{UrlServletHelper.java}\\
+Part of \code{org.apache.ofbiz.common} package.\\
+\newline
+\code{UrlServletHelper} is a container of static methods which handles URL to resource mapping implementing parsing and validation of the HTTP query string. It also handles resource mapping in multi-tenant environments where the same app works on different datasources.\\
+
+\subsubsection{UrlServletHelper constructor}
+\code{private UrlServletHelper()}\\
+
+Default private constructor prevents this class from being instantiated outside of its context. There exist no calls to this constructor in the analyzed file version.
+
+\subsubsection{setRequestAttributes method}
+\code{public static void setRequestAttributes(ServletRequest request, Delegator}\\\code{delegator, ServletContext servletContext)}\\ %Interruzione inserita per farlo andare a capo decentemente [idem piu' avanti, ora non lo scrivo piu']
+
+Populates the fields in the \code{HttpServletRequest} extension of the passed \code{request} object. It also updates fields in the \code{servletContext} in case multi-tenant mode is enabled to perform tenant selection based on URL domain name.
+
+\newpage
+\subsubsection{setViewQueryParameters method}
+\code{public static void setViewQueryParameters(ServletRequest request, String}-\\\code{Builder urlBuilder)}\\ 
+
+Parses the http querystring in \code{request} token by token and builds a new URL containing all parameters needed by the view to show results according to passed filters.
+
+\subsubsection{checkPathAlias method}
+\code{public static void checkPathAlias(ServletRequest request, ServletResponse}\\\code{response, Delegator delegator, String pathInfo)}\\
+
+Checks whether exists a resource that is reachable by the alias specified in \code{pathInfo}. If it exists the request is forwarded to the right resource otherwise if the specified path belongs to a resource that needs to be reached by an alias, an HTTP \code{404 Not Found} error is returned to the client. If none of the previous conditions are met, nothing changes and the method returns gracefully.
+
+\subsubsection{invalidCharacter method}
+\code{public static String invalidCharacter(String str)}\\
+
+Removes and trims invalid or dangerous characters from the input \code{str}.
+
+
+
+\newpage
+
+\subsection{SetCalendar class}
+File \code{SetCalendar.java}\\
+Part of \code{org.apache.ofbiz.minilang.method.envops} package.\\
+\newline
+In minilang, the \code{SetCalendar} operation extends the Set operation providing the ability of adjusting the input timestamp by a specified timespan. It accepts as input data either a mix of expressions and constants or a script. This class actually implements those mechanics by parsing the corresponding \code{<set-calendar/>} minilang XML element and attributes, than adding some parameters validation.\\
+Examples of \code{set-calendar} operation usage:\\
+\code{<set-calendar field="tomorrowStamp" from-field="nowTimestamp" day="1"/>\\
+<set-calendar field="yesterdayStamp" from-field="nowTimestamp" day="-1"/>}
+
+\subsubsection{autoCorrect method}
+\code{private static boolean autoCorrect(Element element)}\\
+
+Provides compatibility with old minilang schema versions for the \code{element}. A comment states that this method should be deprecated after the transition to the new schema version.
+
+\subsubsection{parseInt method}
+\code{private static int parseInt(String intStr)}\\
+
+Addresses a compatibility issue with older Java versions.
+
+\subsubsection{SetCalendar constructor}
+\code{public SetCalendar(Element element, SimpleMethod simpleMethod) throws Mini}-\code{LangException}\\
+
+Parses and validates the XML \code{element} which associated operation statement should be implemented by this instance. If validation succeeds all local properties are populated interpreting attributes value.
+
+\subsubsection{exec method}
+\code{public boolean exec(MethodContext methodContext) throws MiniLangException}\\
+
+Actually executes the operation associated to \code{set-calendar} statement. Sets the value of the field either to the result of a script, the evaluation of an expression, the value of a constant or its default. In addition to the standard minilang \code{set} statement, it also manages to adjust the resulting timestamp by interpreting other \code{set-calendar} attributes.
+
+\subsubsection{toString method}
+\code{public String toString()}\\
+
+Returns an XML string containing a \code{<set-calendar/>} element equivalent to the current instance of the \code{set-calendar} operation statement.
+
+
+
+\subsection{SetCalendarFactory class}
+File \code{SetCalendar.java}\\
+Part of \code{org.apache.ofbiz.minilang.method.envops} package.\\\\
+Implements a factory pattern that generates \code{SetCalendar} instances by implementing \code{Factory<T>} interface.
+
+\subsubsection{createMethodOperation method}
+\code{public SetCalendar createMethodOperation(Element element, SimpleMethod sim}-\code{pleMethod) throws MiniLangException}\\
+
+Returns an instance of \code{SetCalendar} which implements the \code{simpleMethod} described in the minilang XML \code{element}.
+
+\subsubsection{getName method}
+\code{public String getName()}\\
+
+Returns the name of minilang XML element that this factory provides. In this override the returned \code{String} constantly equals to "\code{set-calendar}".
