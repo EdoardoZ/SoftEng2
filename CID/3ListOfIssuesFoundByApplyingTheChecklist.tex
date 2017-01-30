@@ -1,55 +1,210 @@
 \section{List of issues found by applying the checklist}
 
 \subsection{Naming Conventions}
-TEXT
+\begin{enumerate}[label={}\arabic*{},series=NUM]
+    \item Taking into account what is stated in the previous section of this document, both \code{UrlServletHelper.java} and \code{SetCalendar.java} contain classes, variables, methods and constants that have meaningful names and do what their names suggest.
+    
+    \item There is no one-character variable used for non temporary purpose in both \code{Url}-\code{ServletHelper.java} and \code{SetCalendar.java}. %il - e' stato messo per fare andare a capo la riga in modo decente
+    
+    \item  \code{UrlServletHelper.java} class name is a properly formatted noun: mixed case with the first letter of each word in capitalized.\\
+    \code{SetCalendar.java} classes names are not nouns, even if they are properly formatted.
+    
+    \item No interface is present in both files.
+    
+    \item In \code{UrlServletHelper.java} the method \code{invalidCharacter} (line 205) is not a verb, even if it is properly formatted: mixed case with the first letter in lowercase and all the remaining words in the variable name have their first letter capitalized.\\
+    In \code{SetCalendar.java} methods names are properly formatted verbs.
+    
+    \item Both \code{UrlServletHelper.java} and \code{SetCalendar.java} attributes names are properly formatted: mixed case with the first letter in lowercase and all the remaining words in the variable name have their first letter capitalized.
+    
+    \item  In \code{UrlServletHelper.java} the constant \code{module} (line 46) is not written using all uppercase.\\
+    In \code{SetCalendar.java} the constant \code{module} (line 50) does not match the convention.
+\end{enumerate}
 
 \subsection{Indention}
-TEXT
+\begin{enumerate}[NUM]
+    \item Four spaces are consistently used for indentation in both files.
+    
+    \item No tabs are used to indent in both files.
+\end{enumerate}
 
 \subsection{Braces}
-TEXT
+\begin{enumerate}[NUM]
+    \item Both files follows the "Kernighan and Ritchie" style.
+   
+    \item All \code{if}, \code{while}, \code{do-while}, \code{try-catch}, and \code{for} statements that have only one statement to execute are surrounded by curly braces.
+\end{enumerate}
 
 \subsection{File Organization}
-TEXT
+\begin{enumerate}[NUM]
+    \item \code{UrlServletHelper.java} does not contain a blank line between lines 152 and 153.\\
+    \code{SetCalendar.java} properly contains blank lines and comments to separate sections.
+    
+    \item In \code{UrlServletHelper.java} sixteen lines contain more than 80 characters, but less than 120: line 18 (81 characters), 61 (105), 62 (106), 67 (90), 68 (99), 69 (96), 71 (98), 72 (83), 82 (93), 86 (86), 91 (97), 104 (109), 108 (105), 162 (88), 190 (82), 194 (90).\\
+    In \code{SetCalendar.java} a lot of lines contain more than 80 characters, but less than 120: lines 18 (81 characters), 82 (89), 105 (93), 108 (111), 109 (117), 113 (89), 114 (94), 115 (86), 116 (104), 123 (87), 126(99), 132 (90), 136 (94), 138 (90), 139 (92), 140 (88), 141 (90), 142 (94), 143 (94), 144 (92), 145 (111), 146 (107), 147 (83), 148 (97), 156 (83), 158 (109), 202 (87), 205 (90), 208 (86), 211 (88),214 (92), 217 (92), 220 (90), 223 (117), 235 (85), 237 (81), 239 (82), 241 (83), 243 (82), 245 (114), 248 (83), 258 (112), 303 (84), 306 (82), 324 (82), 326 (119).  
+    
+    \item In \code{UrlServletHelper.java} six lines contain more than 120 characters: line 50 (121 characters), 58 (133), 63 (147), 87 (135), 153 (127), 191 (127).\\
+    In \code{SetCalendar.java} seven lines contain more than 120 characters: lines 46 (167 characters), 110 (149), 111 (153), 134 (138), 183 (135), 192 (143), 200 (149).
+\end{enumerate}
 
 \subsection{Wrapping Lines}
-TEXT
+\begin{enumerate}[NUM]
+    \item In \code{UrlServletHelper.java} line breaks of lines from 160 to 164 and from 189 to 192 does not occur after a comma or an operator.\\
+     In \code{SetCalendar.java} line breaks do occur after a comma or an operator.
+    \item In both files higher-level breaks are used. %http://www.oracle.com/technetwork/java/codeconventions-136091.html
+    \item In both files new statements are aligned with the beginning of the expression at the same level as the previous line.
+\end{enumerate}
 
 \subsection{Comments}
-TEXT
+\begin{enumerate}[NUM]
+    \item In \code{UrlServletHelper.java} only \code{setRequestAttributes} is adequately commented, other parts of the class contain no comment or just a very brief comment.\\
+    In \code{SetCalendar.java} only a few pieces of code are commented: \code{autoCorrect} and \code{parseInt} methods.
+    
+    \item No commented out code is present in both files.
+\end{enumerate}
 
 \subsection{Java Source Files}
-TEXT
+\begin{enumerate}[NUM]
+    \item In \code{UrlServletHelper.java} there is only one public class.\\
+    In \code{SetCalendar.java} there are two public classes: \code{SetCalendar} and \code{SetCalendar}-\code{Factory}.
+    
+    \item In both files the first class is the public class, or one of the public classes.
+    
+    \item In both files there are neither interfaces nor javadoc (see next point for further details on javadoc).
+    
+    \item In \code{UrlServletHelper.java} there is no javadoc.\\
+    In \code{SetCalendar.java} javadoc covers only the two classes statements. 
+\end{enumerate}
 
-\subsection{PAckage and Import Statements}
-TEXT
+\subsection{Package and Import Statements}
+\begin{enumerate}[NUM]
+    \item In both files the first non-comment statements are packages, followed by import statements.
+\end{enumerate}
 
-\subsection{CLass and Interface Declarations}
-TEXT
+\subsection{Class and Interface Declarations}
+\begin{enumerate}[NUM]
+    \item In \code{UrlServletHelper.java} the order is respected, even if not all required points are satisfied due to the lack of some of the listed elements. In particular no variable can be found outside the methods.\\
+    In \code{SetCalendar.java} the order is not respected, this is the actual class order :\\
+    - Class documentation comment;\\
+    - Class statement;\\
+    - Static final attribute (\code{module});\\
+    - Methods (\code{autoCorrect} and \code{parseInt});\\
+    - Class private variables;\\
+    - Constructor;\\
+    - Methods (\code{exec} and \code{toString});\\
+    - Factory class and methods.
+    
+    \item In \code{UrlServletHelper.java} after the first method, which is a private constructor, there are three methods all requiring a \code{ServletRequest} and whose work imply managing that request (i.e. handling resource mapping parsing and validation of the HTTP query string). Differently from the previous ones, the last method just operates on a string.\\
+    In \code{SetCalendar.java} methods seem to be divided in \code{@override} methods and in non-\code{@override} methods: the only non-\code{@override} method is placed before attributes definition, while all the others are placed after constructor.
+    
+    \item In \code{UrlServletHelper.java} there are the following long methods: \code{setViewQuery}-\code{Parameters} (61 lines), \code{checkPathAlias} (50 lines) and \code{invalidCharacter} (77 lines).\\
+    In \code{SetCalendar.java} there are the following long methods: \code{exec} (112 lines) and \code{toString} (54 lines). 
+\end{enumerate}
 
 \subsection{Initialization and Declarations}
-TEXT
+\begin{enumerate}[NUM]
+    \item In both files all variables and class members are of the correct type and have the right visibility.
+   
+    \item In \code{UrlServletHelper.java} the variable \code{httpRequest} (line 154) is used only in the else branch of line 186, so it should have been declared within that scope. The variable \code{httpResponse} (line 155) is used only in the \code{if}, line 193, which is within the \code{else} branch of line 186, so it should have been declared within that scope.\\
+    In \code{SetCalendar.java} the variable \code{fromStamp} (line 173) is assigned at line 200, so it should be declared within the \code{try} scope.
+    
+    \item In \code{UrlServletHelper.java} constructors are never required.\\
+    In \code{SetCalendar.java} constructors are called when a new object is desired.
+   
+    \item In \code{UrlServletHelper.java} all the object are initialized before being used.\\
+    In \code{SetCalendar.java} all the object that are not immediately initialized are initialized before being used.\\
+   
+    \item In \code{UrlServletHelper.java} all variables are immediately initialized.\\
+     In \code{SetCalendar.java} all variables are initialized when they are declared if their value does not depend from a computation.
+   
+    \item In \code{UrlServletHelper.java} in nine cases declarations are made in the middle of the block: line 62, 63, 96, 97, 98, 99, 100, 102, 176.\\
+    In \code{SetCalendar.java} in sixteen cases declarations are made in the middle of the block: line 63, 70, 119, 124, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 225, 233.
+\end{enumerate}
 
 \subsection{Method Calls}
-TEXT
+\begin{enumerate}[NUM]
+    \item In both files all parameters are presented in correct order.
+  
+    \item In both files the correct method is always called.
+    
+    \item In both files all method returned values are used properly.
+
+\end{enumerate}
 
 \subsection{Arrays}
-TEXT
+\begin{enumerate}[NUM]
+    \item No array is present in either \code{UrlServletHelper.java} or \code{SetCalendar.java}.
+   
+    \item No array is present in either \code{UrlServletHelper.java} or \code{SetCalendar.java}.
+    
+    \item No array is present in either \code{UrlServletHelper.java} or \code{SetCalendar.java}.
+\end{enumerate}
 
 \subsection{Object Comparisons}
-TEXT
+\begin{enumerate}[NUM]
+    \item In \code{UrlServletHelper.java} the \code{==} operator is used only in line 171 to make a comparison with \code{null}.\\
+    In \code{SetCalendar.java} sometimes the \code{==} operator is used: lines 168, 185, 188, 194, 197.
+    %In teoria va bene se usato con null, no? NE PARLIAMO DOPO GIANLU   non ero sicuro neanch'io  
+    % http://www.leepoint.net/data/expressions/22compareobjects.html
+\end{enumerate}
 
 \subsection{Output Format}
-TEXT
+\begin{enumerate}[NUM]
+    \item No spelling or grammatical errors detected.
+    
+    \item In \code{UrlServletHelper.java} all errors are logged in order to be used for bugfixing by developers, so they are not expected to provide guidance for the user on how to correct the problem.\\
+    In \code{SetCalendar.java} some errors are displayed, while others are throws from method: lines 105, 152, 326.% ha senso?
+    
+    \item Both files provide output which is not expected to be formatted.
+\end{enumerate}
 
-\subsection{Computation, Comparisons and Assignements}
-TEXT
+\subsection{Computation, Comparisons and Assignments}
+\begin{enumerate}[NUM]
+    %see: http://users.csc.calpoly.edu/~jdalbey/SWE/CodeSmells/bonehead.html
+    \item In \code{UrlServletHelper.java} an example of "brutish programming" can be found from line 105 to 119, from 122 to 151 and from 205 to 282.\\
+    In \code{SetCalendar.java} no example of "brutish programming" can be found. %credo
+    
+    \item In both files there is no complex computation.
+    
+    \item In both files no operator precedence is needed.
+    
+    \item In both files there is no division, thus there is no denominator either.
+    
+    \item Both files contains no arithmetic operation concerning non-integer numbers.
+    
+    
+    \item In both files all comparisons and Boolean operators are correct.
+    
+    \item In \code{UrlServletHelper.java} there is no \code{throw} expression since all exceptions are handled locally by \code{catch} expression whose error conditions are coherent with the previous operations within the \code{try} block.\\
+    In \code{SetCalendar.java} there are seven \code{throw} expressions: line 105, 134, 152, 223, 245, 258, 326.
+    
+    \item In both files all type conversions are done via explicit casting.
+\end{enumerate}
 
 \subsection{Exceptions}
-TEXT
+\begin{enumerate}[NUM]
+    \item In both files all relevant exceptions are caught.\\
+    
+    \item  In \code{UrlServletHelper.java} all the \code{catch} blocks always call \code{logError} or \code{log}-\code{Warning}, ensuring that exceptions are properly handled.\\
+    In \code{SetCalendar.java} all the \code{catch} blocks always call a proper action.
+\end{enumerate}
 
 \subsection{Flow of Control}
-TEXT
+\begin{enumerate}[NUM]
+    \item In both files there is no \code{switch} statement.
+    
+    \item In both files there is no \code{switch} statement.
+    
+    \item In \code{UrlServletHelper.java} there is only one \code{for} loop (line 105) which cycles on the element of a \code{List} the cycle never modifies, so it will always terminate after a finite number of steps. Concerning \code{while} statements, three of them can be found (line 272, 275, 278), and for all of them their Boolean condition values are affected by the instructions inside the \code{while} blocks: the instructions in the first two blocks reduce the length of the string the Boolean condition is based on; while the third block of instructions replace \code{-}\code{-} with \code{-}, so as soon as there are no longer \code{-}\code{-} the cycle ends. This means all cycles will always terminate after a finite number of iterations.\\
+    In \code{SetCalendar.java} there is no loop.
+\end{enumerate}
 
 \subsection{Files}
-TEXT
+\begin{enumerate}[NUM]
+    \item In both files no file is used.
+    
+    \item In both files no file is used.
+    
+    \item In both files no file is used.
+    
+    \item In both files no file is used.
+\end{enumerate}
