@@ -1,10 +1,10 @@
 #Software Engineering 2: "PowerEnJoy"
 
 ##Overall amount of time spent on the project
-- Teamwork:
-- Piccirillo Luca: 
-- Zampogna Gian Luca: 
-- Zini Edoardo: 
+- Teamwork: ∼57h
+- Piccirillo Luca: ∼72h
+- Zampogna Gian Luca: ∼71h
+- Zini Edoardo: ∼72h
 
 ##Overall amount of time spent on each part of the project
 ###Requirements Analysis and Specification Document
