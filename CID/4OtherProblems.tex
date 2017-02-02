@@ -1,2 +1,10 @@
-\section{Any other highlighted problem}
-TEXT
+\section{Other problems}
+
+\subsection{Design}
+In \code{UrlServletHelper.java} there is a potential performance issue since the \code{checkPath}-\code{Alias} method contains two queries: the first one is always performed on each method call, the other one it's performed each time the former turns out to be useless. If called on each web request, and most of the paths don't match to an alias, this code uselessly slows down the web page loading.
+
+\subsection{Potentially Deprecable Code}
+In \code{SetCalendar.java} there is a comment marking the \code{autoCorrect} method as temporally needed during software upgrade transitions between two versions of the framework, both precedent to the current one. May be reasonable to remove that if it's no longer needed and if there exists no upgrade paths from v1 to current version.
+
+\subsection{Spacing}
+In \code{UrlServletHelper.java} the three \code{while} statements (lines 272, 275, 278) are not followed by a blank space between \code{while} and \code{(condition)}.

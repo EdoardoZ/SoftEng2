@@ -114,7 +114,7 @@
     In \code{SetCalendar.java} all the object that are not immediately initialized are initialized before being used.\\
    
     \item In \code{UrlServletHelper.java} all variables are immediately initialized.\\
-     In \code{SetCalendar.java} all variables are initialized when they are declared if their value does not depend from a computation.
+    In \code{SetCalendar.java} all variables are initialized when they are declared if their value does not depend from a computation.
    
     \item In \code{UrlServletHelper.java} in nine cases declarations are made in the middle of the block: line 62, 63, 96, 97, 98, 99, 100, 102, 176.\\
     In \code{SetCalendar.java} in sixteen cases declarations are made in the middle of the block: line 63, 70, 119, 124, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 225, 233.
@@ -142,8 +142,7 @@
 \subsection{Object Comparisons}
 \begin{enumerate}[NUM]
     \item In \code{UrlServletHelper.java} the \code{==} operator is used only in line 171 to make a comparison with \code{null}.\\
-    In \code{SetCalendar.java} sometimes the \code{==} operator is used: lines 168, 185, 188, 194, 197.
-    %In teoria va bene se usato con null, no? NE PARLIAMO DOPO GIANLU   non ero sicuro neanch'io  
+    In \code{SetCalendar.java} the \code{==} operator is used in lines 168, 185, 188, 194, 197 to make a comparison with \code{null}.
     % http://www.leepoint.net/data/expressions/22compareobjects.html
 \end{enumerate}
 
@@ -152,7 +151,7 @@
     \item No spelling or grammatical errors detected.
     
     \item In \code{UrlServletHelper.java} all errors are logged in order to be used for bugfixing by developers, so they are not expected to provide guidance for the user on how to correct the problem.\\
-    In \code{SetCalendar.java} some errors are displayed, while others are throws from method: lines 105, 152, 326.% ha senso?
+    In \code{SetCalendar.java} some errors have an error message, while others are only thrown.
     
     \item Both files provide output which is not expected to be formatted.
 \end{enumerate}
@@ -160,8 +159,8 @@
 \subsection{Computation, Comparisons and Assignments}
 \begin{enumerate}[NUM]
     %see: http://users.csc.calpoly.edu/~jdalbey/SWE/CodeSmells/bonehead.html
-    \item In \code{UrlServletHelper.java} an example of "brutish programming" can be found from line 105 to 119, from 122 to 151 and from 205 to 282.\\
-    In \code{SetCalendar.java} no example of "brutish programming" can be found. %credo
+    \item In \code{UrlServletHelper.java} examples of "brutish programming" can be found from line 105 to 119, from 122 to 151 and from 205 to 282.\\
+    In \code{SetCalendar.java} no example of "brutish programming" can be found.
     
     \item In both files there is no complex computation.
     
@@ -182,7 +181,7 @@
 
 \subsection{Exceptions}
 \begin{enumerate}[NUM]
-    \item In both files all relevant exceptions are caught.\\
+    \item In both files all relevant exceptions are caught.
     
     \item  In \code{UrlServletHelper.java} all the \code{catch} blocks always call \code{logError} or \code{log}-\code{Warning}, ensuring that exceptions are properly handled.\\
     In \code{SetCalendar.java} all the \code{catch} blocks always call a proper action.
