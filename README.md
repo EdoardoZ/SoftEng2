@@ -32,7 +32,7 @@
 - Zini Edoardo: ∼7h
 
 ###Code Inspection Document
-- Teamwork: 
-- Piccirillo Luca: 
-- Zampogna Gian Luca: 
-- Zini Edoardo: 
+- Teamwork: ∼4h
+- Piccirillo Luca: ∼5h
+- Zampogna Gian Luca: ∼8h
+- Zini Edoardo: ∼5h
